@@ -396,16 +396,16 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
-      <div className="bg-[#090E1A] border border-cyan-500/30 rounded-lg shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden text-slate-100">
+      <div className="bg-[#090E1A] border border-[#287FB5]/30 rounded-lg shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden text-[#263746]">
         {/* Top Header */}
-        <div className="shrink-0 px-4 py-3.5 bg-[#0C1222] border-b border-slate-800 flex items-center justify-between">
+        <div className="shrink-0 px-4 py-3.5 bg-[#EDF3F7] border-b border-[#D4E0E8] flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
             <div>
-              <h3 className="text-sm sm:text-base font-semibold text-white tracking-wide">
+              <h3 className="text-sm sm:text-base font-semibold text-[#263746] tracking-wide">
                 Location PDF Report Generator
               </h3>
-              <p className="text-[11px] text-cyan-300 font-mono">
+              <p className="text-[11px] text-[#287FB5] font-mono">
                 DATA HEALTH & RESILIENCE → HYDROMETRIC DOSSIER
               </p>
             </div>
@@ -413,7 +413,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer text-sm font-mono"
+            className="p-1.5 rounded hover:bg-[#EDF3F7] text-[#526778] hover:text-[#263746] transition-colors cursor-pointer text-sm font-mono"
             aria-label="Close Report Modal"
           >
             ✕ Close
@@ -423,12 +423,12 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
         {/* Scrollable Workspace Body */}
         <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 space-y-5 custom-scrollbar">
           {/* 1. Setup Controls: Map Grid Selector & Searchable Dropdown */}
-          <div className="bg-[#0F172A]/70 border border-slate-800 rounded-md p-4 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-              <span className="text-xs font-mono text-cyan-300 font-semibold uppercase tracking-wider">
+          <div className="bg-[#0F172A]/70 border border-[#D4E0E8] rounded-md p-4 space-y-4">
+            <div className="flex items-center justify-between border-b border-[#D4E0E8] pb-2">
+              <span className="text-xs font-mono text-[#287FB5] font-semibold uppercase tracking-wider">
                 1. Target Location Selection
               </span>
-              <span className="text-[11px] text-slate-400">
+              <span className="text-[11px] text-[#526778]">
                 Interactive Grid or Search Dropdown
               </span>
             </div>
@@ -436,20 +436,20 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Searchable Dropdown */}
               <div className="space-y-1.5">
-                <label className="text-xs text-slate-300 font-medium">Search & Select Locality</label>
+                <label className="text-xs text-[#263746] font-medium">Search & Select Locality</label>
                 <div className="relative">
                   <input
                     type="text"
                     value={searchFilter}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder="Filter locality (e.g. Rajwada, Sarafa, C-2-2)..."
-                    className="w-full bg-[#070B14] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-mono"
+                    className="w-full bg-[#FFFFFF] border border-[#D4E0E8] rounded px-2.5 py-1.5 text-xs text-[#263746] placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-mono"
                   />
                   {searchFilter && (
                     <button
                       type="button"
                       onClick={() => setSearchFilter('')}
-                      className="absolute right-2 top-1.5 text-xs text-slate-400 hover:text-white cursor-pointer"
+                      className="absolute right-2 top-1.5 text-xs text-[#526778] hover:text-[#263746] cursor-pointer"
                     >
                       ✕
                     </button>
@@ -462,7 +462,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     setSelectedCellId(e.target.value);
                     setGeneratedReportReady(false);
                   }}
-                  className="w-full mt-1.5 bg-[#070B14] border border-slate-700 rounded px-2.5 py-2 text-xs text-cyan-300 focus:outline-none focus:border-cyan-400 font-mono cursor-pointer"
+                  className="w-full mt-1.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded px-2.5 py-2 text-xs text-[#287FB5] focus:outline-none focus:border-cyan-400 font-mono cursor-pointer"
                   size={5}
                 >
                   {filteredCells.map((c) => (
@@ -471,7 +471,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     </option>
                   ))}
                 </select>
-                <p className="text-[10px] text-slate-500">
+                <p className="text-[10px] text-[#526778]">
                   Showing {filteredCells.length} of {cells.length} available wards. Click to choose.
                 </p>
               </div>
@@ -479,25 +479,25 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
               {/* Map-based Grid Selector */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs text-slate-300 font-medium">Interactive Spatial Grid (Indore Basin)</label>
-                  <span className="text-[10px] font-mono text-cyan-400">
+                  <label className="text-xs text-[#263746] font-medium">Interactive Spatial Grid (Indore Basin)</label>
+                  <span className="text-[10px] font-mono text-[#287FB5]">
                     Selected: {targetCell.id}
                   </span>
                 </div>
-                <div className="bg-[#070B14] border border-slate-800 p-2 rounded grid grid-cols-5 gap-1.5 aspect-video flex items-center justify-center">
+                <div className="bg-[#FFFFFF] border border-[#D4E0E8] p-2 rounded grid grid-cols-5 gap-1.5 aspect-video flex items-center justify-center">
                   {cells.map((c) => {
                     const isSelected = c.id === targetCell.id;
-                    let bgColor = 'bg-slate-800/60 hover:bg-slate-700/80 border-slate-700';
+                    let bgColor = 'bg-[#EDF3F7]/60 hover:bg-[#EDF3F7]/80 border-[#D4E0E8]';
                     if (c.severity === FloodSeverity.CRITICAL) {
                       bgColor = isSelected
-                        ? 'bg-red-600 border-white text-white font-bold ring-2 ring-red-400'
+                        ? 'bg-red-600 border-white text-[#263746] font-bold ring-2 ring-red-400'
                         : 'bg-red-950/70 border-red-800 text-red-200 hover:bg-red-900';
                     } else if (c.severity === FloodSeverity.HIGH) {
                       bgColor = isSelected
-                        ? 'bg-amber-600 border-white text-white font-bold ring-2 ring-amber-400'
+                        ? 'bg-amber-600 border-white text-[#263746] font-bold ring-2 ring-amber-400'
                         : 'bg-amber-950/70 border-amber-800 text-amber-200 hover:bg-amber-900';
                     } else if (isSelected) {
-                      bgColor = 'bg-cyan-600 border-white text-white font-bold ring-2 ring-cyan-400';
+                      bgColor = 'bg-cyan-600 border-white text-[#263746] font-bold ring-2 ring-cyan-400';
                     }
 
                     return (
@@ -517,23 +517,23 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     );
                   })}
                 </div>
-                <p className="text-[10.5px] text-slate-400 italic">
+                <p className="text-[10.5px] text-[#526778] italic">
                   Tap any grid cell to focus report generation on that catchment sector.
                 </p>
               </div>
             </div>
 
             {/* Reporting Period & Scope Options */}
-            <div className="pt-2 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div className="pt-2 border-t border-[#D4E0E8] grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <div className="space-y-1">
-                <label className="text-slate-300 font-medium">Reporting Temporal Window</label>
+                <label className="text-[#263746] font-medium">Reporting Temporal Window</label>
                 <select
                   value={reportingPeriod}
                   onChange={(e) => {
                     setReportingPeriod(e.target.value as ReportingPeriod);
                     setGeneratedReportReady(false);
                   }}
-                  className="w-full bg-[#070B14] border border-slate-700 rounded px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-400 font-sans cursor-pointer"
+                  className="w-full bg-[#FFFFFF] border border-[#D4E0E8] rounded px-2.5 py-1.5 text-xs text-[#263746] focus:outline-none focus:border-cyan-400 font-sans cursor-pointer"
                 >
                   <option value="CURRENT_6H">Current Active Window (Past 6 Hours)</option>
                   <option value="PAST_24H">Historical 24-Hour Cumulative Runoff</option>
@@ -543,9 +543,9 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-slate-300 font-medium">Included Telemetry Sections</label>
+                <label className="text-[#263746] font-medium">Included Telemetry Sections</label>
                 <div className="flex flex-wrap gap-3 pt-1">
-                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-slate-300">
+                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-[#263746]">
                     <input
                       type="checkbox"
                       checked={includeSensorAudit}
@@ -554,7 +554,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     />
                     Sensor Freshness Audit
                   </label>
-                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-slate-300">
+                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-[#263746]">
                     <input
                       type="checkbox"
                       checked={includeRoadDisruptions}
@@ -563,7 +563,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     />
                     Road Mobility Status
                   </label>
-                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-slate-300">
+                  <label className="flex items-center gap-1.5 cursor-pointer text-[11px] text-[#263746]">
                     <input
                       type="checkbox"
                       checked={includeAlertsSummary}
@@ -597,16 +597,16 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
 
           {/* 2. Compact Report Preview Box */}
           {generatedReportReady && (
-            <div className="bg-[#0C1220] border-2 border-cyan-500/40 rounded-md p-4 sm:p-5 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div className="bg-[#0C1220] border-2 border-[#287FB5]/40 rounded-md p-4 sm:p-5 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D4E0E8] pb-3">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
                     REPORT READY FOR EXPORT
                   </span>
-                  <h4 className="text-sm sm:text-base font-bold text-white mt-1">
+                  <h4 className="text-sm sm:text-base font-bold text-[#263746] mt-1">
                     Dossier Preview: {targetCell.localityName} ({targetCell.wardCode})
                   </h4>
-                  <p className="text-[11px] text-slate-400 font-mono">
+                  <p className="text-[11px] text-[#526778] font-mono">
                     Window: {periodLabelMap[reportingPeriod]} • Scope ID: {targetCell.id}
                   </p>
                 </div>
@@ -614,7 +614,7 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                   <button
                     type="button"
                     onClick={handleDownloadPDF}
-                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-[#263746] font-semibold text-xs rounded shadow-lg transition-all flex items-center gap-2 cursor-pointer"
                   >
                     📥 Download PDF
                   </button>
@@ -630,36 +630,36 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
 
               {/* Preview Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
-                <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded">
-                  <div className="text-[10px] text-slate-400">Flood Inundation Risk</div>
+                <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded">
+                  <div className="text-[10px] text-[#526778]">Flood Inundation Risk</div>
                   <div className="text-base font-bold text-red-400">
                     {Math.round(targetCell.floodProbability * 100)}%
                   </div>
-                  <div className="text-[10px] text-slate-400">Severity: {targetCell.severity}</div>
+                  <div className="text-[10px] text-[#526778]">Severity: {targetCell.severity}</div>
                 </div>
 
-                <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded">
-                  <div className="text-[10px] text-slate-400">Rainfall / Runoff</div>
-                  <div className="text-base font-bold text-cyan-300">
+                <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded">
+                  <div className="text-[10px] text-[#526778]">Rainfall / Runoff</div>
+                  <div className="text-base font-bold text-[#287FB5]">
                     {targetCell.rainfallMmHr} mm/h
                   </div>
-                  <div className="text-[10px] text-slate-400">Cum: {targetCell.cumulativeRainfallMm} mm</div>
+                  <div className="text-[10px] text-[#526778]">Cum: {targetCell.cumulativeRainfallMm} mm</div>
                 </div>
 
-                <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded">
-                  <div className="text-[10px] text-slate-400">Telemetry Health</div>
+                <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded">
+                  <div className="text-[10px] text-[#526778]">Telemetry Health</div>
                   <div className="text-base font-bold text-emerald-400">
                     {dataHealthReport.overallHealthPct}%
                   </div>
-                  <div className="text-[10px] text-slate-400">Confidence: {Math.round(targetCell.confidence * 100)}%</div>
+                  <div className="text-[10px] text-[#526778]">Confidence: {Math.round(targetCell.confidence * 100)}%</div>
                 </div>
 
-                <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded">
-                  <div className="text-[10px] text-slate-400">Warning Hysteresis</div>
+                <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded">
+                  <div className="text-[10px] text-[#526778]">Warning Hysteresis</div>
                   <div className="text-base font-bold text-amber-300">
                     {targetCell.warningLevel}
                   </div>
-                  <div className="text-[10px] text-slate-400 truncate">
+                  <div className="text-[10px] text-[#526778] truncate">
                     {targetCell.warningHysteresis?.actionDirective || 'ACTIVE'}
                   </div>
                 </div>
@@ -667,19 +667,19 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
 
               {/* Inundation Driver Breakdown */}
               <div className="space-y-1.5">
-                <div className="text-xs font-semibold text-slate-200">Key Contributing Drivers</div>
+                <div className="text-xs font-semibold text-[#263746]">Key Contributing Drivers</div>
                 <div className="space-y-1">
                   {targetCell.topDrivers.map((d, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between p-2 bg-[#070B14] border border-slate-800/80 rounded text-xs"
+                      className="flex items-center justify-between p-2 bg-[#FFFFFF] border border-[#D4E0E8] rounded text-xs"
                     >
                       <div className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                        <span className="font-medium text-slate-200">{d.factor}</span>
-                        <span className="text-slate-400 text-[11px]">({d.description})</span>
+                        <span className="font-medium text-[#263746]">{d.factor}</span>
+                        <span className="text-[#526778] text-[11px]">({d.description})</span>
                       </div>
-                      <span className="font-mono text-cyan-300 font-semibold">{d.weight}% impact</span>
+                      <span className="font-mono text-[#287FB5] font-semibold">{d.weight}% impact</span>
                     </div>
                   ))}
                 </div>
@@ -688,9 +688,9 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
               {/* Data Availability & Sensor Audit Summary */}
               {includeSensorAudit && (
                 <div className="space-y-1.5">
-                  <div className="text-xs font-semibold text-slate-200 flex items-center justify-between">
+                  <div className="text-xs font-semibold text-[#263746] flex items-center justify-between">
                     <span>Associated Sensor Health & Availability</span>
-                    <span className="text-[10px] font-mono text-cyan-400">
+                    <span className="text-[10px] font-mono text-[#287FB5]">
                       {localSensors.length > 0 ? `${localSensors.length} Stations in Basin` : 'Regional Mesh'}
                     </span>
                   </div>
@@ -698,11 +698,11 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                     {(localSensors.length > 0 ? localSensors : sensors.slice(0, 4)).map((s) => (
                       <div
                         key={s.id}
-                        className="p-2 bg-[#070B14] border border-slate-800 rounded text-xs flex items-center justify-between font-mono"
+                        className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] rounded text-xs flex items-center justify-between font-mono"
                       >
                         <div>
-                          <div className="text-slate-200 font-semibold text-[11px] truncate">{s.name}</div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[#263746] font-semibold text-[11px] truncate">{s.name}</div>
+                          <div className="text-[10px] text-[#526778]">
                             Reading: {s.currentValue} {s.unit} • Last seen: {s.lastSeenLabel}
                           </div>
                         </div>
@@ -726,9 +726,9 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
               {/* Local Road Disruptions & Alerts Count */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-1">
                 {includeRoadDisruptions && (
-                  <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded space-y-1">
-                    <div className="font-semibold text-slate-300">Corridor Mobility</div>
-                    <div className="text-[11px] text-slate-400">
+                  <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded space-y-1">
+                    <div className="font-semibold text-[#263746]">Corridor Mobility</div>
+                    <div className="text-[11px] text-[#526778]">
                       {localRoads.length} arterial/collector roads surveyed.
                       {localRoads.some((r) => r.currentState === 'CLOSED') ? (
                         <span className="text-red-400 font-medium ml-1">Critical closures active.</span>
@@ -740,15 +740,15 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
                 )}
 
                 {includeAlertsSummary && (
-                  <div className="p-2.5 bg-[#070B14] border border-slate-800 rounded space-y-1">
-                    <div className="font-semibold text-slate-300">Directives & Alerts</div>
-                    <div className="text-[11px] text-slate-400">
+                  <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] rounded space-y-1">
+                    <div className="font-semibold text-[#263746]">Directives & Alerts</div>
+                    <div className="text-[11px] text-[#526778]">
                       {localAlerts.length > 0 ? (
                         <span className="text-amber-300 font-medium">
                           {localAlerts.length} active emergency alert(s) logged for this catchment.
                         </span>
                       ) : (
-                        <span className="text-slate-400">No active localized evacuation order.</span>
+                        <span className="text-[#526778]">No active localized evacuation order.</span>
                       )}
                     </div>
                   </div>
@@ -759,15 +759,15 @@ export const LocationReportModal: React.FC<LocationReportModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="shrink-0 px-4 py-3 bg-[#0C1222] border-t border-slate-800 flex items-center justify-between">
-          <div className="text-[11px] text-slate-400 font-mono">
-            Location: <span className="text-cyan-300 font-semibold">{targetCell.localityName}</span> ({targetCell.id})
+        <div className="shrink-0 px-4 py-3 bg-[#EDF3F7] border-t border-[#D4E0E8] flex items-center justify-between">
+          <div className="text-[11px] text-[#526778] font-mono">
+            Location: <span className="text-[#287FB5] font-semibold">{targetCell.localityName}</span> ({targetCell.id})
           </div>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs transition-colors cursor-pointer"
+              className="px-3 py-1.5 bg-[#EDF3F7] hover:bg-[#EDF3F7] text-[#263746] rounded text-xs transition-colors cursor-pointer"
             >
               Close
             </button>

@@ -21,30 +21,30 @@ export const SENSOR_FRESHNESS_META: Record<
   FRESH: {
     label: 'FRESH',
     glyph: '●',
-    textColor: 'text-emerald-400',
-    borderColor: 'border-emerald-500/50',
-    bgTint: 'bg-emerald-950/30',
+    textColor: 'text-emerald-700',
+    borderColor: 'border-emerald-300',
+    bgTint: 'bg-emerald-50',
   },
   STALE: {
     label: 'STALE',
     glyph: '◷',
-    textColor: 'text-amber-300',
-    borderColor: 'border-amber-500/50',
-    bgTint: 'bg-amber-950/30',
+    textColor: 'text-amber-700',
+    borderColor: 'border-amber-300',
+    bgTint: 'bg-amber-50',
   },
   SUSPECT: {
     label: 'SUSPECT',
     glyph: '▲',
-    textColor: 'text-orange-400',
-    borderColor: 'border-orange-500/60',
-    bgTint: 'bg-orange-950/35',
+    textColor: 'text-orange-700',
+    borderColor: 'border-orange-300',
+    bgTint: 'bg-orange-50',
   },
   MISSING: {
     label: 'MISSING',
     glyph: '✖',
-    textColor: 'text-rose-400',
-    borderColor: 'border-rose-500/60',
-    bgTint: 'bg-rose-950/35',
+    textColor: 'text-rose-700',
+    borderColor: 'border-rose-300',
+    bgTint: 'bg-rose-50',
   },
 };
 
@@ -64,36 +64,36 @@ export const WARNING_LEVEL_META: Record<
     level: WarningLevel.RED,
     actionTitle: 'RED — EVACUATE & BARRICADE',
     glyph: '✖',
-    textColor: 'text-rose-400',
-    borderColor: 'border-rose-500/70',
-    bgTint: 'bg-rose-950/45',
+    textColor: 'text-rose-700',
+    borderColor: 'border-rose-300',
+    bgTint: 'bg-rose-50',
     ruleSummary: 'Severity = CRITICAL AND Flood Probability ≥ 72%',
   },
   [WarningLevel.ORANGE]: {
     level: WarningLevel.ORANGE,
     actionTitle: 'ORANGE — PREPARE',
     glyph: '▲',
-    textColor: 'text-amber-400',
-    borderColor: 'border-amber-500/70',
-    bgTint: 'bg-amber-950/40',
+    textColor: 'text-orange-700',
+    borderColor: 'border-orange-300',
+    bgTint: 'bg-orange-50',
     ruleSummary: 'Severity = CRITICAL OR (Severity = HIGH AND Probability ≥ 54%)',
   },
   [WarningLevel.YELLOW]: {
     level: WarningLevel.YELLOW,
     actionTitle: 'YELLOW — WATCH',
     glyph: '◆',
-    textColor: 'text-yellow-300',
-    borderColor: 'border-yellow-500/60',
-    bgTint: 'bg-yellow-950/35',
+    textColor: 'text-amber-700',
+    borderColor: 'border-amber-300',
+    bgTint: 'bg-amber-50',
     ruleSummary: 'Severity = MODERATE/HIGH OR Flood Probability ≥ 30%',
   },
   [WarningLevel.GREEN]: {
     level: WarningLevel.GREEN,
     actionTitle: 'GREEN — MONITOR',
     glyph: '●',
-    textColor: 'text-emerald-400',
-    borderColor: 'border-emerald-500/50',
-    bgTint: 'bg-emerald-950/25',
+    textColor: 'text-emerald-700',
+    borderColor: 'border-emerald-300',
+    bgTint: 'bg-emerald-50',
     ruleSummary: 'Severity = LOW AND Flood Probability < 30%',
   },
 };
@@ -107,7 +107,7 @@ export const WarningLevelIndicator: React.FC<{
     <span
       className={`inline-flex items-center gap-1.5 font-mono text-xs font-bold ${meta.textColor} ${
         !showDirective
-          ? `px-2 py-0.5 border ${meta.borderColor} ${meta.bgTint}`
+          ? `px-2 py-0.5 border ${meta.borderColor} ${meta.bgTint} rounded-xs`
           : ''
       }`}
     >
@@ -137,10 +137,10 @@ export const SEVERITY_META: Record<
     shortCode: 'CRIT',
     glyph: '✖',
     patternId: 'url(#pattern-critical-crosshatch)',
-    textColor: 'text-rose-400',
-    borderColor: 'border-rose-500/60',
-    bgTint: 'bg-rose-950/40',
-    svgFill: 'rgba(239, 68, 68, 0.34)',
+    textColor: 'text-rose-700',
+    borderColor: 'border-rose-300',
+    bgTint: 'bg-rose-50',
+    svgFill: 'rgba(239, 68, 68, 0.36)',
     svgStroke: '#EF4444',
     patternDescription: 'Crosshatch + ✖ Critical',
   },
@@ -149,10 +149,10 @@ export const SEVERITY_META: Record<
     shortCode: 'HIGH',
     glyph: '▲',
     patternId: 'url(#pattern-high-diagonal)',
-    textColor: 'text-amber-400',
-    borderColor: 'border-amber-500/60',
-    bgTint: 'bg-amber-950/40',
-    svgFill: 'rgba(249, 115, 22, 0.28)',
+    textColor: 'text-orange-700',
+    borderColor: 'border-orange-300',
+    bgTint: 'bg-orange-50',
+    svgFill: 'rgba(249, 115, 22, 0.30)',
     svgStroke: '#F97316',
     patternDescription: 'Diagonal Stripe + ▲ High',
   },
@@ -161,10 +161,10 @@ export const SEVERITY_META: Record<
     shortCode: 'MOD',
     glyph: '◆',
     patternId: 'url(#pattern-moderate-dots)',
-    textColor: 'text-yellow-300',
-    borderColor: 'border-yellow-500/50',
-    bgTint: 'bg-yellow-950/30',
-    svgFill: 'rgba(234, 179, 8, 0.20)',
+    textColor: 'text-amber-700',
+    borderColor: 'border-amber-300',
+    bgTint: 'bg-amber-50',
+    svgFill: 'rgba(234, 179, 8, 0.22)',
     svgStroke: '#EAB308',
     patternDescription: 'Stipple Dots + ◆ Moderate',
   },
@@ -173,10 +173,10 @@ export const SEVERITY_META: Record<
     shortCode: 'LOW',
     glyph: '●',
     patternId: 'none',
-    textColor: 'text-emerald-400',
-    borderColor: 'border-emerald-500/40',
-    bgTint: 'bg-emerald-950/25',
-    svgFill: 'rgba(16, 185, 129, 0.09)',
+    textColor: 'text-emerald-700',
+    borderColor: 'border-emerald-300',
+    bgTint: 'bg-emerald-50',
+    svgFill: 'rgba(16, 185, 129, 0.12)',
     svgStroke: '#10B981',
     patternDescription: 'Solid Clear + ● Low',
   },
@@ -195,28 +195,28 @@ export const ROAD_STATUS_META: Record<
   [RoadStatus.CLOSED]: {
     label: 'CLOSED',
     glyph: '✖',
-    textColor: 'text-rose-400',
+    textColor: 'text-rose-700',
     strokeColor: '#EF4444',
     dashArray: '4 4',
   },
   [RoadStatus.LIKELY_FLOODED]: {
     label: 'LIKELY_FLOODED',
     glyph: '▲',
-    textColor: 'text-amber-400',
+    textColor: 'text-orange-700',
     strokeColor: '#F97316',
     dashArray: '8 4',
   },
   [RoadStatus.AT_RISK]: {
     label: 'AT_RISK',
     glyph: '◆',
-    textColor: 'text-yellow-300',
+    textColor: 'text-amber-700',
     strokeColor: '#EAB308',
     dashArray: 'none',
   },
   [RoadStatus.OPEN]: {
     label: 'OPEN',
     glyph: '●',
-    textColor: 'text-emerald-400',
+    textColor: 'text-emerald-700',
     strokeColor: '#10B981',
     dashArray: 'none',
   },
@@ -238,42 +238,42 @@ export const MODE_META: Record<
   [ProductMode.LIVE]: {
     label: 'LIVE',
     shortDesc: 'Live Municipal Telemetry Stream (Synthetic Sensors Active)',
-    accentText: 'text-emerald-400',
-    borderClass: 'border-emerald-500/80',
-    bgClass: 'bg-[#031A12]',
+    accentText: 'text-[#258C91]',
+    borderClass: 'border-emerald-300',
+    bgClass: 'bg-emerald-50/80',
     indicatorSymbol: '●',
     watermarkLabel: 'LIVE TELEMETRY STREAM',
-    chipStyle: 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/80 shadow-[0_0_12px_rgba(16,185,129,0.25)]',
+    chipStyle: 'bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-xs',
   },
   [ProductMode.SIMULATED]: {
     label: 'SIMULATED',
     shortDesc: 'Hydrological-Terrain Simulation (Digital Twin Scenario)',
-    accentText: 'text-cyan-300',
-    borderClass: 'border-cyan-500/70',
-    bgClass: 'bg-[#041424]',
+    accentText: 'text-[#287FB5]',
+    borderClass: 'border-sky-300',
+    bgClass: 'bg-sky-50/80',
     indicatorSymbol: '◈',
     watermarkLabel: 'HYDRAULIC TWIN MODEL',
-    chipStyle: 'bg-cyan-950/80 text-cyan-200 border border-cyan-400/80',
+    chipStyle: 'bg-sky-100 text-sky-800 border border-sky-300 shadow-xs',
   },
   [ProductMode.HISTORICAL]: {
     label: 'HISTORICAL',
     shortDesc: 'Archived Indore Cloudburst Replay (Historical Log)',
-    accentText: 'text-amber-300',
-    borderClass: 'border-amber-500/70',
-    bgClass: 'bg-[#1C1204]',
+    accentText: 'text-amber-700',
+    borderClass: 'border-amber-300',
+    bgClass: 'bg-amber-50/80',
     indicatorSymbol: '◷',
     watermarkLabel: 'ARCHIVED EVENT REPLAY',
-    chipStyle: 'bg-amber-950/80 text-amber-200 border border-amber-400/80',
+    chipStyle: 'bg-amber-100 text-amber-800 border border-amber-300 shadow-xs',
   },
   [ProductMode.MOCK]: {
     label: 'MOCK',
     shortDesc: 'Deterministic Stress Benchmark (Offline Stub Bench)',
-    accentText: 'text-fuchsia-300',
-    borderClass: 'border-fuchsia-500/70',
-    bgClass: 'bg-[#180A26]',
+    accentText: 'text-purple-700',
+    borderClass: 'border-purple-300',
+    bgClass: 'bg-purple-50/80',
     indicatorSymbol: '▣',
     watermarkLabel: 'SYNTHETIC TEST BENCH',
-    chipStyle: 'bg-fuchsia-950/80 text-fuchsia-200 border border-fuchsia-400/80',
+    chipStyle: 'bg-purple-100 text-purple-800 border border-purple-300 shadow-xs',
   },
 };
 
@@ -287,7 +287,7 @@ export const SeverityIndicator: React.FC<{
       <span aria-hidden="true">{meta.glyph}</span>
       <span>{meta.label}</span>
       {showPatternNote && (
-        <span className="text-slate-400 font-normal">({meta.patternDescription})</span>
+        <span className="text-[#526778] font-normal">({meta.patternDescription})</span>
       )}
     </span>
   );
@@ -321,16 +321,16 @@ export const ProvenanceStrip: React.FC<{
   const confPct = Math.round(provenance.confidence * 100);
 
   return (
-    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-slate-400 tabular-nums border-t border-slate-800/80 pt-2 mt-2 break-words min-w-0">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] text-[#526778] tabular-nums border-t border-[#D4E0E8] pt-2 mt-2 break-words min-w-0">
       <span className={`font-semibold ${modeMeta.accentText} break-words`}>
         {modeMeta.indicatorSymbol} MODE: {provenance.mode}
       </span>
       <span aria-hidden="true">·</span>
       <span className="break-words">SCOPE: {provenance.scope_id}</span>
       <span aria-hidden="true">·</span>
-      <span className="text-slate-300 break-words">CONF: {confPct}%</span>
+      <span className="text-[#263746] font-medium break-words">CONF: {confPct}%</span>
       <span aria-hidden="true">·</span>
-      <span className="text-emerald-400 break-words">FRESHNESS: {freshness}</span>
+      <span className="text-emerald-700 font-medium break-words">FRESHNESS: {freshness}</span>
       {!compact && (
         <>
           <span aria-hidden="true">·</span>
@@ -342,7 +342,7 @@ export const ProvenanceStrip: React.FC<{
       {expTime && (
         <>
           <span aria-hidden="true">·</span>
-          <span className="text-amber-300 break-words">EXP: {expTime}</span>
+          <span className="text-amber-700 break-words">EXP: {expTime}</span>
         </>
       )}
     </div>
@@ -376,13 +376,13 @@ export const ScreenHonestyHeader: React.FC<{
     : timestamp;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-1.5 bg-[#060911] border border-slate-800/90 font-mono text-[11px] tabular-nums">
+    <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-1.5 bg-[#F7FAFC] border border-[#D4E0E8] font-mono text-[11px] tabular-nums text-[#263746]">
       <div className="flex items-center gap-2">
-        <span className="text-slate-100 font-semibold tracking-tight">{screenTitle}</span>
+        <span className="text-[#263746] font-semibold tracking-tight">{screenTitle}</span>
         {screenSubtle && (
           <>
-            <span className="text-slate-600" aria-hidden="true">·</span>
-            <span className="text-slate-400">{screenSubtle}</span>
+            <span className="text-[#D4E0E8]" aria-hidden="true">·</span>
+            <span className="text-[#526778]">{screenSubtle}</span>
           </>
         )}
       </div>
@@ -391,21 +391,21 @@ export const ScreenHonestyHeader: React.FC<{
         <span className={`font-semibold ${modeMeta.accentText}`}>
           {modeMeta.indicatorSymbol} MODE: {mode}
         </span>
-        <span className="text-slate-600" aria-hidden="true">·</span>
-        <span className="text-slate-300">
-          SCOPE: <strong className="text-white font-semibold">{scopeId}</strong>
+        <span className="text-[#D4E0E8]" aria-hidden="true">·</span>
+        <span className="text-[#526778]">
+          SCOPE: <strong className="text-[#263746] font-semibold">{scopeId}</strong>
         </span>
-        <span className="text-slate-600" aria-hidden="true">·</span>
-        <span className="text-slate-300">
-          TIMESTAMP: <strong className="text-slate-100 font-normal">{cleanTime}</strong>
+        <span className="text-[#D4E0E8]" aria-hidden="true">·</span>
+        <span className="text-[#526778]">
+          TIMESTAMP: <strong className="text-[#263746] font-normal">{cleanTime}</strong>
         </span>
-        <span className="text-slate-600" aria-hidden="true">·</span>
-        <span className="text-slate-300">
-          CONFIDENCE: <strong className="text-cyan-300 font-semibold">{confidencePct}%</strong>
+        <span className="text-[#D4E0E8]" aria-hidden="true">·</span>
+        <span className="text-[#526778]">
+          CONFIDENCE: <strong className="text-[#287FB5] font-semibold">{confidencePct}%</strong>
         </span>
-        <span className="text-slate-600" aria-hidden="true">·</span>
-        <span className="text-slate-300">
-          FRESHNESS: <strong className="text-emerald-400 font-semibold">{freshnessLabel}</strong>
+        <span className="text-[#D4E0E8]" aria-hidden="true">·</span>
+        <span className="text-[#526778]">
+          FRESHNESS: <strong className="text-emerald-700 font-semibold">{freshnessLabel}</strong>
         </span>
       </div>
     </div>

@@ -197,14 +197,14 @@ export const PostDisasterLearningWorkspace: React.FC<
   });
 
   return (
-    <div className="flex-1 min-h-0 p-4 bg-[#080C14] border-b border-slate-800/90 space-y-4 overflow-y-auto">
+    <div className="flex-1 min-h-0 p-4 bg-[#EDF3F7] border-b border-[#D4E0E8] space-y-4 overflow-y-auto">
       {/* =====================================================================
           TOP BANNER: CORE LEARNING THESIS + PROVENANCE
          ===================================================================== */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D4E0E8] pb-3">
         <div>
           <div className="flex flex-wrap items-center gap-2 font-mono text-[11px]">
-            <span className="text-cyan-400 font-bold">
+            <span className="text-[#287FB5] font-bold">
               {activeTab === 'event-replay'
                 ? `EVENT REPLAY — STAGE ${DISASTER_STAGE_INFO[params.stage]?.num ?? 4}: ${DISASTER_STAGE_INFO[params.stage]?.shortLabel.toUpperCase() ?? 'POST-DISASTER LEARN'}`
                 : `VALIDATION — COMPLETE 5×5 KM STUDY AREA`}
@@ -220,15 +220,15 @@ export const PostDisasterLearningWorkspace: React.FC<
               </span>
             )}
           </div>
-          <h2 className="text-base font-semibold text-white mt-0.5">
+          <h2 className="text-base font-semibold text-[#263746] mt-0.5">
             {validationReport.eventTitle}
           </h2>
           {activeTab === 'validation' && (
-            <div className="font-mono text-[11px] text-slate-400 mt-1 flex flex-wrap items-center gap-2">
-              <span className="text-cyan-300 font-semibold">Study Boundary:</span>
+            <div className="font-mono text-[11px] text-[#526778] mt-1 flex flex-wrap items-center gap-2">
+              <span className="text-[#287FB5] font-semibold">Study Boundary:</span>
               <span>Complete 5×5 km Study Area ({PILOT_BOUNDS.widthKm}×{PILOT_BOUNDS.heightKm} km · 64 grid cells · 25.0 km² · Boundary ID: {PILOT_SCOPE_ID})</span>
               <span className="text-slate-600">·</span>
-              <span className="text-slate-400">All 64 cells evaluated simultaneously (independent of locality selection)</span>
+              <span className="text-[#526778]">All 64 cells evaluated simultaneously (independent of locality selection)</span>
             </div>
           )}
         </div>
@@ -240,16 +240,16 @@ export const PostDisasterLearningWorkspace: React.FC<
           1A. FINITE VALIDATION WORKFLOW CONTROLLER (activeTab === 'validation')
          ===================================================================== */}
       {activeTab === 'validation' && (
-        <div className="p-3 bg-[#0C121E] border border-slate-800 space-y-3 font-mono">
+        <div className="p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3 font-mono">
           {/* Top Bar: Title, State Badge, Action Buttons */}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D4E0E8] pb-2.5">
             <div>
               <div className="text-xs text-amber-300 font-bold">
                 FINITE VALIDATION PROCESS — COMPLETE 5×5 KM STUDY AREA
               </div>
               <div className="flex flex-wrap items-center gap-2 mt-1">
                 {validationState === 'IDLE' && (
-                  <span className="px-2 py-0.5 bg-slate-800 border border-slate-700 text-slate-300 text-[10.5px] font-semibold">
+                  <span className="px-2 py-0.5 bg-slate-800 border border-[#D4E0E8] text-[#263746] text-[10.5px] font-semibold">
                     ● IDLE — READY TO VALIDATE
                   </span>
                 )}
@@ -259,7 +259,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                   </span>
                 )}
                 {validationState === 'RUNNING' && (
-                  <span className="px-2 py-0.5 bg-cyan-950/80 border border-cyan-400 text-cyan-200 text-[10.5px] font-bold animate-pulse">
+                  <span className="px-2 py-0.5 bg-cyan-950/80 border border-[#287FB5] text-[#287FB5] text-[10.5px] font-bold animate-pulse">
                     ▶ RUNNING — STAGE {validationStageIndex + 1}/8: {VALIDATION_WORKFLOW_STAGES[validationStageIndex].label.toUpperCase()}
                   </span>
                 )}
@@ -273,10 +273,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                     ⏹ STOPPED AT STAGE {validationStageIndex + 1}/8
                   </span>
                 )}
-                <span className="px-1.5 py-0.5 bg-[#070B12] border border-slate-800 text-slate-400 text-[10px]">
+                <span className="px-1.5 py-0.5 bg-[#FFFFFF] border border-[#D4E0E8] text-[#526778] text-[10px]">
                   Boundary: 5×5 km (64 Cells)
                 </span>
-                <span className="px-1.5 py-0.5 bg-[#070B12] border border-slate-800 text-amber-300/90 text-[10px]">
+                <span className="px-1.5 py-0.5 bg-[#FFFFFF] border border-[#D4E0E8] text-amber-300/90 text-[10px]">
                   Demo Validation
                 </span>
               </div>
@@ -288,7 +288,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                 <button
                   type="button"
                   onClick={handleStartValidation}
-                  className="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs border border-cyan-400 flex items-center gap-1.5 transition-colors cursor-pointer shadow-[0_0_10px_rgba(6,182,212,0.3)]"
+                  className="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-[#263746] font-bold text-xs border border-[#287FB5] flex items-center gap-1.5 transition-colors cursor-pointer shadow-[0_0_10px_rgba(6,182,212,0.3)]"
                 >
                   ▶ Start Validation
                 </button>
@@ -297,7 +297,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                 <button
                   type="button"
                   onClick={handleStopValidation}
-                  className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs border border-rose-400 flex items-center gap-1.5 transition-colors cursor-pointer shadow-[0_0_10px_rgba(244,63,94,0.3)]"
+                  className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-[#263746] font-bold text-xs border border-rose-400 flex items-center gap-1.5 transition-colors cursor-pointer shadow-[0_0_10px_rgba(244,63,94,0.3)]"
                 >
                   ⏹ Stop Validation
                 </button>
@@ -307,14 +307,14 @@ export const PostDisasterLearningWorkspace: React.FC<
                   <button
                     type="button"
                     onClick={handleStartValidation}
-                    className="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs border border-cyan-400 flex items-center gap-1 transition-colors cursor-pointer"
+                    className="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-[#263746] font-bold text-xs border border-[#287FB5] flex items-center gap-1 transition-colors cursor-pointer"
                   >
                     ↻ Start Again
                   </button>
                   <button
                     type="button"
                     onClick={handleResetValidation}
-                    className="px-2.5 py-1 bg-[#070B12] hover:bg-slate-800 text-slate-300 text-xs border border-slate-700 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] text-[#263746] text-xs border border-[#D4E0E8] transition-colors cursor-pointer"
                   >
                     ↺ Reset to Idle
                   </button>
@@ -325,14 +325,14 @@ export const PostDisasterLearningWorkspace: React.FC<
                   <button
                     type="button"
                     onClick={handleStartValidation}
-                    className="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs border border-cyan-400 flex items-center gap-1 transition-colors cursor-pointer"
+                    className="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-[#263746] font-bold text-xs border border-[#287FB5] flex items-center gap-1 transition-colors cursor-pointer"
                   >
                     ▶ Start Again
                   </button>
                   <button
                     type="button"
                     onClick={handleResetValidation}
-                    className="px-2.5 py-1 bg-[#070B12] hover:bg-slate-800 text-slate-300 text-xs border border-slate-700 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] text-[#263746] text-xs border border-[#D4E0E8] transition-colors cursor-pointer"
                   >
                     ↺ Reset to Idle
                   </button>
@@ -343,9 +343,9 @@ export const PostDisasterLearningWorkspace: React.FC<
 
           {/* 1. SELECT HISTORICAL FLOOD EVENT */}
           <div className="space-y-1.5">
-            <div className="flex items-center justify-between text-[11px] text-slate-300">
-              <span className="font-bold text-cyan-300">1. HISTORICAL FLOOD EVENT SELECTION</span>
-              <span className="text-[10px] text-slate-500">
+            <div className="flex items-center justify-between text-[11px] text-[#263746]">
+              <span className="font-bold text-[#287FB5]">1. HISTORICAL FLOOD EVENT SELECTION</span>
+              <span className="text-[10px] text-[#526778]">
                 {validationState === 'RUNNING' || validationState === 'STARTING_LOADING'
                   ? 'Locked during active validation run'
                   : 'Select past event to evaluate against'}
@@ -382,7 +382,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                     } ${
                       isSelected
                         ? 'bg-amber-950/30 border-amber-400'
-                        : 'bg-[#070B12] border-slate-800 hover:border-slate-700'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] hover:border-[#D4E0E8]'
                     }`}
                   >
                     <div className="flex items-center justify-between text-[10.5px]">
@@ -393,10 +393,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                         Peak {preset.peakRainfallMmHr} mm/h · {preset.cumulativeMm} mm
                       </span>
                     </div>
-                    <div className="text-xs font-semibold text-white mt-1 line-clamp-1 font-sans">
+                    <div className="text-xs font-semibold text-[#263746] mt-1 line-clamp-1 font-sans">
                       {preset.title}
                     </div>
-                    <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                    <p className="text-[11px] text-[#526778] mt-0.5 line-clamp-2">
                       {preset.summary}
                     </p>
                   </div>
@@ -406,17 +406,17 @@ export const PostDisasterLearningWorkspace: React.FC<
           </div>
 
           {/* 2-8. FINITE PROGRESS BAR & STAGE STEPPER */}
-          <div className="p-2.5 bg-[#070B12] border border-slate-800/90 space-y-2">
+          <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] space-y-2">
             <div className="flex items-center justify-between text-[11px]">
-              <span className="text-slate-300">
-                WORKFLOW PROGRESS: <strong className="text-cyan-300">{validationProgressPct}%</strong>
+              <span className="text-[#263746]">
+                WORKFLOW PROGRESS: <strong className="text-[#287FB5]">{validationProgressPct}%</strong>
                 {validationState !== 'IDLE' && (
-                  <span className="ml-2 text-slate-400 font-normal">
-                    — Stage {validationStageIndex + 1} of 8: <span className="text-white font-semibold">{VALIDATION_WORKFLOW_STAGES[validationStageIndex].label}</span>
+                  <span className="ml-2 text-[#526778] font-normal">
+                    — Stage {validationStageIndex + 1} of 8: <span className="text-[#263746] font-semibold">{VALIDATION_WORKFLOW_STAGES[validationStageIndex].label}</span>
                   </span>
                 )}
               </span>
-              <span className="text-slate-500 text-[10px]">
+              <span className="text-[#526778] text-[10px]">
                 {validationState === 'IDLE'
                   ? 'Click "Start Validation" to begin finite run'
                   : validationState === 'COMPLETED'
@@ -428,7 +428,7 @@ export const PostDisasterLearningWorkspace: React.FC<
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full h-2 bg-slate-950 border border-slate-800 overflow-hidden">
+            <div className="w-full h-2 bg-[#EDF3F7] border border-[#D4E0E8] overflow-hidden">
               <div
                 className={`h-full transition-all duration-300 ${
                   validationState === 'COMPLETED'
@@ -454,10 +454,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                     key={stg.id}
                     className={`p-1.5 border transition-colors ${
                       isCurrent
-                        ? 'bg-cyan-950/80 border-cyan-400 text-cyan-200 font-bold'
+                        ? 'bg-cyan-950/80 border-[#287FB5] text-[#287FB5] font-bold'
                         : isDone
                         ? 'bg-emerald-950/40 border-emerald-500/60 text-emerald-300'
-                        : 'bg-[#0A0E18] border-slate-800/80 text-slate-500'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778]'
                     }`}
                   >
                     <div className="flex items-center justify-between text-[9px]">
@@ -473,14 +473,14 @@ export const PostDisasterLearningWorkspace: React.FC<
             </div>
 
             {/* Stage Description & Status Callout */}
-            <div className="p-2 bg-[#0C121E] border border-slate-800 text-[11px] flex flex-wrap items-center justify-between gap-2">
-              <div className="text-slate-300">
-                <span className="text-slate-500 font-semibold mr-1">Current Action:</span>
+            <div className="p-2 bg-[#F7FAFC] border border-[#D4E0E8] text-[11px] flex flex-wrap items-center justify-between gap-2">
+              <div className="text-[#263746]">
+                <span className="text-[#526778] font-semibold mr-1">Current Action:</span>
                 {validationState === 'IDLE'
                   ? 'Ready to execute validation across complete 5×5 km study area (64 cells). Click "Start Validation" above.'
                   : VALIDATION_WORKFLOW_STAGES[validationStageIndex].description}
               </div>
-              <div className="text-[10.5px] text-slate-400 font-sans">
+              <div className="text-[10.5px] text-[#526778] font-sans">
                 {validationState === 'COMPLETED' ? (
                   <span className="text-emerald-300 font-mono font-semibold">
                     ✓ Complete 5×5 km Study Area Validated.
@@ -490,11 +490,11 @@ export const PostDisasterLearningWorkspace: React.FC<
                     ⏹ Stopped at Step {validationStageIndex + 1}.
                   </span>
                 ) : validationState === 'RUNNING' || validationState === 'STARTING_LOADING' ? (
-                  <span className="text-cyan-300 font-mono">
+                  <span className="text-[#287FB5] font-mono">
                     Evaluating 64 grid cells...
                   </span>
                 ) : (
-                  <span className="text-slate-500">
+                  <span className="text-[#526778]">
                     64 Cells · 5×5 km Pilot Grid
                   </span>
                 )}
@@ -503,9 +503,9 @@ export const PostDisasterLearningWorkspace: React.FC<
           </div>
 
           {/* Validation Boundary & Integrity Declaration */}
-          <div className="p-2 bg-[#070B12] border border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-slate-400">
+          <div className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] flex flex-wrap items-center justify-between gap-2 text-[10.5px] text-[#526778]">
             <div>
-              <strong className="text-cyan-300">Boundary Guarantee:</strong> The validation process validates the model over the COMPLETE existing 5×5 km study area (all 64 grid cells · 25 km²). It does NOT validate only a selected locality.
+              <strong className="text-[#287FB5]">Boundary Guarantee:</strong> The validation process validates the model over the COMPLETE existing 5×5 km study area (all 64 grid cells · 25 km²). It does NOT validate only a selected locality.
             </div>
             <div>
               <strong className="text-amber-300">Data Integrity:</strong> Demo Validation evaluated using existing hydro-terrain inputs & synthetic HWM observations without fabricated accuracy claims.
@@ -519,7 +519,7 @@ export const PostDisasterLearningWorkspace: React.FC<
           (Play / Pause / Step backward / Step forward / Speed 1x · 2x · 5x)
          ===================================================================== */}
       {activeTab === 'event-replay' && (
-        <div className="p-3 bg-[#0C121E] border border-slate-800 space-y-3">
+        <div className="p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="font-mono text-xs text-amber-300 font-bold">
             SYNTHETIC HISTORICAL & MONSOON EVENT REPLAY ARCHIVE
@@ -530,7 +530,7 @@ export const PostDisasterLearningWorkspace: React.FC<
             <button
               type="button"
               onClick={() => onStepTimeline(-1)}
-              className="px-2.5 py-1 bg-[#070B12] hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold whitespace-nowrap"
+              className="px-2.5 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] font-semibold whitespace-nowrap"
               title="Step backward 1 hour"
             >
               ⏮ Step Backward
@@ -542,7 +542,7 @@ export const PostDisasterLearningWorkspace: React.FC<
               className={`px-3 py-1 border font-bold whitespace-nowrap transition-colors ${
                 isPlayingTimeline
                   ? 'bg-amber-500/25 border-amber-400 text-amber-200'
-                  : 'bg-cyan-500/25 hover:bg-cyan-500/35 border-cyan-400 text-cyan-200'
+                  : 'bg-cyan-500/25 hover:bg-cyan-500/35 border-[#287FB5] text-[#287FB5]'
               }`}
             >
               {isPlayingTimeline ? '❚❚ Pause' : '▶ Play'}
@@ -551,7 +551,7 @@ export const PostDisasterLearningWorkspace: React.FC<
             <button
               type="button"
               onClick={() => onStepTimeline(1)}
-              className="px-2.5 py-1 bg-[#070B12] hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold whitespace-nowrap"
+              className="px-2.5 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] font-semibold whitespace-nowrap"
               title="Step forward 1 hour"
             >
               Step Forward ⏭
@@ -559,7 +559,7 @@ export const PostDisasterLearningWorkspace: React.FC<
 
             <span className="text-slate-600 mx-1">|</span>
 
-            <span className="text-[11px] text-slate-400">Speed:</span>
+            <span className="text-[11px] text-[#526778]">Speed:</span>
             {([1, 2, 5] as ReplaySpeed[]).map((spd) => (
               <button
                 key={spd}
@@ -567,8 +567,8 @@ export const PostDisasterLearningWorkspace: React.FC<
                 onClick={() => onChangeReplaySpeed(spd)}
                 className={`px-2 py-1 border text-[11px] font-bold ${
                   replaySpeed === spd
-                    ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200'
-                    : 'bg-[#070B12] border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-cyan-500/25 border-[#287FB5] text-[#287FB5]'
+                    : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 {spd}x
@@ -598,7 +598,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                 className={`p-2.5 border cursor-pointer transition-colors ${
                   isSelected
                     ? 'bg-amber-950/30 border-amber-400'
-                    : 'bg-[#070B12] border-slate-800 hover:border-slate-700'
+                    : 'bg-[#FFFFFF] border-[#D4E0E8] hover:border-[#D4E0E8]'
                 }`}
               >
                 <div className="flex items-center justify-between font-mono text-[10.5px]">
@@ -609,10 +609,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                     Peak {preset.peakRainfallMmHr} mm/h · {preset.cumulativeMm} mm
                   </span>
                 </div>
-                <div className="text-xs font-semibold text-white mt-1 line-clamp-1">
+                <div className="text-xs font-semibold text-[#263746] mt-1 line-clamp-1">
                   {preset.title}
                 </div>
-                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                <p className="text-[11px] text-[#526778] mt-0.5 line-clamp-2">
                   {preset.summary}
                 </p>
               </div>
@@ -623,11 +623,11 @@ export const PostDisasterLearningWorkspace: React.FC<
         {/* Hourly Hydrograph Scrubber + Live Map Evolution Strip (Predicted Risk, Observed Flood, Road Closures, Route Changes) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 pt-1">
           {/* Left 7 Cols: Rainfall Timeline Scrubber */}
-          <div className="lg:col-span-7 p-2.5 bg-[#070B12] border border-slate-800/90 flex flex-col justify-between">
-            <div className="flex items-center justify-between font-mono text-[11px] text-slate-300 mb-2">
+          <div className="lg:col-span-7 p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] flex flex-col justify-between">
+            <div className="flex items-center justify-between font-mono text-[11px] text-[#263746] mb-2">
               <span>
                 RAINFALL TIMELINE ({activePreset.dateLabel}) — Step:{' '}
-                <strong className="text-cyan-300">{currentStepEntry.label}</strong>
+                <strong className="text-[#287FB5]">{currentStepEntry.label}</strong>
               </span>
               <span className="text-sky-300 font-bold">
                 {params.rainfallIntensityMmHr} mm/hr
@@ -656,7 +656,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                     }
                     className="flex flex-col items-center justify-end h-full group cursor-pointer"
                   >
-                    <span className="font-mono text-[9.5px] text-slate-300 tabular-nums mb-0.5">
+                    <span className="font-mono text-[9.5px] text-[#263746] tabular-nums mb-0.5">
                       {step.mmHr}m
                     </span>
                     <div
@@ -674,8 +674,8 @@ export const PostDisasterLearningWorkspace: React.FC<
                     <span
                       className={`font-mono text-[9.5px] mt-1 truncate max-w-full ${
                         isCurrent
-                          ? 'text-cyan-300 font-bold'
-                          : 'text-slate-400'
+                          ? 'text-[#287FB5] font-bold'
+                          : 'text-[#526778]'
                       }`}
                     >
                       {step.hourOffset >= 0
@@ -689,20 +689,20 @@ export const PostDisasterLearningWorkspace: React.FC<
           </div>
 
           {/* Right 5 Cols: Evolving Event State (Predicted Risk, Observed Flood, Road Closures, Route Changes, Observations) */}
-          <div className="lg:col-span-5 p-2.5 bg-[#070B12] border border-slate-800/90 space-y-2 font-mono text-xs">
-            <div className="flex items-center justify-between text-[11px] border-b border-slate-800 pb-1">
-              <span className="text-cyan-300 font-bold">
+          <div className="lg:col-span-5 p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] space-y-2 font-mono text-xs">
+            <div className="flex items-center justify-between text-[11px] border-b border-[#D4E0E8] pb-1">
+              <span className="text-[#287FB5] font-bold">
                 EVOLVING EVENT SNAPSHOT ({currentStepEntry.label})
               </span>
-              <span className="text-slate-400 text-[10px]">
+              <span className="text-[#526778] text-[10px]">
                 {sensors.filter((s) => s.freshnessState === 'FRESH').length}/
                 {sensors.length} Sensors Fresh
               </span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-center tabular-nums">
-              <div className="p-1.5 bg-[#0C121E] border border-slate-800">
-                <div className="text-[9.5px] text-slate-400">Predicted risk</div>
+              <div className="p-1.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+                <div className="text-[9.5px] text-[#526778]">Predicted risk</div>
                 <div className="text-sm font-bold text-amber-300">
                   {validationReport.truePositivesCount +
                     validationReport.falsePositivesCount}{' '}
@@ -710,8 +710,8 @@ export const PostDisasterLearningWorkspace: React.FC<
                 </div>
               </div>
 
-              <div className="p-1.5 bg-[#0C121E] border border-slate-800">
-                <div className="text-[9.5px] text-slate-400">Observed flood</div>
+              <div className="p-1.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+                <div className="text-[9.5px] text-[#526778]">Observed flood</div>
                 <div className="text-sm font-bold text-rose-400">
                   {validationReport.truePositivesCount +
                     validationReport.falseNegativesCount}{' '}
@@ -719,16 +719,16 @@ export const PostDisasterLearningWorkspace: React.FC<
                 </div>
               </div>
 
-              <div className="p-1.5 bg-[#0C121E] border border-slate-800">
-                <div className="text-[9.5px] text-slate-400">Road closures</div>
+              <div className="p-1.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+                <div className="text-[9.5px] text-[#526778]">Road closures</div>
                 <div className="text-sm font-bold text-rose-300">
                   {closedRoads.length} closed ({atRiskRoads.length} risk)
                 </div>
               </div>
 
-              <div className="p-1.5 bg-[#0C121E] border border-slate-800">
-                <div className="text-[9.5px] text-slate-400">Route changes</div>
-                <div className="text-sm font-bold text-cyan-300">
+              <div className="p-1.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+                <div className="text-[9.5px] text-[#526778]">Route changes</div>
+                <div className="text-sm font-bold text-[#287FB5]">
                   {Math.max(
                     currentStepEntry.routeChangesCount,
                     divertedRoutes.length
@@ -738,17 +738,17 @@ export const PostDisasterLearningWorkspace: React.FC<
               </div>
             </div>
 
-            <div className="text-[10.5px] text-slate-300 space-y-0.5 leading-snug">
+            <div className="text-[10.5px] text-[#263746] space-y-0.5 leading-snug">
               <div className="truncate">
-                <span className="text-slate-500">Observations: </span>
+                <span className="text-[#526778]">Observations: </span>
                 {currentStepEntry.observationsSummary}
               </div>
               <div className="truncate">
-                <span className="text-slate-500">Road states: </span>
+                <span className="text-[#526778]">Road states: </span>
                 {currentStepEntry.roadStatesSummary}
               </div>
-              <div className="truncate text-cyan-200">
-                <span className="text-slate-500">Route changes: </span>
+              <div className="truncate text-[#287FB5]">
+                <span className="text-[#526778]">Route changes: </span>
                 {currentStepEntry.routeChangeSummary}
               </div>
             </div>
@@ -775,7 +775,7 @@ export const PostDisasterLearningWorkspace: React.FC<
         >
           <div className="flex items-center justify-between text-[10px] text-rose-200 font-bold">
             <span>⚠ FALSE NEGATIVES</span>
-            <span className="px-1 bg-rose-500 text-white text-[9px]">
+            <span className="px-1 bg-rose-500 text-[#263746] text-[9px]">
               CRITICAL
             </span>
           </div>
@@ -787,66 +787,66 @@ export const PostDisasterLearningWorkspace: React.FC<
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">PRECISION</div>
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">PRECISION</div>
           <div className="text-xl font-bold text-emerald-300 tabular-nums mt-0.5">
             {(validationReport.precision * 100).toFixed(0)}%
           </div>
-          <div className="text-[10px] text-slate-500">
+          <div className="text-[10px] text-[#526778]">
             TP / (TP + FP) = {validationReport. precision.toFixed(2)}
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">RECALL (POD)</div>
-          <div className="text-xl font-bold text-cyan-300 tabular-nums mt-0.5">
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">RECALL (POD)</div>
+          <div className="text-xl font-bold text-[#287FB5] tabular-nums mt-0.5">
             {(validationReport.recall * 100).toFixed(0)}%
           </div>
-          <div className="text-[10px] text-slate-500">
+          <div className="text-[10px] text-[#526778]">
             TP / (TP + FN) = {validationReport.recall.toFixed(2)}
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">F1 SCORE</div>
-          <div className="text-xl font-bold text-white tabular-nums mt-0.5">
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">F1 SCORE</div>
+          <div className="text-xl font-bold text-[#263746] tabular-nums mt-0.5">
             {validationReport.f1Score.toFixed(2)}
           </div>
-          <div className="text-[10px] text-slate-500">Harmonic Mean</div>
+          <div className="text-[10px] text-[#526778]">Harmonic Mean</div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">PR-AUC</div>
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">PR-AUC</div>
           <div className="text-xl font-bold text-sky-300 tabular-nums mt-0.5">
             {validationReport.prAuc.toFixed(2)}
           </div>
-          <div className="text-[10px] text-slate-500">Precision-Recall AUC</div>
+          <div className="text-[10px] text-[#526778]">Precision-Recall AUC</div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">IoU (CSI)</div>
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">IoU (CSI)</div>
           <div className="text-xl font-bold text-emerald-300 tabular-nums mt-0.5">
             {validationReport.iouScore.toFixed(2)}
           </div>
-          <div className="text-[10px] text-slate-500">
+          <div className="text-[10px] text-[#526778]">
             Intersection over Union
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">BRIER SCORE</div>
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">BRIER SCORE</div>
           <div className="text-xl font-bold text-amber-300 tabular-nums mt-0.5">
             {validationReport.brierScore.toFixed(3)}
           </div>
-          <div className="text-[10px] text-slate-500">Lower is better</div>
+          <div className="text-[10px] text-[#526778]">Lower is better</div>
         </div>
 
-        <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-          <div className="text-[10px] text-slate-400">LEAD-TIME ERROR</div>
+        <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">LEAD-TIME ERROR</div>
           <div className="text-xl font-bold text-purple-300 tabular-nums mt-0.5">
             ±{validationReport.leadTimeErrorMin}m
           </div>
-          <div className="text-[10px] text-slate-500">
+          <div className="text-[10px] text-[#526778]">
             Bias: {validationReport.leadTimeBiasMin > 0 ? '+' : ''}
             {validationReport.leadTimeBiasMin} min
           </div>
@@ -860,7 +860,7 @@ export const PostDisasterLearningWorkspace: React.FC<
         <div className="p-3 bg-rose-950/40 border-2 border-rose-500/80 space-y-2">
           <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-rose-500 text-white font-bold text-[11px]">
+              <span className="px-2 py-0.5 bg-rose-500 text-[#263746] font-bold text-[11px]">
                 FALSE NEGATIVE AUDIT ({validationReport.falseNegativeRecords.length}{' '}
                 ZONES MISSED)
               </span>
@@ -888,17 +888,17 @@ export const PostDisasterLearningWorkspace: React.FC<
                 onClick={() =>
                   onSelectMapTarget({ type: 'CELL', id: fnRec.cellId })
                 }
-                className="p-2.5 bg-[#090D16] border border-rose-500/70 hover:border-rose-300 cursor-pointer space-y-1"
+                className="p-2.5 bg-[#FFFFFF] border border-rose-500/70 hover:border-rose-300 cursor-pointer space-y-1"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-sans font-bold text-white">
+                  <span className="font-sans font-bold text-[#263746]">
                     {fnRec.localityName}
                   </span>
                   <span className="px-1.5 py-0.5 bg-rose-500/30 text-rose-200 text-[10px] font-bold">
                     FALSE NEGATIVE
                   </span>
                 </div>
-                <div className="text-[11px] text-slate-200 tabular-nums">
+                <div className="text-[11px] text-[#263746] tabular-nums">
                   Pred: <strong>{fnRec.predictedDepthCm}cm</strong> (
                   {Math.round(fnRec.predictedProbability * 100)}%) vs Obs HWM:{' '}
                   <strong className="text-rose-300">
@@ -923,7 +923,7 @@ export const PostDisasterLearningWorkspace: React.FC<
           <button
             type="button"
             onClick={() => onChangeModelVersionId('v2.4.2-indore-pilot')}
-            className="px-2 py-0.5 bg-slate-900 border border-slate-700 text-slate-300 text-[11px]"
+            className="px-2 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] text-[11px]"
           >
             Compare vs v2.4.2 Baseline
           </button>
@@ -936,13 +936,13 @@ export const PostDisasterLearningWorkspace: React.FC<
          ===================================================================== */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Left 7 Cols: PREDICTED VS OBSERVED (Map view / Timeline view / Metrics view) */}
-        <div className="xl:col-span-7 p-3 bg-[#0C121E] border border-slate-800 space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
+        <div className="xl:col-span-7 p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D4E0E8] pb-2">
             <div>
-              <div className="font-mono text-xs font-bold text-cyan-300">
+              <div className="font-mono text-xs font-bold text-[#287FB5]">
                 PREDICTED VS OBSERVED COMPARISON
               </div>
-              <div className="font-mono text-[10.5px] text-slate-400">
+              <div className="font-mono text-[10.5px] text-[#526778]">
                 TP: {validationReport.truePositivesCount} ·{' '}
                 <strong className="text-rose-400">
                   FN: {validationReport.falseNegativesCount}
@@ -966,8 +966,8 @@ export const PostDisasterLearningWorkspace: React.FC<
                   onClick={() => setComparisonView(tab.id)}
                   className={`px-2.5 py-1 border text-[11px] font-bold transition-colors ${
                     comparisonView === tab.id
-                      ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200'
-                      : 'bg-[#070B12] border-slate-800 text-slate-400 hover:text-slate-200'
+                      ? 'bg-cyan-500/25 border-[#287FB5] text-[#287FB5]'
+                      : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                   }`}
                 >
                   {tab.label}
@@ -980,7 +980,7 @@ export const PostDisasterLearningWorkspace: React.FC<
           {comparisonView === 'MAP_VIEW' && (
             <div className="space-y-2.5">
               <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
-                <span className="text-slate-300">
+                <span className="text-[#263746]">
                   8×8 Spatial Predicted vs Observed Grid (Click any cell to inspect on main map):
                 </span>
                 <div className="flex items-center gap-2 text-[10.5px]">
@@ -993,13 +993,13 @@ export const PostDisasterLearningWorkspace: React.FC<
                   <span className="px-1.5 py-0.5 bg-amber-500/30 border border-amber-400 text-amber-200">
                     ■ FALSE POSITIVE ({validationReport.falsePositivesCount})
                   </span>
-                  <span className="px-1.5 py-0.5 bg-slate-900 border border-slate-700 text-slate-400">
+                  <span className="px-1.5 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[#526778]">
                     ■ TRUE NEGATIVE ({validationReport.trueNegativesCount})
                   </span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-8 gap-1 p-2 bg-[#070B12] border border-slate-800 font-mono text-[10px]">
+              <div className="grid grid-cols-8 gap-1 p-2 bg-[#FFFFFF] border border-[#D4E0E8] font-mono text-[10px]">
                 {cells.map((cell) => {
                   const rec = validationReport.records.find(
                     (r) => r.cellId === cell.id
@@ -1007,12 +1007,12 @@ export const PostDisasterLearningWorkspace: React.FC<
                   const outcome = rec?.outcomeCategory ?? 'TRUE_NEGATIVE';
                   const cellClass =
                     outcome === 'FALSE_NEGATIVE'
-                      ? 'bg-rose-600/45 border-2 border-rose-400 text-white font-bold'
+                      ? 'bg-rose-600/45 border-2 border-rose-400 text-[#263746] font-bold'
                       : outcome === 'TRUE_POSITIVE'
                       ? 'bg-emerald-600/30 border border-emerald-500/70 text-emerald-200'
                       : outcome === 'FALSE_POSITIVE'
                       ? 'bg-amber-500/25 border border-amber-400/70 text-amber-200'
-                      : 'bg-[#0B101B] border border-slate-800/80 text-slate-500';
+                      : 'bg-[#FFFFFF] border border-[#D4E0E8] text-[#526778]';
 
                   return (
                     <button
@@ -1048,10 +1048,10 @@ export const PostDisasterLearningWorkspace: React.FC<
 
           {/* VIEW B: TIMELINE VIEW (Predicted vs Observed across Hourly Steps) */}
           {comparisonView === 'TIMELINE_VIEW' && (
-            <div className="overflow-x-auto border border-slate-800">
+            <div className="overflow-x-auto border border-[#D4E0E8]">
               <table className="w-full text-left border-collapse font-mono text-xs">
                 <thead>
-                  <tr className="bg-[#070B12] text-slate-400 border-b border-slate-800">
+                  <tr className="bg-[#FFFFFF] text-[#526778] border-b border-[#D4E0E8]">
                     <th className="py-1.5 px-2.5">Timeline Step</th>
                     <th className="py-1.5 px-2.5 text-right">Rainfall</th>
                     <th className="py-1.5 px-2.5 text-right">Predicted Risk</th>
@@ -1075,11 +1075,11 @@ export const PostDisasterLearningWorkspace: React.FC<
                             rainfallIntensityMmHr: step.mmHr,
                           }))
                         }
-                        className={`cursor-pointer hover:bg-slate-900/80 ${
+                        className={`cursor-pointer hover:bg-[#EDF3F7] ${
                           isCurrent ? 'bg-cyan-950/30' : ''
                         }`}
                       >
-                        <td className="py-1.5 px-2.5 text-slate-200 font-semibold">
+                        <td className="py-1.5 px-2.5 text-[#263746] font-semibold">
                           {isCurrent ? '▶ ' : ''}
                           {step.label}
                         </td>
@@ -1101,10 +1101,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                             <span className="text-emerald-400">0</span>
                           )}
                         </td>
-                        <td className="py-1.5 px-2.5 text-right text-slate-200 tabular-nums">
+                        <td className="py-1.5 px-2.5 text-right text-[#263746] tabular-nums">
                           {step.roadClosuresCount} closed
                         </td>
-                        <td className="py-1.5 px-2.5 text-right text-cyan-300 tabular-nums">
+                        <td className="py-1.5 px-2.5 text-right text-[#287FB5] tabular-nums">
                           {step.routeChangesCount} reroutes
                         </td>
                       </tr>
@@ -1119,7 +1119,7 @@ export const PostDisasterLearningWorkspace: React.FC<
           {comparisonView === 'METRICS_VIEW' && (
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
-                <span className="text-slate-400">Filter Outcome:</span>
+                <span className="text-[#526778]">Filter Outcome:</span>
                 {(
                   [
                     { id: 'ALL', label: `All (${validationReport.records.length})` },
@@ -1144,9 +1144,9 @@ export const PostDisasterLearningWorkspace: React.FC<
                     className={`px-2 py-0.5 border ${
                       outcomeFilter === f.id
                         ? f.id === 'FALSE_NEGATIVE'
-                          ? 'bg-rose-500 text-white border-rose-400 font-bold'
-                          : 'bg-cyan-500/25 border-cyan-400 text-cyan-200 font-bold'
-                        : 'bg-[#070B12] border-slate-800 text-slate-400'
+                          ? 'bg-rose-500 text-[#263746] border-rose-400 font-bold'
+                          : 'bg-cyan-500/25 border-[#287FB5] text-[#287FB5] font-bold'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778]'
                     }`}
                   >
                     {f.label}
@@ -1154,10 +1154,10 @@ export const PostDisasterLearningWorkspace: React.FC<
                 ))}
               </div>
 
-              <div className="overflow-x-auto border border-slate-800 max-h-52 overflow-y-auto">
+              <div className="overflow-x-auto border border-[#D4E0E8] max-h-52 overflow-y-auto">
                 <table className="w-full text-left border-collapse font-mono text-xs">
                   <thead>
-                    <tr className="bg-[#070B12] text-slate-400 border-b border-slate-800 sticky top-0">
+                    <tr className="bg-[#FFFFFF] text-[#526778] border-b border-[#D4E0E8] sticky top-0">
                       <th className="py-1.5 px-2.5">Cell Locality</th>
                       <th className="py-1.5 px-2.5">Outcome</th>
                       <th className="py-1.5 px-2.5 text-right">Pred Prob</th>
@@ -1173,34 +1173,34 @@ export const PostDisasterLearningWorkspace: React.FC<
                         onClick={() =>
                           onSelectMapTarget({ type: 'CELL', id: rec.cellId })
                         }
-                        className={`hover:bg-slate-900/80 cursor-pointer ${
+                        className={`hover:bg-[#EDF3F7] cursor-pointer ${
                           rec.outcomeCategory === 'FALSE_NEGATIVE'
                             ? 'bg-rose-950/35'
                             : ''
                         }`}
                       >
-                        <td className="py-1.5 px-2.5 text-slate-200 font-sans font-medium">
+                        <td className="py-1.5 px-2.5 text-[#263746] font-sans font-medium">
                           {rec.localityName}
                         </td>
                         <td className="py-1.5 px-2.5">
                           <span
                             className={`px-1.5 py-0.5 text-[10px] font-bold ${
                               rec.outcomeCategory === 'FALSE_NEGATIVE'
-                                ? 'bg-rose-500 text-white'
+                                ? 'bg-rose-500 text-[#263746]'
                                 : rec.outcomeCategory === 'TRUE_POSITIVE'
                                 ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/50'
                                 : rec.outcomeCategory === 'FALSE_POSITIVE'
                                 ? 'bg-amber-950/80 text-amber-300 border border-amber-500/50'
-                                : 'bg-slate-900 text-slate-400'
+                                : 'bg-[#EDF3F7] text-[#526778]'
                             }`}
                           >
                             {rec.outcomeCategory}
                           </span>
                         </td>
-                        <td className="py-1.5 px-2.5 text-right tabular-nums text-cyan-300">
+                        <td className="py-1.5 px-2.5 text-right tabular-nums text-[#287FB5]">
                           {Math.round(rec.predictedProbability * 100)}%
                         </td>
-                        <td className="py-1.5 px-2.5 text-right tabular-nums text-white">
+                        <td className="py-1.5 px-2.5 text-right tabular-nums text-[#263746]">
                           {rec.predictedDepthCm}cm /{' '}
                           <strong className="text-sky-300">
                             {rec.observedDepthCm}cm
@@ -1211,7 +1211,7 @@ export const PostDisasterLearningWorkspace: React.FC<
                             ? `+${rec.leadTimeErrorMin}m`
                             : `${rec.leadTimeErrorMin}m`}
                         </td>
-                        <td className="py-1.5 px-2.5 text-slate-300 truncate max-w-[200px]">
+                        <td className="py-1.5 px-2.5 text-[#263746] truncate max-w-[200px]">
                           {rec.learningNote}
                         </td>
                       </tr>
@@ -1224,10 +1224,10 @@ export const PostDisasterLearningWorkspace: React.FC<
         </div>
 
         {/* Right 5 Cols: CALIBRATION VISUALIZATION (Predicted Probability vs Observed Frequency) */}
-        <div className="xl:col-span-5 p-3 bg-[#0C121E] border border-slate-800 space-y-2.5 flex flex-col justify-between">
+        <div className="xl:col-span-5 p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-2.5 flex flex-col justify-between">
           <div className="space-y-2">
-            <div className="border-b border-slate-800 pb-2">
-              <div className="font-mono text-xs font-bold text-cyan-300">
+            <div className="border-b border-[#D4E0E8] pb-2">
+              <div className="font-mono text-xs font-bold text-[#287FB5]">
                 CALIBRATION: PREDICTED PROBABILITY VS OBSERVED FREQUENCY
               </div>
               <div className="text-xs font-semibold text-amber-200 mt-0.5">
@@ -1236,11 +1236,11 @@ export const PostDisasterLearningWorkspace: React.FC<
             </div>
 
             {/* Calibration Binned Reliability Chart */}
-            <div className="p-2.5 bg-[#070B12] border border-slate-800 space-y-2 font-mono text-[11px]">
-              <div className="flex items-center justify-between text-[10px] text-slate-400">
+            <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] space-y-2 font-mono text-[11px]">
+              <div className="flex items-center justify-between text-[10px] text-[#526778]">
                 <span>PROBABILITY COHORT BIN</span>
                 <div className="flex items-center gap-3">
-                  <span className="text-cyan-300">■ Predicted Prob</span>
+                  <span className="text-[#287FB5]">■ Predicted Prob</span>
                   <span className="text-emerald-400">■ Observed Freq</span>
                 </div>
               </div>
@@ -1253,19 +1253,19 @@ export const PostDisasterLearningWorkspace: React.FC<
                     className={`p-1.5 border ${
                       is70Bin
                         ? 'bg-amber-950/25 border-amber-400/70'
-                        : 'bg-[#0B101B] border-slate-800/80'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8]'
                     }`}
                   >
                     <div className="flex items-center justify-between text-[10.5px] mb-1">
                       <span
                         className={
-                          is70Bin ? 'text-amber-300 font-bold' : 'text-slate-300'
+                          is70Bin ? 'text-amber-300 font-bold' : 'text-[#263746]'
                         }
                       >
                         {is70Bin ? '★ ' : ''}
                         {bin.binLabel} ({bin.cellCount} cells)
                       </span>
-                      <span className="tabular-nums text-slate-200">
+                      <span className="tabular-nums text-[#263746]">
                         Pred <strong>{bin.meanPredictedPct}%</strong> vs Obs{' '}
                         <strong className="text-emerald-300">
                           {bin.observedFrequencyPct}%
@@ -1275,13 +1275,13 @@ export const PostDisasterLearningWorkspace: React.FC<
                       </span>
                     </div>
                     <div className="space-y-1">
-                      <div className="w-full h-1.5 bg-slate-900 overflow-hidden">
+                      <div className="w-full h-1.5 bg-[#EDF3F7] overflow-hidden">
                         <div
                           className="h-full bg-cyan-400"
                           style={{ width: `${bin.meanPredictedPct}%` }}
                         />
                       </div>
-                      <div className="w-full h-1.5 bg-slate-900 overflow-hidden">
+                      <div className="w-full h-1.5 bg-[#EDF3F7] overflow-hidden">
                         <div
                           className="h-full bg-emerald-400"
                           style={{ width: `${bin.observedFrequencyPct}%` }}
@@ -1295,8 +1295,8 @@ export const PostDisasterLearningWorkspace: React.FC<
           </div>
 
           {/* Explicit 70% Calibration Explanation */}
-          <div className="p-2.5 bg-cyan-950/30 border border-cyan-500/50 text-[11px] text-slate-200 leading-relaxed">
-            <span className="font-mono font-bold text-cyan-300 mr-1.5">
+          <div className="p-2.5 bg-cyan-950/30 border border-[#287FB5] text-[11px] text-[#263746] leading-relaxed">
+            <span className="font-mono font-bold text-[#287FB5] mr-1.5">
               70% CALIBRATION AUDIT:
             </span>
             {validationReport.seventyPercentBinExplanation}
@@ -1310,9 +1310,9 @@ export const PostDisasterLearningWorkspace: React.FC<
          ===================================================================== */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Left 7 Cols: 5-Stage Learning Loop */}
-        <div className="xl:col-span-7 p-3 bg-[#0C121E] border border-slate-800 space-y-2.5">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2 font-mono text-xs">
-            <span className="text-cyan-300 font-bold">
+        <div className="xl:col-span-7 p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-2.5">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D4E0E8] pb-2 font-mono text-xs">
+            <span className="text-[#287FB5] font-bold">
               CONTINUOUS POST-DISASTER LEARNING LOOP
             </span>
             <span className="text-amber-300 text-[11px]">
@@ -1324,25 +1324,25 @@ export const PostDisasterLearningWorkspace: React.FC<
             {validationReport.learningLoopSteps.map((step, idx) => (
               <div
                 key={step.stepNumber}
-                className="p-2.5 bg-[#070B12] border border-slate-800 flex flex-col justify-between space-y-2"
+                className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] flex flex-col justify-between space-y-2"
               >
                 <div className="space-y-1">
                   <div className="flex items-center justify-between font-mono text-[10px]">
-                    <span className="px-1.5 py-0.5 bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 font-bold">
+                    <span className="px-1.5 py-0.5 bg-sky-100 border border-[#287FB5] text-[#287FB5] font-bold">
                       {step.stage}
                     </span>
                     {idx < 4 && (
-                      <span className="text-slate-500 font-bold">→</span>
+                      <span className="text-[#526778] font-bold">→</span>
                     )}
                   </div>
-                  <div className="text-xs font-semibold text-white">
+                  <div className="text-xs font-semibold text-[#263746]">
                     {step.title}
                   </div>
-                  <p className="text-[10.5px] text-slate-400 leading-snug">
+                  <p className="text-[10.5px] text-[#526778] leading-snug">
                     {step.summary}
                   </p>
                 </div>
-                <div className="pt-1.5 border-t border-slate-800/80 font-mono text-[10px] text-emerald-300">
+                <div className="pt-1.5 border-t border-[#D4E0E8] font-mono text-[10px] text-emerald-300">
                   {step.keyArtifact}
                 </div>
               </div>
@@ -1351,14 +1351,14 @@ export const PostDisasterLearningWorkspace: React.FC<
         </div>
 
         {/* Right 5 Cols: MODEL VERSION PANEL (Current model, Version, Training snapshot, Validation score, Release date) */}
-        <div className="xl:col-span-5 p-3 bg-[#0C121E] border border-emerald-500/50 space-y-2.5 flex flex-col justify-between font-mono">
+        <div className="xl:col-span-5 p-3 bg-[#F7FAFC] border border-emerald-500/50 space-y-2.5 flex flex-col justify-between font-mono">
           <div className="space-y-2">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+            <div className="flex items-center justify-between border-b border-[#D4E0E8] pb-2">
               <div>
                 <div className="text-xs font-bold text-emerald-300">
                   MODEL VERSION GOVERNANCE PANEL
                 </div>
-                <div className="text-[10.5px] text-slate-400">
+                <div className="text-[10.5px] text-[#526778]">
                   Compare pre-event baseline vs post-disaster calibrated model
                 </div>
               </div>
@@ -1379,11 +1379,11 @@ export const PostDisasterLearningWorkspace: React.FC<
                     className={`p-1.5 border text-left transition-colors ${
                       active
                         ? 'bg-emerald-950/60 border-emerald-400 text-emerald-200 font-bold'
-                        : 'bg-[#070B12] border-slate-800 text-slate-400 hover:text-slate-200'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                     }`}
                   >
                     <div className="truncate">{mv.version}</div>
-                    <div className="text-[9.5px] text-slate-400 truncate">
+                    <div className="text-[9.5px] text-[#526778] truncate">
                       Thresh {(mv.decisionThresholdProb * 100).toFixed(0)}%
                     </div>
                   </button>
@@ -1392,35 +1392,35 @@ export const PostDisasterLearningWorkspace: React.FC<
             </div>
 
             {/* Required Model Version Fields */}
-            <div className="p-2.5 bg-[#070B12] border border-slate-800 space-y-1.5 text-xs">
+            <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] space-y-1.5 text-xs">
               <div className="flex items-start justify-between gap-2">
-                <span className="text-slate-400 shrink-0">Current model:</span>
-                <span className="text-white font-semibold text-right">
+                <span className="text-[#526778] shrink-0">Current model:</span>
+                <span className="text-[#263746] font-semibold text-right">
                   {validationReport.modelVersion.currentModel}
                 </span>
               </div>
               <div className="flex items-center justify-between gap-2">
-                <span className="text-slate-400">Version:</span>
-                <span className="text-cyan-300 font-bold">
+                <span className="text-[#526778]">Version:</span>
+                <span className="text-[#287FB5] font-bold">
                   {validationReport.modelVersion.version}
                 </span>
               </div>
               <div className="flex items-start justify-between gap-2">
-                <span className="text-slate-400 shrink-0">
+                <span className="text-[#526778] shrink-0">
                   Training snapshot:
                 </span>
-                <span className="text-slate-200 text-right text-[11px]">
+                <span className="text-[#263746] text-right text-[11px]">
                   {validationReport.modelVersion.trainingSnapshot}
                 </span>
               </div>
               <div className="flex items-center justify-between gap-2">
-                <span className="text-slate-400">Validation score:</span>
+                <span className="text-[#526778]">Validation score:</span>
                 <span className="text-emerald-300 font-bold">
                   {validationReport.modelVersion.validationScore}
                 </span>
               </div>
               <div className="flex items-center justify-between gap-2">
-                <span className="text-slate-400">Release date:</span>
+                <span className="text-[#526778]">Release date:</span>
                 <span className="text-amber-300 font-semibold">
                   {validationReport.modelVersion.releaseDate}
                 </span>
@@ -1428,7 +1428,7 @@ export const PostDisasterLearningWorkspace: React.FC<
             </div>
           </div>
 
-          <div className="text-[11px] text-emerald-300 font-sans font-semibold pt-1 border-t border-slate-800">
+          <div className="text-[11px] text-emerald-300 font-sans font-semibold pt-1 border-t border-[#D4E0E8]">
             iDhara does not stop after predicting a flood. It learns from what
             actually happened.
           </div>

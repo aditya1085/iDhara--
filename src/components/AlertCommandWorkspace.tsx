@@ -47,51 +47,51 @@ const LIFECYCLE_BADGE_STYLE: Record<
 > = {
   PUBLISHED: {
     label: 'PUBLISHED',
-    text: 'text-emerald-300',
-    bg: 'bg-emerald-950/60',
-    border: 'border-emerald-500/50',
+    text: 'text-emerald-800',
+    bg: 'bg-emerald-100',
+    border: 'border-emerald-300',
     glyph: '●',
   },
   'PENDING REVIEW': {
     label: 'PENDING REVIEW',
-    text: 'text-amber-300',
-    bg: 'bg-amber-950/60',
-    border: 'border-amber-500/50',
+    text: 'text-amber-800',
+    bg: 'bg-amber-100',
+    border: 'border-amber-300',
     glyph: '▲',
   },
   DRAFT: {
     label: 'DRAFT',
-    text: 'text-sky-300',
-    bg: 'bg-sky-950/60',
-    border: 'border-sky-500/50',
+    text: 'text-sky-800',
+    bg: 'bg-sky-100',
+    border: 'border-sky-300',
     glyph: '✎',
   },
   UPDATED: {
     label: 'UPDATED',
-    text: 'text-cyan-300',
-    bg: 'bg-cyan-950/60',
-    border: 'border-cyan-500/50',
+    text: 'text-teal-800',
+    bg: 'bg-teal-100',
+    border: 'border-teal-300',
     glyph: '↻',
   },
   EXPIRED: {
     label: 'EXPIRED',
-    text: 'text-slate-400',
-    bg: 'bg-slate-900/60',
-    border: 'border-slate-700/50',
+    text: 'text-[#526778]',
+    bg: 'bg-[#EDF3F7]',
+    border: 'border-[#D4E0E8]',
     glyph: '◷',
   },
   CANCELLED: {
     label: 'CANCELLED',
-    text: 'text-zinc-400',
-    bg: 'bg-zinc-900/60',
-    border: 'border-zinc-700/50',
+    text: 'text-zinc-600',
+    bg: 'bg-zinc-100',
+    border: 'border-zinc-300',
     glyph: '✖',
   },
   REJECTED: {
     label: 'REJECTED',
-    text: 'text-rose-400',
-    bg: 'bg-rose-950/60',
-    border: 'border-rose-700/50',
+    text: 'text-rose-800',
+    bg: 'bg-rose-100',
+    border: 'border-rose-300',
     glyph: '✖',
   },
 };
@@ -160,24 +160,24 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
   }, [alerts]);
 
   return (
-    <div className="flex flex-col h-full bg-[#060910] text-slate-200 min-w-0 max-w-full overflow-hidden">
+    <div className="flex flex-col h-full bg-[#EDF3F7] text-[#263746] min-w-0 max-w-full overflow-hidden">
       {/* Citizen Read-Only Notice Banner */}
       {isCitizen && (
-        <div className="shrink-0 bg-sky-950/60 border-b border-sky-500/40 px-3 sm:px-4 py-2 font-mono text-xs text-sky-200 flex flex-wrap items-center justify-between gap-2 min-w-0 max-w-full">
+        <div className="shrink-0 bg-sky-50 border-b border-sky-300 px-3 sm:px-4 py-2 font-mono text-xs text-sky-900 flex flex-wrap items-center justify-between gap-2 min-w-0 max-w-full">
           <div className="flex items-center gap-2 min-w-0">
             <span className="text-sky-400">🛡</span>
             <span className="break-words">
               <strong>Citizen Public Advisory Feed:</strong> Displaying official published bulletins from the Indore Municipal EOC. (Read-only access)
             </span>
           </div>
-          <span className="text-slate-400 text-[11px] shrink-0">
+          <span className="text-[#526778] text-[11px] shrink-0">
             Role: Citizen · Direct publishing & acknowledge restricted
           </span>
         </div>
       )}
 
       {/* 2. Top Summary Row & Controls */}
-      <div className="shrink-0 bg-[#090E1A] border-b border-slate-800 px-3 sm:px-4 py-3 min-w-0 max-w-full">
+      <div className="shrink-0 bg-[#F7FAFC] border-b border-[#D4E0E8] px-3 sm:px-4 py-3 min-w-0 max-w-full">
         <div className="flex items-center justify-end gap-3 min-w-0 max-w-full">
           {/* Desktop Layout Split Toggle */}
           <div className="hidden lg:flex items-center gap-1 font-mono text-xs">
@@ -186,8 +186,8 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
               onClick={() => setDesktopSplitView((v) => !v)}
               className={`px-2.5 py-1 border text-xs cursor-pointer transition flex items-center gap-1.5 ${
                 desktopSplitView
-                  ? 'bg-slate-800 border-cyan-500/70 text-cyan-300'
-                  : 'bg-slate-900 border-slate-700 text-slate-400 hover:text-slate-200'
+                  ? 'bg-[#EDF3F7] border-[#287FB5] text-[#287FB5]'
+                  : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
               }`}
               title="Toggle Command Audit Trail panel visibility"
             >
@@ -197,9 +197,9 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
         </div>
 
         {/* Filter & Search Bar */}
-        <div className="mt-3 pt-3 border-t border-slate-800/80 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs font-mono min-w-0 max-w-full">
+        <div className="mt-3 pt-3 border-t border-[#D4E0E8] flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs font-mono min-w-0 max-w-full">
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 min-w-0 max-w-full">
-            <span className="text-slate-400">LIFECYCLE:</span>
+            <span className="text-[#526778]">LIFECYCLE:</span>
             {(
               isCitizen
                 ? (['ALL', 'PUBLISHED', 'UPDATED'] as const)
@@ -219,8 +219,8 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                 onClick={() => setFilterState(st)}
                 className={`px-2 py-0.5 border rounded-none cursor-pointer break-words ${
                   filterState === st
-                    ? 'bg-slate-700 border-cyan-400 text-cyan-300 font-semibold'
-                    : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#287FB5] border-[#287FB5] text-white font-semibold shadow-xs'
+                    : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 {st}
@@ -229,7 +229,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-2 min-w-0 max-w-full">
-            <span className="text-slate-400">SEVERITY:</span>
+            <span className="text-[#526778]">SEVERITY:</span>
             {(['ALL', 'RED', 'ORANGE', 'YELLOW', 'GREEN'] as const).map((lvl) => (
               <button
                 key={lvl}
@@ -237,8 +237,8 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                 onClick={() => setFilterLevel(lvl)}
                 className={`px-2 py-0.5 border cursor-pointer break-words ${
                   filterLevel === lvl
-                    ? 'bg-slate-700 border-cyan-400 text-cyan-300 font-semibold'
-                    : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#287FB5] border-[#287FB5] text-white font-semibold shadow-xs'
+                    : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 {lvl}
@@ -250,21 +250,21 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
               placeholder="Search alerts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full sm:w-44 px-2.5 py-1 bg-slate-900 border border-slate-700 text-slate-200 text-xs placeholder:text-slate-600 focus:outline-none focus:border-cyan-500 font-mono box-border"
+              className="w-full sm:w-44 px-2.5 py-1 bg-[#FFFFFF] border border-[#D4E0E8] text-[#263746] text-xs placeholder:text-[#526778] focus:outline-none focus:border-cyan-500 font-mono box-border"
             />
           </div>
         </div>
       </div>
 
       {/* Mobile / Tablet Compact View Switcher (< lg) */}
-      <div className="lg:hidden flex border-b border-slate-800 bg-[#070B14] shrink-0 font-mono text-xs select-none">
+      <div className="lg:hidden flex border-b border-[#D4E0E8] bg-[#FFFFFF] shrink-0 font-mono text-xs select-none">
         <button
           type="button"
           onClick={() => setMobileView('alerts')}
           className={`flex-1 py-2 px-3 text-center border-b-2 font-semibold transition cursor-pointer ${
             mobileView === 'alerts'
-              ? 'border-cyan-400 text-cyan-300 bg-slate-800/50'
-              : 'border-transparent text-slate-400 hover:text-slate-200'
+              ? 'border-[#287FB5] text-[#287FB5] bg-[#EDF3F7]'
+              : 'border-transparent text-[#526778] hover:text-[#263746]'
           }`}
         >
           Operational Alerts ({filteredAlerts.length})
@@ -274,8 +274,8 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           onClick={() => setMobileView('audit')}
           className={`flex-1 py-2 px-3 text-center border-b-2 font-semibold transition cursor-pointer ${
             mobileView === 'audit'
-              ? 'border-cyan-400 text-cyan-300 bg-slate-800/50'
-              : 'border-transparent text-slate-400 hover:text-slate-200'
+              ? 'border-[#287FB5] text-[#287FB5] bg-[#EDF3F7]'
+              : 'border-transparent text-[#526778] hover:text-[#263746]'
           }`}
         >
           Command Audit Log ({activityFeed.length})
@@ -290,7 +290,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           tabIndex={0}
           role="region"
           aria-label="Operational Alerts List"
-          className={`flex-1 min-w-0 min-h-0 h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-4 border-r border-slate-800 focus:outline-none custom-scrollbar ${
+          className={`flex-1 min-w-0 min-h-0 h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-4 border-r border-[#D4E0E8] focus:outline-none custom-scrollbar ${
             mobileView === 'audit' ? 'hidden lg:block' : 'block'
           }`}
           style={{
@@ -299,7 +299,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           }}
         >
           {filteredAlerts.length === 0 ? (
-            <div className="p-8 text-center text-slate-500 font-mono text-xs border border-dashed border-slate-800">
+            <div className="p-8 text-center text-[#526778] font-mono text-xs border border-dashed border-[#D4E0E8]">
               No alerts match the selected criteria ({filterState} · {filterLevel}).
             </div>
           ) : (
@@ -318,12 +318,12 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
 
               const cardBorderClass =
                 alert.warningLevel === WarningLevel.RED
-                  ? 'border-rose-900/80 border-l-4 border-l-rose-500 bg-[#090D18]'
+                  ? 'border-rose-200 border-l-4 border-l-rose-600 bg-rose-50/70'
                   : alert.warningLevel === WarningLevel.ORANGE
-                  ? 'border-amber-900/80 border-l-4 border-l-amber-500 bg-[#0A0E1A]'
+                  ? 'border-amber-200 border-l-4 border-l-amber-500 bg-amber-50/70'
                   : alert.warningLevel === WarningLevel.YELLOW
-                  ? 'border-yellow-900/70 border-l-4 border-l-yellow-500 bg-[#090D18]'
-                  : 'border-slate-800 border-l-4 border-l-emerald-500 bg-[#080D16]';
+                  ? 'border-amber-200 border-l-4 border-l-yellow-500 bg-amber-50/70'
+                  : 'border-emerald-200 border-l-4 border-l-emerald-600 bg-emerald-50/70';
 
               return (
                 <div
@@ -331,7 +331,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                   className={`border ${cardBorderClass} p-3.5 sm:p-4 transition-all shadow-md space-y-3 min-w-0`}
                 >
                   {/* Alert Header Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-slate-800/80 pb-2.5 min-w-0 max-w-full">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-[#D4E0E8] pb-2.5 min-w-0 max-w-full">
                     <div className="space-y-1.5 min-w-0 max-w-full flex-1">
                       <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 min-w-0 max-w-full">
                         <WarningLevelIndicator
@@ -348,17 +348,17 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                         </span>
 
                         {alert.isEvacuationAlert && (
-                          <span className="font-mono text-[11px] font-bold px-2 py-0.5 bg-rose-950/80 border border-rose-500/70 text-rose-300 break-words">
+                          <span className="font-mono text-[11px] font-bold px-2 py-0.5 bg-rose-100 border border-rose-500/70 text-rose-800 break-words">
                             EVACUATION DIRECTIVE
                           </span>
                         )}
 
-                        <span className="font-mono text-[11px] text-slate-400 break-words">
-                          ID: <strong className="text-slate-200">{alert.id}</strong>
+                        <span className="font-mono text-[11px] text-[#526778] break-words">
+                          ID: <strong className="text-[#263746]">{alert.id}</strong>
                         </span>
                       </div>
 
-                      <h3 className="font-sans font-bold text-sm sm:text-base text-slate-100 break-words min-w-0 max-w-full leading-snug">
+                      <h3 className="font-sans font-bold text-sm sm:text-base text-[#263746] break-words min-w-0 max-w-full leading-snug">
                         {alert.title}
                       </h3>
                     </div>
@@ -366,20 +366,20 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                     {/* Human Confirmation Badge */}
                     <div className="text-left sm:text-right font-mono text-[11px] min-w-0 max-w-full shrink-0">
                       {alert.humanConfirmedBy ? (
-                        <div className="text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2.5 py-1 inline-block break-words max-w-full">
+                        <div className="text-emerald-700 bg-emerald-100 border border-emerald-500/40 px-2.5 py-1 inline-block break-words max-w-full">
                           ✓ Confirmed by {alert.humanConfirmedBy}
                           {alert.humanConfirmedAt && (
-                            <span className="text-slate-400 ml-1">
+                            <span className="text-[#526778] ml-1">
                               ({alert.humanConfirmedAt})
                             </span>
                           )}
                         </div>
                       ) : alert.requiresHumanConfirmation ? (
-                        <div className="text-amber-400 bg-amber-950/60 border border-amber-500/50 px-2.5 py-1 inline-block break-words max-w-full">
+                        <div className="text-amber-800 bg-amber-100 border border-amber-500/50 px-2.5 py-1 inline-block break-words max-w-full">
                           ▲ Requires Human Confirmation
                         </div>
                       ) : (
-                        <div className="text-slate-500 text-[10px] break-words">
+                        <div className="text-[#526778] text-[10px] break-words">
                           Automated Telemetry Dispatch
                         </div>
                       )}
@@ -389,27 +389,27 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                   {/* Body Content */}
                   <div className="space-y-3 font-sans text-xs min-w-0 max-w-full">
                     {/* Probability & Forecast statement + Trigger Evidence */}
-                    <div className="bg-[#050812] border border-slate-800/90 p-2.5 sm:p-3 space-y-2">
+                    <div className="bg-[#FFFFFF] border border-[#D4E0E8] p-2.5 sm:p-3 space-y-2">
                       <div className="flex items-start gap-2">
-                        <span className="text-cyan-400 font-mono text-xs shrink-0 mt-0.5">ℹ</span>
-                        <p className="text-slate-200 font-medium text-xs leading-relaxed break-words flex-1">
+                        <span className="text-[#287FB5] font-mono text-xs shrink-0 mt-0.5">ℹ</span>
+                        <p className="text-[#263746] font-medium text-xs leading-relaxed break-words flex-1">
                           {alert.probabilityStatement}
                         </p>
                       </div>
 
-                      <div className="font-mono text-[11px] text-slate-400 bg-[#02050B] p-2 border border-slate-800/80 break-words min-w-0 max-w-full overflow-hidden">
-                        <strong className="text-slate-300">TRIGGER EVIDENCE: </strong>
-                        <span className="text-slate-400 break-words">{alert.triggerEvidence}</span>
+                      <div className="font-mono text-[11px] text-[#526778] bg-[#F7FAFC] p-2 border border-[#D4E0E8] break-words min-w-0 max-w-full overflow-hidden">
+                        <strong className="text-[#263746]">TRIGGER EVIDENCE: </strong>
+                        <span className="text-[#526778] break-words">{alert.triggerEvidence}</span>
                       </div>
                     </div>
 
                     {/* Recommended Actions Bullets */}
                     <div className="space-y-1.5 min-w-0 max-w-full">
-                      <div className="font-mono text-[11px] text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                      <div className="font-mono text-[11px] text-[#287FB5] font-semibold uppercase tracking-wider flex items-center gap-1.5">
                         <span>📋</span>
                         <span>Action Plan Directives:</span>
                       </div>
-                      <ul className="space-y-1 text-slate-300 pl-1 min-w-0 max-w-full">
+                      <ul className="space-y-1 text-[#263746] pl-1 min-w-0 max-w-full">
                         {alert.recommendedActionBullets &&
                         alert.recommendedActionBullets.length > 0 ? (
                           alert.recommendedActionBullets.map((b, idx) => (
@@ -428,13 +428,13 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                     </div>
 
                     {/* Target Audiences & Location Links */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px] min-w-0 max-w-full">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-[#D4E0E8] font-mono text-[11px] min-w-0 max-w-full">
                       <div className="flex flex-wrap items-center gap-1.5 min-w-0 max-w-full">
-                        <span className="text-slate-500 text-[10.5px]">DISPATCH RECIPIENTS:</span>
+                        <span className="text-[#526778] text-[10.5px]">DISPATCH RECIPIENTS:</span>
                         {alert.audiences.map((aud) => (
                           <span
                             key={aud}
-                            className="px-2 py-0.5 bg-slate-900 border border-slate-700 text-slate-300 text-[10.5px] break-words"
+                            className="px-2 py-0.5 bg-[#FFFFFF] border border-[#D4E0E8] text-[#263746] text-[10.5px] break-words"
                           >
                             {aud}
                           </span>
@@ -456,7 +456,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                               }
                             }
                           }}
-                          className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 text-xs font-semibold hover:underline cursor-pointer transition shrink-0"
+                          className="inline-flex items-center gap-1 text-[#287FB5] hover:text-[#287FB5] text-xs font-semibold hover:underline cursor-pointer transition shrink-0"
                         >
                           <span>Inspect Location on Map</span>
                           <span>→</span>
@@ -473,11 +473,11 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                   />
 
                   {/* Lifecycle State Transition & Acknowledgment Controls */}
-                  <div className="mt-3 pt-2.5 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 font-mono text-xs min-w-0 max-w-full">
+                  <div className="mt-3 pt-2.5 border-t border-[#D4E0E8] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 font-mono text-xs min-w-0 max-w-full">
                     {/* Left: Acknowledge & Accept Action / Status */}
                     <div className="flex flex-wrap items-center gap-2 min-w-0 max-w-full">
                       {isCitizen ? (
-                        <span className="text-[11px] font-mono px-2.5 py-1 border border-slate-700/60 bg-slate-900/60 text-slate-300 inline-flex items-center gap-1.5 break-words">
+                        <span className="text-[11px] font-mono px-2.5 py-1 border border-[#D4E0E8] bg-[#FFFFFF] text-[#263746] inline-flex items-center gap-1.5 break-words">
                           <span>{alert.acknowledged ? '✓ Official EOC Confirmed' : '● EOC Active Dispatch'}</span>
                         </span>
                       ) : canAcknowledge ? (
@@ -486,7 +486,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                           onClick={() => onAcknowledgeAlert?.(alert.id)}
                           className={`px-3 py-1.5 text-xs font-bold border transition cursor-pointer flex items-center gap-1.5 break-words ${
                             alert.acknowledged
-                              ? 'bg-emerald-950/80 border-emerald-500/60 text-emerald-300 hover:bg-emerald-900/80'
+                              ? 'bg-emerald-100 border-emerald-500/60 text-emerald-800 hover:bg-emerald-900/80'
                               : 'bg-amber-600 hover:bg-amber-500 border-amber-500 text-slate-950 shadow-sm'
                           }`}
                           title="Acknowledge and accept alert (Control-room operator authority)"
@@ -498,7 +498,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                         <button
                           type="button"
                           disabled
-                          className="px-2.5 py-1 text-xs font-semibold border border-slate-800 bg-slate-900/80 text-slate-500 cursor-not-allowed opacity-60 flex items-center gap-1.5 break-words"
+                          className="px-2.5 py-1 text-xs font-semibold border border-[#D4E0E8] bg-[#FFFFFF] text-[#526778] cursor-not-allowed opacity-60 flex items-center gap-1.5 break-words"
                           title="Only Control-room operator is authorized to acknowledge or accept alerts"
                         >
                           <span>🔒</span>
@@ -529,7 +529,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                 type="button"
                                 disabled
                                 title="Only Control-room operator is authorized to publish official alerts"
-                                className="px-2.5 py-1 bg-slate-900 border border-slate-800 text-slate-500 cursor-not-allowed opacity-60 font-semibold break-words"
+                                className="px-2.5 py-1 bg-[#FFFFFF] border border-[#D4E0E8] text-[#526778] cursor-not-allowed opacity-60 font-semibold break-words"
                               >
                                 🔒 Publish Restricted (Operator Only)
                               </button>
@@ -541,7 +541,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                 onClick={() =>
                                   onTransitionAlertLifecycle(alert.id, 'REJECTED')
                                 }
-                                className="px-2.5 py-1 bg-rose-950 hover:bg-rose-900 border border-rose-700 text-rose-300 cursor-pointer transition break-words"
+                                className="px-2.5 py-1 bg-rose-950 hover:bg-rose-900 border border-rose-700 text-rose-800 cursor-pointer transition break-words"
                               >
                                 Reject
                               </button>
@@ -579,7 +579,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                   type="button"
                                   disabled
                                   title="Only Control-room operator is authorized to publish official alerts"
-                                  className="px-2.5 py-1 bg-slate-900 border border-slate-800 text-slate-500 cursor-not-allowed opacity-60 font-semibold break-words"
+                                  className="px-2.5 py-1 bg-[#FFFFFF] border border-[#D4E0E8] text-[#526778] cursor-not-allowed opacity-60 font-semibold break-words"
                                 >
                                   🔒 Publish Restricted
                                 </button>
@@ -592,7 +592,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                 onClick={() =>
                                   onTransitionAlertLifecycle(alert.id, 'CANCELLED')
                                 }
-                                className="px-2 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-400 cursor-pointer transition break-words"
+                                className="px-2 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#526778] cursor-pointer transition break-words"
                               >
                                 Discard
                               </button>
@@ -610,7 +610,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                   onClick={() =>
                                     onTransitionAlertLifecycle(alert.id, 'UPDATED')
                                   }
-                                  className="px-2 py-1 bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-cyan-300 cursor-pointer transition break-words"
+                                  className="px-2 py-1 bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-[#287FB5] cursor-pointer transition break-words"
                                 >
                                   ↻ Broadcast Update
                                 </button>
@@ -619,7 +619,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                   onClick={() =>
                                     onTransitionAlertLifecycle(alert.id, 'EXPIRED')
                                   }
-                                  className="px-2 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-400 cursor-pointer transition break-words"
+                                  className="px-2 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#526778] cursor-pointer transition break-words"
                                 >
                                   Mark Expired
                                 </button>
@@ -634,7 +634,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                                 </button>
                               </>
                             ) : (
-                              <span className="text-[11px] text-slate-500 italic break-words">
+                              <span className="text-[11px] text-[#526778] italic break-words">
                                 Status modifications restricted to Control-room operator
                               </span>
                             )}
@@ -650,7 +650,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                               onClick={() =>
                                 onTransitionAlertLifecycle(alert.id, 'DRAFT')
                               }
-                              className="px-2 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 cursor-pointer transition break-words"
+                              className="px-2 py-1 bg-[#FFFFFF] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] cursor-pointer transition break-words"
                             >
                               Clone to Draft
                             </button>
@@ -671,7 +671,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           tabIndex={0}
           role="region"
           aria-label="EOC Live Command Audit Trail"
-          className={`w-full lg:w-80 xl:w-96 shrink-0 min-h-0 h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-4 bg-[#050811] min-w-0 max-w-full overflow-x-hidden border-t lg:border-t-0 border-slate-800 focus:outline-none custom-scrollbar ${
+          className={`w-full lg:w-80 xl:w-96 shrink-0 min-h-0 h-full overflow-y-auto overscroll-contain p-3 sm:p-4 space-y-4 bg-[#050811] min-w-0 max-w-full overflow-x-hidden border-t lg:border-t-0 border-[#D4E0E8] focus:outline-none custom-scrollbar ${
             desktopSplitView ? 'block' : 'hidden'
           } ${mobileView === 'alerts' ? 'hidden lg:block' : 'block'}`}
           style={{
@@ -680,33 +680,33 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
           }}
         >
           {/* EOC Human Confirmation Mandate Card */}
-          <div className="bg-[#090F1C] border border-cyan-900/60 p-3.5 space-y-2 min-w-0 max-w-full break-words">
-            <h4 className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-wide flex items-center gap-1.5">
+          <div className="bg-[#FFFFFF] border border-[#D4E0E8] p-3.5 space-y-2 min-w-0 max-w-full break-words">
+            <h4 className="font-mono text-xs font-bold text-[#287FB5] uppercase tracking-wide flex items-center gap-1.5">
               <span>🛡</span> EOC Dispatch Protocol
             </h4>
-            <p className="text-xs text-slate-300 leading-relaxed font-sans break-words">
+            <p className="text-xs text-[#263746] leading-relaxed font-sans break-words">
               Pursuant to NDMA and Indore Municipal Corporation disaster SOPs, any alert
-              escalated to <strong className="text-amber-300">ORANGE</strong> or{' '}
-              <strong className="text-rose-400">RED</strong> requires active human
+              escalated to <strong className="text-amber-800">ORANGE</strong> or{' '}
+              <strong className="text-rose-800">RED</strong> requires active human
               confirmation before dispatching automated SMS/PA alerts to citizens or field
               corridor closures.
             </p>
-            <div className="font-mono text-[11px] text-slate-400 space-y-1.5 border-t border-slate-800/80 pt-2 break-words">
+            <div className="font-mono text-[11px] text-[#526778] space-y-1.5 border-t border-[#D4E0E8] pt-2 break-words">
               <div className="flex flex-wrap items-center justify-between gap-1">
                 <span>Active Role Desk:</span>
-                <span className="text-slate-200 font-semibold break-words">{activeRole}</span>
+                <span className="text-[#263746] font-semibold break-words">{activeRole}</span>
               </div>
               <div className="flex flex-wrap items-center justify-between gap-1">
                 <span>Control Mode:</span>
-                <span className="text-emerald-400 font-semibold">
+                <span className="text-emerald-700 font-semibold">
                   HUMAN-IN-THE-LOOP (HITL)
                 </span>
               </div>
-              <div className="flex flex-wrap items-center justify-between gap-1 pt-1 border-t border-slate-800/60">
+              <div className="flex flex-wrap items-center justify-between gap-1 pt-1 border-t border-[#D4E0E8]">
                 <span>Desk Authority:</span>
                 <span
                   className={`font-semibold break-words ${
-                    isOperator ? 'text-emerald-400' : 'text-amber-400'
+                    isOperator ? 'text-emerald-700' : 'text-amber-800'
                   }`}
                 >
                   {isOperator
@@ -721,11 +721,11 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
 
           {/* Activity Feed Audit Log */}
           <div className="space-y-2 min-w-0 max-w-full">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-1.5 min-w-0">
-              <h4 className="font-mono text-xs font-semibold text-slate-300 uppercase tracking-wide">
+            <div className="flex items-center justify-between border-b border-[#D4E0E8] pb-1.5 min-w-0">
+              <h4 className="font-mono text-xs font-semibold text-[#263746] uppercase tracking-wide">
                 Live Command Log
               </h4>
-              <span className="font-mono text-[10px] text-slate-500">
+              <span className="font-mono text-[10px] text-[#526778]">
                 {activityFeed.length} EVENTS
               </span>
             </div>
@@ -734,29 +734,29 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
               {activityFeed.slice(0, 15).map((act) => (
                 <div
                   key={act.id}
-                  className="bg-[#070B14] border border-slate-800/80 p-2.5 font-mono text-[11px] space-y-1 min-w-0 max-w-full break-words overflow-hidden"
+                  className="bg-[#FFFFFF] border border-[#D4E0E8] p-2.5 font-mono text-[11px] space-y-1 min-w-0 max-w-full break-words overflow-hidden"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-1 text-slate-400 text-[10px] min-w-0">
-                    <span className="text-slate-500 shrink-0">{act.timestamp}</span>
+                  <div className="flex flex-wrap items-center justify-between gap-1 text-[#526778] text-[10px] min-w-0">
+                    <span className="text-[#526778] shrink-0">{act.timestamp}</span>
                     <span
                       className={`font-semibold break-words ${
                         act.severity === 'CRITICAL'
-                          ? 'text-rose-400'
+                          ? 'text-rose-800'
                           : act.severity === 'WARNING'
-                          ? 'text-amber-400'
+                          ? 'text-amber-800'
                           : act.severity === 'SUCCESS'
-                          ? 'text-emerald-400'
-                          : 'text-cyan-400'
+                          ? 'text-emerald-700'
+                          : 'text-[#287FB5]'
                       }`}
                     >
                       {act.eventTypeLabel || act.category}
                     </span>
                   </div>
-                  <div className="text-slate-200 font-sans font-medium text-xs break-words min-w-0 max-w-full">
+                  <div className="text-[#263746] font-sans font-medium text-xs break-words min-w-0 max-w-full">
                     {act.message}
                   </div>
                   {act.detail && (
-                    <div className="text-slate-400 text-[10.5px] leading-snug break-words min-w-0 max-w-full">
+                    <div className="text-[#526778] text-[10.5px] leading-snug break-words min-w-0 max-w-full">
                       {act.detail}
                     </div>
                   )}
@@ -765,7 +765,7 @@ export const AlertCommandWorkspace: React.FC<AlertCommandWorkspaceProps> = ({
                       <button
                         type="button"
                         onClick={() => onSelectMapTarget(act.relatedTarget!)}
-                        className="text-cyan-400 hover:underline text-[10px] cursor-pointer break-words max-w-full text-left"
+                        className="text-[#287FB5] hover:underline text-[10px] cursor-pointer break-words max-w-full text-left"
                       >
                         Target: {act.relatedTarget.type} · {act.relatedTarget.id} →
                       </button>

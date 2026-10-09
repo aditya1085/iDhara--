@@ -1525,27 +1525,27 @@ export default function App() {
   }, [params.stage, roads]);
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-[#06090F] text-slate-100 overflow-hidden font-sans">
+    <div className="flex flex-col h-screen w-screen bg-[#EDF3F7] text-[#263746] overflow-hidden font-sans">
       {/* 1. TOP COMMAND & STATUS BAR — EMERGENCY OPERATIONS CENTER TELEMETRY */}
-      <header className="h-11 px-3 bg-[#080D18] border-b border-slate-800 flex items-center justify-between gap-2.5 text-xs font-mono shrink-0 select-none overflow-x-auto">
+      <header className="h-11 px-3 bg-[#F7FAFC] border-b border-[#D4E0E8] flex items-center justify-between gap-2.5 text-xs font-mono shrink-0 select-none overflow-x-auto text-[#263746]">
         {/* Left: Nav Toggle & Operational Unit */}
         <div className="flex items-center gap-2 shrink-0">
           <button
             type="button"
             onClick={() => setIsSidebarOpen((prev) => !prev)}
-            className="p-1.5 bg-[#0D1422] hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white text-xs font-mono transition-colors"
+            className="p-1.5 bg-[#EDF3F7] hover:bg-[#D4E0E8] border border-[#D4E0E8] text-[#263746] hover:text-[#287FB5] text-xs font-mono transition-colors cursor-pointer rounded-xs"
             title="Toggle Left Navigation Rail"
             aria-label="Toggle Navigation Sidebar"
           >
             ☰
           </button>
-          <Logo size="sm" />
+          <Logo size="sm" showText={true} showSubtitle={false} showBadge={true} />
         </div>
 
         {/* Center: PRIMARY EOC METRICS (MODE · LOCATION · RISK · RAINFALL · CONFIDENCE · HEALTH) */}
         <div className="flex items-center gap-2 text-xs font-mono shrink-0">
           {/* Mode Selector Segmented Control */}
-          <div className="flex items-center bg-[#05080E] border border-slate-800 p-0.5">
+          <div className="flex items-center bg-[#EDF3F7] border border-[#D4E0E8] p-0.5 rounded-xs">
             {[ProductMode.LIVE, ProductMode.SIMULATED, ProductMode.HISTORICAL, ProductMode.MOCK].map((m) => {
               const active = params.mode === m;
               return (
@@ -1553,16 +1553,16 @@ export default function App() {
                   key={m}
                   type="button"
                   onClick={() => handleSwitchMode(m)}
-                  className={`px-2 py-0.5 text-[10px] font-bold transition-all cursor-pointer ${
+                  className={`px-2 py-0.5 text-[10px] font-bold transition-all cursor-pointer rounded-xs ${
                     active
                       ? m === ProductMode.LIVE
-                        ? 'bg-emerald-500 text-slate-950 font-bold'
+                        ? 'bg-[#258C91] text-white font-bold shadow-xs'
                         : m === ProductMode.SIMULATED
-                        ? 'bg-cyan-500 text-slate-950 font-bold'
+                        ? 'bg-[#287FB5] text-white font-bold shadow-xs'
                         : m === ProductMode.MOCK
-                        ? 'bg-fuchsia-400 text-slate-950 font-bold'
-                        : 'bg-amber-500 text-slate-950 font-bold'
-                      : 'text-slate-400 hover:text-slate-200'
+                        ? 'bg-purple-600 text-white font-bold shadow-xs'
+                        : 'bg-amber-600 text-white font-bold shadow-xs'
+                      : 'text-[#526778] hover:text-[#263746]'
                   }`}
                   title={
                     m === ProductMode.MOCK
@@ -1585,21 +1585,21 @@ export default function App() {
           </div>
 
           {/* 1. LOCATION */}
-          <div className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-[#080D18] border border-slate-800/80 text-[11px]">
-            <span className="text-slate-400 text-[10px]">LOC:</span>
-            <span className="text-slate-200 font-semibold">Indore Pilot (5×5 km)</span>
+          <div className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[11px] rounded-xs">
+            <span className="text-[#526778] text-[10px]">LOC:</span>
+            <span className="text-[#263746] font-semibold">Indore Pilot (5×5 km)</span>
           </div>
 
           {/* 2. RAINFALL */}
-          <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#080D18] border border-slate-800/80 text-[11px]">
-            <span className="text-slate-400 text-[10px]">RAIN:</span>
-            <span className="text-sky-300 font-bold tabular-nums">{params.rainfallIntensityMmHr} mm/h</span>
+          <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[11px] rounded-xs">
+            <span className="text-[#526778] text-[10px]">RAIN:</span>
+            <span className="text-[#287FB5] font-bold tabular-nums">{params.rainfallIntensityMmHr} mm/h</span>
           </div>
 
           {/* 3. CONFIDENCE */}
-          <div className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-[#080D18] border border-slate-800/80 text-[11px]">
-            <span className="text-slate-400 text-[10px]">CONF:</span>
-            <span className="text-cyan-300 font-bold tabular-nums">{Math.round(dataHealthReport.confidence * 100)}%</span>
+          <div className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[11px] rounded-xs">
+            <span className="text-[#526778] text-[10px]">CONF:</span>
+            <span className="text-[#258C91] font-bold tabular-nums">{Math.round(dataHealthReport.confidence * 100)}%</span>
           </div>
         </div>
 
@@ -1610,7 +1610,7 @@ export default function App() {
             aria-label="Operator Role Perspective"
             value={activeRole}
             onChange={(e) => handleSwitchRole(e.target.value as UserRole)}
-            className="bg-[#0D1422] border border-slate-700 text-slate-200 px-2 py-1 text-[11px] font-mono inline-block max-w-[140px] sm:max-w-none cursor-pointer"
+            className="bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] px-2 py-1 text-[11px] font-mono inline-block max-w-[140px] sm:max-w-none cursor-pointer rounded-xs"
           >
             <option value={UserRole.CONTROL_ROOM_OPERATOR}>Control-room operator</option>
             <option value={UserRole.ANALYST_MODEL_OPERATOR}>Analyst / Model Operator</option>
@@ -1622,10 +1622,10 @@ export default function App() {
           <button
             type="button"
             onClick={() => setIsInspectorOpen((prev) => !prev)}
-            className={`px-2.5 py-1 border text-[11px] font-mono transition-colors whitespace-nowrap cursor-pointer ${
+            className={`px-2.5 py-1 border text-[11px] font-mono transition-colors whitespace-nowrap cursor-pointer rounded-xs ${
               isInspectorOpen
-                ? 'bg-slate-800 border-slate-600 text-slate-200'
-                : 'bg-[#0E1524] border-slate-800 text-slate-400 hover:text-white'
+                ? 'bg-[#287FB5] border-[#287FB5] text-white font-medium shadow-xs'
+                : 'bg-[#EDF3F7] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
             }`}
             title="Toggle Right Intelligence Inspector"
             aria-label="Toggle Inspector Panel"
@@ -1636,7 +1636,7 @@ export default function App() {
       </header>
 
       {/* SUB-HEADER: SITUATIONAL DIRECTIVE & STAGE RIBBON */}
-      <div className={`h-6.5 px-3 border-b ${modeMeta.borderClass} ${modeMeta.bgClass} flex items-center justify-between text-[11px] font-mono shrink-0 select-none overflow-hidden`}>
+      <div className={`h-7 px-3 border-b ${modeMeta.borderClass} ${modeMeta.bgClass} flex items-center justify-between text-[11px] font-mono shrink-0 select-none overflow-hidden text-[#263746]`}>
         <div className="flex items-center gap-2 truncate">
           <span className={`font-bold ${modeMeta.accentText} shrink-0 flex items-center gap-1`}>
             <span>{modeMeta.indicatorSymbol}</span>
@@ -1648,22 +1648,22 @@ export default function App() {
                 : params.mode}
             </span>
           </span>
-          <span className="text-slate-600">·</span>
-          <span className="text-cyan-300 font-semibold truncate shrink-0">
+          <span className="text-[#D4E0E8]">·</span>
+          <span className="text-[#287FB5] font-semibold truncate shrink-0">
             Stage: {DISASTER_STAGE_INFO[params.stage]?.label ?? params.stage}
           </span>
-          <span className="text-slate-600 hidden md:inline">·</span>
+          <span className="text-[#D4E0E8] hidden md:inline">·</span>
           {/* RECOMMENDED ACTION DIRECTIVE */}
           <div className="hidden md:flex items-center gap-1.5 truncate">
-            <span className="text-amber-400 font-bold shrink-0">DIRECTIVE:</span>
-            <span className="text-amber-200 truncate">
+            <span className="text-amber-700 font-bold shrink-0">DIRECTIVE:</span>
+            <span className="text-[#526778] truncate font-sans">
               {isAnalystOrModelOperator(activeRole)
                 ? 'ANALYST / MODEL OPERATOR: Evaluate 64-cell hydrological feature vectors, sensor drift, and model calibration residuals.'
                 : primaryRecommendedAction}
             </span>
           </div>
         </div>
-        <div className="text-slate-400 shrink-0 text-[10.5px] hidden sm:block tabular-nums">
+        <div className="text-[#526778] shrink-0 text-[10.5px] hidden sm:block tabular-nums font-mono">
           Scope: {PILOT_SCOPE_ID}
         </div>
       </div>
@@ -1674,9 +1674,16 @@ export default function App() {
         {isSidebarOpen && (
           <nav
             aria-label="Primary Control Room Navigation"
-            className="w-48 lg:w-52 shrink-0 bg-[#080D18] border-r border-slate-800 flex flex-col justify-between overflow-y-auto select-none"
+            className="w-52 lg:w-56 shrink-0 bg-[#F7FAFC] border-r border-[#D4E0E8] flex flex-col justify-between overflow-y-auto select-none"
           >
             <div className="p-2 space-y-1">
+              <div className="px-2.5 py-2 mb-1 border-b border-[#D4E0E8] flex items-center gap-2 bg-[#F7FAFC]">
+                <img src="/logo.jpg" alt="iDhara" className="h-7.5 w-auto object-contain mix-blend-multiply" />
+                <div className="flex flex-col leading-none">
+                  <span className="font-bold text-xs text-[#263746] font-sans">iDhara Console</span>
+                  <span className="text-[9px] text-[#526778] font-mono">Indore 5×5 km</span>
+                </div>
+              </div>
               {NAV_ITEMS.map((item) => {
                 const isActive = activeTab === item.id;
                 const unackCount =
@@ -1688,15 +1695,15 @@ export default function App() {
                     key={item.id}
                     type="button"
                     onClick={() => handleNavigateTab(item.id)}
-                    className={`w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-medium transition-colors whitespace-nowrap ${
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-medium transition-colors whitespace-nowrap rounded-xs ${
                       isActive
-                        ? 'bg-cyan-950/60 text-cyan-200 border-l-2 border-cyan-400 font-semibold'
-                        : 'text-slate-300 hover:bg-slate-900/80 hover:text-white'
+                        ? 'bg-[#EDF3F7] text-[#287FB5] border-l-3 border-[#287FB5] font-bold shadow-xs'
+                        : 'text-[#526778] hover:bg-[#EDF3F7]/70 hover:text-[#263746]'
                     }`}
                   >
                     <span>{item.label}</span>
                     {unackCount > 0 && (
-                      <span className="font-mono text-[10px] text-amber-300 font-bold px-1.5 py-0.2 bg-amber-950/60 border border-amber-800/60">
+                      <span className="font-mono text-[10px] text-amber-800 font-bold px-1.5 py-0.2 bg-amber-100 border border-amber-300 rounded-xs">
                         {unackCount}
                       </span>
                     )}
@@ -1705,18 +1712,18 @@ export default function App() {
               })}
             </div>
 
-            <div className="p-2.5 border-t border-slate-800 bg-[#060A12] flex items-center gap-2">
+            <div className="p-2.5 border-t border-[#D4E0E8] bg-[#F0F5F8] flex items-center gap-2">
               <Logo size="xs" showText={false} />
-              <div className="font-mono text-[10px] text-slate-400 space-y-0.2 min-w-0">
-                <div className="text-slate-200 font-semibold truncate">iDhara · Indore 5×5 km</div>
-                <div className="text-slate-500 text-[9px] truncate">Urban Flood & Disaster Twin</div>
+              <div className="font-mono text-[10px] text-[#526778] space-y-0.2 min-w-0">
+                <div className="text-[#263746] font-semibold truncate">iDhara · Indore 5×5 km</div>
+                <div className="text-[#526778] text-[9px] truncate">Urban Flood & Disaster Twin</div>
               </div>
             </div>
           </nav>
         )}
 
         {/* 3. CENTRAL WORKSPACE COLUMN */}
-        <main className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden bg-[#05080E]">
+        <main className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden bg-[#EDF3F7]">
           {activeTab === 'disaster-twin' ? (
             <DisasterTwinWorkspace
               baselineParams={params}
@@ -1848,9 +1855,9 @@ export default function App() {
               />
             </div>
           ) : activeTab === 'overview' ? (
-            <div className="flex-1 min-h-0 overflow-y-auto flex flex-col bg-[#05080E]">
+            <div className="flex-1 min-h-0 overflow-y-auto flex flex-col bg-[#EDF3F7]">
               {/* Contextual Command Center Overview Strip (Situation + Operational Chain + Activity Feed) */}
-              <div className="shrink-0 bg-[#080C14] border-b border-slate-800">
+              <div className="shrink-0 bg-[#F7FAFC] border-b border-[#D4E0E8]">
                 <ModuleWorkspace
                   activeTab="overview"
                   params={params}
@@ -1944,13 +1951,13 @@ export default function App() {
             <div className="flex-1 flex flex-col min-h-0 overflow-hidden relative">
               {/* Contextual Top Action Ribbon for Roads & Routing */}
               {activeTab === 'roads-routing' && (
-                <div className="h-9 px-3 bg-[#080C14] border-b border-slate-800 flex items-center justify-between gap-2 text-[11px] font-mono shrink-0 overflow-x-auto no-scrollbar">
+                <div className="h-9 px-3 bg-[#F7FAFC] border-b border-[#D4E0E8] flex items-center justify-between gap-2 text-[11px] font-mono shrink-0 overflow-x-auto no-scrollbar text-[#263746]">
                   <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-cyan-400 font-bold shrink-0">ROUTING:</span>
+                    <span className="text-[#287FB5] font-bold shrink-0">ROUTING:</span>
                     <select
                       value={customOriginId}
                       onChange={(e) => handleChangeCustomRoute(e.target.value, customDestId)}
-                      className="bg-[#05080E] border border-slate-700 text-slate-200 px-1.5 py-0.5 text-[10.5px] max-w-[170px]"
+                      className="bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] px-1.5 py-0.5 text-[10.5px] max-w-[170px] rounded-xs cursor-pointer"
                     >
                       {INTERSECTION_NODES.map((n) => (
                         <option key={`orig-${n.id}`} value={n.id}>
@@ -1958,11 +1965,11 @@ export default function App() {
                         </option>
                       ))}
                     </select>
-                    <span className="text-slate-600">→</span>
+                    <span className="text-[#526778]">→</span>
                     <select
                       value={customDestId}
                       onChange={(e) => handleChangeCustomRoute(customOriginId, e.target.value)}
-                      className="bg-[#05080E] border border-slate-700 text-slate-200 px-1.5 py-0.5 text-[10.5px] max-w-[170px]"
+                      className="bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] px-1.5 py-0.5 text-[10.5px] max-w-[170px] rounded-xs cursor-pointer"
                     >
                       {INTERSECTION_NODES.map((n) => (
                         <option key={`dest-${n.id}`} value={n.id}>
@@ -1974,7 +1981,7 @@ export default function App() {
                     <select
                       value={travelProfile}
                       onChange={(e) => handleChangeTravelProfile(e.target.value as TravelProfile)}
-                      className="bg-[#05080E] border border-slate-700 text-cyan-300 px-1.5 py-0.5 text-[10.5px]"
+                      className="bg-[#EDF3F7] border border-[#D4E0E8] text-[#287FB5] font-semibold px-1.5 py-0.5 text-[10.5px] rounded-xs cursor-pointer"
                     >
                       <option value="AMBULANCE">🚑 Ambulance Profile</option>
                       <option value="EMERGENCY_RESPONDER">🚒 Responder Profile</option>
@@ -1986,7 +1993,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={handleTriggerDemoIncident}
-                      className="px-2 py-0.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400 text-amber-200 font-bold text-[10.5px] transition-colors"
+                      className="px-2 py-0.5 bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 font-bold text-[10.5px] transition-colors rounded-xs cursor-pointer"
                       title="Trigger RD-05 road closure incident to demonstrate real-time Dijkstra rerouting"
                     >
                       ⚡ Demo incident
@@ -1994,7 +2001,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={handleTriggerNoFeasibleRouteDemo}
-                      className="px-2 py-0.5 bg-rose-950/60 hover:bg-rose-900 border border-rose-500 text-rose-200 text-[10.5px] transition-colors"
+                      className="px-2 py-0.5 bg-rose-100 hover:bg-rose-200 border border-rose-300 text-rose-900 text-[10.5px] transition-colors rounded-xs cursor-pointer"
                       title="Simulate all outbound corridors severed to demonstrate NO FEASIBLE ROUTE handling"
                     >
                       ✖ Test No Route
@@ -2002,7 +2009,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setIsCorridorTableOpen((p) => !p)}
-                      className="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-[10.5px] transition-colors"
+                      className="px-2 py-0.5 bg-[#EDF3F7] hover:bg-[#D4E0E8] border border-[#D4E0E8] text-[#263746] text-[10.5px] transition-colors rounded-xs cursor-pointer"
                     >
                       {isCorridorTableOpen ? 'Hide 18-Road Table' : 'Show 18-Road Table'}
                     </button>
@@ -2012,11 +2019,11 @@ export default function App() {
 
               {/* Contextual Top Action Ribbon for Evacuation */}
               {activeTab === 'evacuation' && (
-                <div className="h-9 px-3 bg-[#080C14] border-b border-slate-800 flex items-center justify-between gap-2 text-[11px] font-mono shrink-0 overflow-x-auto no-scrollbar">
+                <div className="h-9 px-3 bg-[#F7FAFC] border-b border-[#D4E0E8] flex items-center justify-between gap-2 text-[11px] font-mono shrink-0 overflow-x-auto no-scrollbar text-[#263746]">
                   <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-emerald-400 font-bold shrink-0">EVACUATION:</span>
-                    <span className="text-slate-300">
-                      Threshold: <strong className="text-amber-300">{Math.round(evacuationConfig.thresholdProbability * 100)}%</strong>
+                    <span className="text-[#258C91] font-bold shrink-0">EVACUATION:</span>
+                    <span className="text-[#526778]">
+                      Threshold: <strong className="text-amber-700">{Math.round(evacuationConfig.thresholdProbability * 100)}%</strong>
                     </span>
                     <input
                       type="range"
@@ -2025,11 +2032,11 @@ export default function App() {
                       step={5}
                       value={Math.round(evacuationConfig.thresholdProbability * 100)}
                       onChange={(e) => handleChangeEvacuationThreshold(Number(e.target.value) / 100)}
-                      className="w-16 accent-amber-400 cursor-pointer"
+                      className="w-16 accent-amber-600 cursor-pointer"
                     />
-                    <span className="text-slate-600">·</span>
-                    <span className="text-slate-300">
-                      Scale: <strong className="text-cyan-300">{evacuationConfig.shelterCapacityScalePct}%</strong>
+                    <span className="text-[#D4E0E8]">·</span>
+                    <span className="text-[#526778]">
+                      Scale: <strong className="text-[#287FB5]">{evacuationConfig.shelterCapacityScalePct}%</strong>
                     </span>
                   </div>
 
@@ -2037,10 +2044,10 @@ export default function App() {
                     <button
                       type="button"
                       onClick={handleToggleManualEvacuation}
-                      className={`px-2 py-0.5 border text-[10.5px] font-bold ${
+                      className={`px-2 py-0.5 border text-[10.5px] font-bold rounded-xs cursor-pointer ${
                         evacuationConfig.manualModeActive
-                          ? 'bg-amber-500/30 border-amber-400 text-amber-200'
-                          : 'bg-slate-800 border-slate-700 text-slate-300'
+                          ? 'bg-amber-100 border-amber-300 text-amber-800'
+                          : 'bg-[#EDF3F7] border-[#D4E0E8] text-[#526778]'
                       }`}
                     >
                       {evacuationConfig.manualModeActive ? '● Manual Active' : '○ Auto Active'}
@@ -2048,7 +2055,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setIsShelterTableOpen((p) => !p)}
-                      className="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-[10.5px] transition-colors"
+                      className="px-2 py-0.5 bg-[#EDF3F7] hover:bg-[#D4E0E8] border border-[#D4E0E8] text-[#263746] text-[10.5px] transition-colors rounded-xs cursor-pointer"
                     >
                       {isShelterTableOpen ? 'Hide Shelter Table' : 'Show Shelter Table'}
                     </button>
@@ -2093,20 +2100,20 @@ export default function App() {
 
                 {/* Optional Expandable Modal/Drawer for Corridor Table */}
                 {activeTab === 'roads-routing' && isCorridorTableOpen && (
-                  <div className="absolute inset-x-0 bottom-0 max-h-72 bg-[#090E18] border-t-2 border-cyan-500 shadow-2xl z-30 flex flex-col">
-                    <div className="px-3 py-1.5 bg-[#0D1424] border-b border-slate-800 flex items-center justify-between font-mono text-xs">
-                      <span className="text-cyan-300 font-bold">18-ROAD CORRIDOR ROUTING GRAPH ANALYSIS</span>
+                  <div className="absolute inset-x-0 bottom-0 max-h-72 bg-[#F7FAFC] border-t-2 border-[#287FB5] shadow-2xl z-30 flex flex-col text-[#263746]">
+                    <div className="px-3 py-1.5 bg-[#EDF3F7] border-b border-[#D4E0E8] flex items-center justify-between font-mono text-xs">
+                      <span className="text-[#287FB5] font-bold">18-ROAD CORRIDOR ROUTING GRAPH ANALYSIS</span>
                       <button
                         type="button"
                         onClick={() => setIsCorridorTableOpen(false)}
-                        className="text-slate-400 hover:text-white font-bold"
+                        className="text-[#526778] hover:text-[#263746] font-bold cursor-pointer"
                       >
                         ✕ Close Table
                       </button>
                     </div>
                     <div className="overflow-auto flex-1 p-2">
-                      <table className="w-full text-left font-mono text-[11px] text-slate-300">
-                        <thead className="bg-[#05080F] text-slate-400 border-b border-slate-800">
+                      <table className="w-full text-left font-mono text-[11px] text-[#263746]">
+                        <thead className="bg-[#EDF3F7] text-[#526778] border-b border-[#D4E0E8]">
                           <tr>
                             <th className="p-1.5">Road</th>
                             <th className="p-1.5">Corridor</th>
@@ -2116,27 +2123,27 @@ export default function App() {
                             <th className="p-1.5">Action</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-800/60">
+                        <tbody className="divide-y divide-[#D4E0E8]">
                           {roads.map((r) => (
-                            <tr key={r.id} className="hover:bg-slate-800/50">
-                              <td className="p-1.5 font-bold text-white">{r.id}</td>
+                            <tr key={r.id} className="hover:bg-[#EDF3F7]/80">
+                              <td className="p-1.5 font-bold text-[#263746]">{r.id}</td>
                               <td className="p-1.5 truncate max-w-xs">{r.name}</td>
                               <td className="p-1.5">
-                                <span className={`px-1.5 py-0.5 text-[10px] ${r.currentState === RoadStatus.CLOSED ? 'bg-rose-950 text-rose-300 border border-rose-600' : r.currentState === RoadStatus.LIKELY_FLOODED ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'bg-emerald-950 text-emerald-300 border border-emerald-600'}`}>
+                                <span className={`px-1.5 py-0.5 text-[10px] rounded-xs font-semibold ${r.currentState === RoadStatus.CLOSED ? 'bg-rose-100 text-rose-800 border border-rose-300' : r.currentState === RoadStatus.LIKELY_FLOODED ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'bg-emerald-100 text-emerald-800 border border-emerald-300'}`}>
                                   {r.currentState}
                                 </span>
                               </td>
                               <td className="p-1.5">{r.estimatedWaterDepthCm} cm</td>
                               <td className="p-1.5">
                                 {r.riskPenaltyMin === Number.POSITIVE_INFINITY
-                                  ? 'BLOCKED'
-                                  : `+${r.riskPenaltyMin}m`}
+                                   ? 'BLOCKED'
+                                   : `+${r.riskPenaltyMin}m`}
                               </td>
                               <td className="p-1.5">
                                 <button
                                   type="button"
                                   onClick={() => setSelectedTarget({ type: 'ROAD', id: r.id })}
-                                  className="text-cyan-400 hover:underline text-[10px]"
+                                  className="text-[#287FB5] hover:underline text-[10px] font-semibold cursor-pointer"
                                 >
                                   Inspect →
                                 </button>
@@ -2151,20 +2158,20 @@ export default function App() {
 
                 {/* Optional Expandable Modal/Drawer for Shelter Table */}
                 {activeTab === 'evacuation' && isShelterTableOpen && (
-                  <div className="absolute inset-x-0 bottom-0 max-h-72 bg-[#090E18] border-t-2 border-emerald-500 shadow-2xl z-30 flex flex-col">
-                    <div className="px-3 py-1.5 bg-[#0D1424] border-b border-slate-800 flex items-center justify-between font-mono text-xs">
-                      <span className="text-emerald-300 font-bold">EMERGENCY SHELTER CAPACITY & DISPATCH MANIFEST</span>
+                  <div className="absolute inset-x-0 bottom-0 max-h-72 bg-[#F7FAFC] border-t-2 border-[#258C91] shadow-2xl z-30 flex flex-col text-[#263746]">
+                    <div className="px-3 py-1.5 bg-[#EDF3F7] border-b border-[#D4E0E8] flex items-center justify-between font-mono text-xs">
+                      <span className="text-[#258C91] font-bold">EMERGENCY SHELTER CAPACITY & DISPATCH MANIFEST</span>
                       <button
                         type="button"
                         onClick={() => setIsShelterTableOpen(false)}
-                        className="text-slate-400 hover:text-white font-bold"
+                        className="text-[#526778] hover:text-[#263746] font-bold cursor-pointer"
                       >
                         ✕ Close Table
                       </button>
                     </div>
                     <div className="overflow-auto flex-1 p-2">
-                      <table className="w-full text-left font-mono text-[11px] text-slate-300">
-                        <thead className="bg-[#05080F] text-slate-400 border-b border-slate-800">
+                      <table className="w-full text-left font-mono text-[11px] text-[#263746]">
+                        <thead className="bg-[#EDF3F7] text-[#526778] border-b border-[#D4E0E8]">
                           <tr>
                             <th className="p-1.5">Shelter</th>
                             <th className="p-1.5">Location</th>
@@ -2174,16 +2181,16 @@ export default function App() {
                             <th className="p-1.5">Reachable</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-800/60">
+                        <tbody className="divide-y divide-[#D4E0E8]">
                           {shelters.map((sh) => (
-                            <tr key={sh.id} className="hover:bg-slate-800/50">
-                              <td className="p-1.5 font-bold text-white">{sh.id}</td>
+                            <tr key={sh.id} className="hover:bg-[#EDF3F7]/80">
+                              <td className="p-1.5 font-bold text-[#263746]">{sh.id}</td>
                               <td className="p-1.5 truncate max-w-xs">{sh.name}</td>
                               <td className="p-1.5">{sh.totalCapacity}</td>
                               <td className="p-1.5">{sh.currentOccupancy}</td>
-                              <td className="p-1.5 text-emerald-300 font-bold">{sh.remainingCapacity}</td>
+                              <td className="p-1.5 text-emerald-700 font-bold">{sh.remainingCapacity}</td>
                               <td className="p-1.5">
-                                <span className={`px-1.5 py-0.5 text-[10px] ${sh.reachable ? 'text-emerald-300 bg-emerald-950/60 border border-emerald-600' : 'text-rose-300 bg-rose-950/60 border border-rose-600'}`}>
+                                <span className={`px-1.5 py-0.5 text-[10px] rounded-xs font-semibold ${sh.reachable ? 'text-emerald-800 bg-emerald-100 border border-emerald-300' : 'text-rose-800 bg-rose-100 border border-rose-300'}`}>
                                   {sh.reachable ? 'YES' : 'CUT OFF'}
                                 </span>
                               </td>
@@ -2226,13 +2233,13 @@ export default function App() {
       </div>
 
       {/* 5. BOTTOM EVENT TIMELINE (PAST · NOW · NEXT FORECAST PERIOD) */}
-      <footer className="h-10 px-3 bg-[#080C14] border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs shrink-0 select-none overflow-x-auto">
+      <footer className="h-10 px-3 bg-[#F7FAFC] border-t border-[#D4E0E8] flex items-center justify-between gap-3 font-mono text-xs shrink-0 select-none overflow-x-auto text-[#263746]">
         {/* Left: Transport Controls */}
         <div className="flex items-center gap-1.5 shrink-0">
           <button
             type="button"
             onClick={() => handleStepTimeline(-1)}
-            className="px-2 py-0.5 bg-[#0D1320] hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold"
+            className="px-2 py-0.5 bg-[#EDF3F7] hover:bg-[#D4E0E8] border border-[#D4E0E8] text-[#263746] text-xs font-semibold rounded-xs cursor-pointer"
             title="Step backward 1 hour"
           >
             ⏮
@@ -2240,28 +2247,28 @@ export default function App() {
           <button
             type="button"
             onClick={handleTogglePlayTimeline}
-            className={`px-2.5 py-0.5 font-bold text-xs border transition-colors flex items-center gap-1 cursor-pointer ${
+            className={`px-2.5 py-0.5 font-bold text-xs border transition-colors flex items-center gap-1 cursor-pointer rounded-xs ${
               isPlayingTimeline
-                ? 'bg-amber-500/20 border-amber-400 text-amber-200'
-                : 'bg-cyan-950/70 hover:bg-cyan-900 border-cyan-500/60 text-cyan-200'
+                ? 'bg-amber-100 border-amber-300 text-amber-800'
+                : 'bg-[#287FB5] hover:bg-[#206996] border-[#287FB5] text-white'
             }`}
           >
             {isPlayingTimeline ? '❚❚ Pause' : '▶ Play'}
           </button>
           {isPlayingTimeline ? (
-            <span className="px-2 py-0.5 bg-cyan-950/80 border border-cyan-400/80 text-cyan-200 text-[10.5px] font-bold whitespace-nowrap flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span className="px-2 py-0.5 bg-sky-100 border border-sky-300 text-[#287FB5] text-[10.5px] font-bold whitespace-nowrap flex items-center gap-1.5 rounded-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#287FB5] animate-pulse"></span>
               RUNNING ({params.timelineHourOffset >= 0 ? `T+${params.timelineHourOffset}h` : `T${params.timelineHourOffset}h`})
             </span>
           ) : (
-            <span className="px-2 py-0.5 bg-[#0D1320] border border-slate-800 text-slate-400 text-[10px] whitespace-nowrap">
+            <span className="px-2 py-0.5 bg-[#EDF3F7] border border-[#D4E0E8] text-[#526778] text-[10px] whitespace-nowrap rounded-xs">
               ● SYNCED
             </span>
           )}
           <button
             type="button"
             onClick={() => handleStepTimeline(1)}
-            className="px-2 py-0.5 bg-[#0D1320] hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold"
+            className="px-2 py-0.5 bg-[#EDF3F7] hover:bg-[#D4E0E8] border border-[#D4E0E8] text-[#263746] text-xs font-semibold rounded-xs cursor-pointer"
             title="Step forward 1 hour"
           >
             ⏭
@@ -2272,10 +2279,10 @@ export default function App() {
                 key={spd}
                 type="button"
                 onClick={() => setReplaySpeed(spd)}
-                className={`px-1.5 py-0.5 border text-[10px] font-bold ${
+                className={`px-1.5 py-0.5 border text-[10px] font-bold rounded-xs cursor-pointer ${
                   replaySpeed === spd
-                    ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200'
-                    : 'bg-[#0D1320] border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#287FB5] border-[#287FB5] text-white'
+                    : 'bg-[#EDF3F7] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 {spd}x
@@ -2304,19 +2311,19 @@ export default function App() {
                     resolveTimelineStepParameters(prev, step.hourOffset)
                   );
                 }}
-                className={`px-2 py-0.5 text-[10.5px] border transition-all whitespace-nowrap tabular-nums flex items-center gap-1.5 ${
+                className={`px-2 py-0.5 text-[10.5px] border transition-all whitespace-nowrap tabular-nums flex items-center gap-1.5 rounded-xs cursor-pointer ${
                   isCurrent
-                    ? 'bg-cyan-500/20 border-cyan-400 text-white font-semibold'
+                    ? 'bg-[#287FB5] border-[#287FB5] text-white font-semibold shadow-xs'
                     : step.hourOffset === 0
-                    ? 'bg-emerald-950/40 border-emerald-500/60 text-emerald-300'
-                    : 'bg-[#0A0F1A] border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-emerald-100 border-emerald-300 text-emerald-800 font-semibold'
+                    : 'bg-[#EDF3F7] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
-                <span className={`text-[8.5px] font-bold ${periodCategory === 'NOW' ? 'text-emerald-400' : periodCategory === 'FCST' ? 'text-amber-400' : 'text-slate-500'}`}>
+                <span className={`text-[8.5px] font-bold ${periodCategory === 'NOW' ? 'text-emerald-700' : periodCategory === 'FCST' ? 'text-amber-700' : 'text-[#526778]'}`}>
                   {periodCategory}
                 </span>
                 <span>{step.hourOffset >= 0 ? `T+${step.hourOffset}h` : `T${step.hourOffset}h`}</span>
-                <span className="text-sky-300 font-mono text-[10px]">{step.mmHr}mm/h</span>
+                <span className="text-[#287FB5] font-mono text-[10px] font-semibold">{step.mmHr}mm/h</span>
               </button>
             );
           })}
@@ -2324,7 +2331,7 @@ export default function App() {
 
         {/* Right: Quick Rainfall Scrubber */}
         <div className="flex items-center gap-2 text-[11px] shrink-0">
-          <label htmlFor="footer-rain-range" className="text-slate-400 text-[10.5px]">
+          <label htmlFor="footer-rain-range" className="text-[#526778] text-[10.5px]">
             Rain:
           </label>
           <input
@@ -2342,9 +2349,9 @@ export default function App() {
                 rainfallIntensityMmHr: Number(e.target.value),
               }));
             }}
-            className="w-18 accent-cyan-400 cursor-pointer"
+            className="w-18 accent-[#287FB5] cursor-pointer"
           />
-          <span className="text-sky-300 font-semibold tabular-nums text-[10.5px] w-14">
+          <span className="text-[#287FB5] font-bold tabular-nums text-[10.5px] w-14">
             {params.rainfallIntensityMmHr} mm/h
           </span>
         </div>

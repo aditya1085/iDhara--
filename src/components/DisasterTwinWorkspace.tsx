@@ -264,23 +264,23 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
     const exposedIds = new Set(snapshot.metrics.exposedAssets.map((a) => a.id));
 
     return (
-      <div className="flex flex-col flex-1 min-w-[300px] bg-[#05080F] border border-slate-800 overflow-hidden">
+      <div className="flex flex-col flex-1 min-w-[300px] bg-[#05080F] border border-[#D4E0E8] overflow-hidden">
         {/* Map Pane Header */}
         <div
           className={`px-3 py-2 border-b flex items-center justify-between gap-2 font-mono text-xs ${
             isScenarioPane
               ? 'bg-amber-950/35 border-amber-500/50 text-amber-200'
-              : 'bg-[#0A0F1A] border-slate-800 text-slate-200'
+              : 'bg-[#F7FAFC] border-[#D4E0E8] text-[#263746]'
           }`}
         >
           <div className="flex items-center gap-2 truncate">
             <span className={isScenarioPane ? 'text-amber-400 font-bold' : 'text-emerald-400 font-bold'}>
               {isScenarioPane ? '◈ AFTER (SCENARIO PROJECTION)' : '● BEFORE (CURRENT SITUATION)'}
             </span>
-            <span className="text-slate-500">·</span>
+            <span className="text-[#526778]">·</span>
             <span className="truncate">{paneTitle}</span>
           </div>
-          <span className="text-[11px] text-slate-300 shrink-0 tabular-nums">
+          <span className="text-[11px] text-[#263746] shrink-0 tabular-nums">
             {paneSubtitle}
           </span>
         </div>
@@ -505,7 +505,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                     y1={f.y}
                     x2={t.x}
                     y2={t.y}
-                    stroke="#090D16"
+                    stroke="#EDF3F7"
                     strokeWidth="6"
                     strokeLinecap="round"
                   />
@@ -553,7 +553,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                     width="20"
                     height="20"
                     rx="3"
-                    fill="#0F172A"
+                    fill="#FFFFFF"
                     stroke={isExposed ? '#FCA5A5' : '#E2E8F0'}
                     strokeWidth="1.5"
                   />
@@ -575,10 +575,10 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
         </div>
 
         {/* Pane Footer Summary */}
-        <div className="px-3 py-1.5 bg-[#080C14] border-t border-slate-800/90 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-slate-300 tabular-nums">
+        <div className="px-3 py-1.5 bg-[#FFFFFF] border-t border-[#D4E0E8]/90 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[#263746] tabular-nums">
           <span>
             High/Crit Cells:{' '}
-            <strong className="text-white">
+            <strong className="text-[#263746]">
               {snapshot.metrics.highAndCriticalCellsCount}
             </strong>{' '}
             ({snapshot.metrics.affectedAreaKm2} km²)
@@ -606,7 +606,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
     DISASTER_STAGE_INFO[DisasterStage.REAL_TIME_ONGOING];
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 overflow-y-auto bg-[#060911] p-4 space-y-3">
+    <div className="flex-1 flex flex-col min-h-0 overflow-y-auto bg-[#EDF3F7] p-4 space-y-3">
       {/* 0. MANDATORY DATA HONESTY STRIP (mode · scope · timestamp · confidence · freshness) */}
       <ScreenHonestyHeader
         screenTitle={`DISASTER TWIN WORKSPACE — STAGE ${stageInfo.num}: ${stageInfo.shortLabel.toUpperCase()}`}
@@ -619,16 +619,16 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
       />
 
       {/* 1. VERY PROMINENT "SIMULATION — NOT LIVE" ISOLATION BANNER */}
-      <div className="p-3 bg-amber-950/50 border-2 border-amber-400/80 flex flex-wrap items-center justify-between gap-3">
+      <div className="p-3 bg-amber-50 border-2 border-amber-400/80 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="px-2.5 py-1 bg-amber-400 text-slate-950 font-mono text-xs font-bold tracking-wide whitespace-nowrap">
             ▲ SIMULATION — NOT LIVE
           </span>
           <div>
-            <div className="text-xs sm:text-sm font-semibold text-white">
+            <div className="text-xs sm:text-sm font-semibold text-[#263746]">
               Isolated Disaster Twin Workspace — “I can see the flood before it happens.”
             </div>
-            <div className="font-mono text-[11px] text-amber-200/90">
+            <div className="font-mono text-[11px] text-amber-900">
               Active Scope: <strong>{activeScenario.scope_id}</strong> · LIVE / Current baseline state remains completely unchanged.
             </div>
           </div>
@@ -638,7 +638,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
             <button
               type="button"
               onClick={onReturnToLive}
-              className="px-3 py-1.5 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-400 text-emerald-200 font-mono text-xs font-bold transition-colors whitespace-nowrap shadow-sm"
+              className="px-3 py-1.5 bg-emerald-100 hover:bg-emerald-900 border border-emerald-400 text-emerald-800 font-mono text-xs font-bold transition-colors whitespace-nowrap shadow-sm"
               title="Exit isolated what-if simulation and return to active Indore pilot live monitoring"
             >
               ← Return to LIVE Monitoring
@@ -648,7 +648,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
             <div className="text-amber-300 font-semibold">
               Scenario Projection · Conf {Math.round(activeScenario.confidence * 100)}%
             </div>
-            <div className="text-[11px] text-slate-300">
+            <div className="text-[11px] text-[#263746]">
               GEN {activeScenario.generated_at.slice(11, 19)}Z
             </div>
           </div>
@@ -656,11 +656,11 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
       </div>
 
       {/* 2. SCENARIO CONTROLS BAR (Presets + Duration Horizon + Custom Sliders) */}
-      <div className="p-3.5 bg-[#0A0F1A] border border-slate-800 space-y-3">
+      <div className="p-3.5 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           {/* Left: Rainfall Assumption Presets */}
           <div className="space-y-1">
-            <div className="font-mono text-[10.5px] text-slate-400">
+            <div className="font-mono text-[10.5px] text-[#526778]">
               WHAT-IF RAINFALL ASSUMPTION PRESETS (“What happens if the rainfall gets worse?”)
             </div>
             <div className="flex flex-wrap items-center gap-1.5">
@@ -673,8 +673,8 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                     onClick={() => setActivePreset(p.id)}
                     className={`px-3 py-1.5 font-mono text-xs border transition-colors whitespace-nowrap ${
                       isSelected
-                        ? 'bg-cyan-500/25 border-cyan-400 text-white font-semibold'
-                        : 'bg-[#0D1320] border-slate-700 text-slate-300 hover:text-white'
+                        ? 'bg-cyan-500/25 border-[#287FB5] text-[#263746] font-semibold'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#263746] hover:text-[#263746]'
                     }`}
                   >
                     {p.label}
@@ -686,7 +686,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
 
           {/* Center: Storm Accumulation Horizon (30 min | 60 min | 90 min | 120 min) */}
           <div className="space-y-1">
-            <div className="font-mono text-[10.5px] text-slate-400">
+            <div className="font-mono text-[10.5px] text-[#526778]">
               ACCUMULATION HORIZON & BEFORE/AFTER ANIMATION
             </div>
             <div className="flex flex-wrap items-center gap-1.5">
@@ -703,7 +703,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                     className={`px-2.5 py-1.5 font-mono text-xs border tabular-nums transition-colors whitespace-nowrap ${
                       active
                         ? 'bg-amber-500/25 border-amber-400 text-amber-200 font-semibold'
-                        : 'bg-[#0D1320] border-slate-700 text-slate-300 hover:text-white'
+                        : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#263746] hover:text-[#263746]'
                     }`}
                   >
                     {dur} min
@@ -717,7 +717,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                 className={`px-3 py-1.5 font-mono text-xs border whitespace-nowrap transition-colors ${
                   isAnimatingHorizon
                     ? 'bg-rose-950/60 border-rose-400 text-rose-200 font-semibold'
-                    : 'bg-cyan-950/60 border-cyan-500/60 text-cyan-200 hover:bg-cyan-900/70'
+                    : 'bg-sky-50 border-[#287FB5] text-[#287FB5] hover:bg-cyan-900/70'
                 }`}
               >
                 {isAnimatingHorizon ? '❚❚ Stop Progression' : '▶ Animate 30m → 120m'}
@@ -727,17 +727,17 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
 
           {/* Right: Split vs Single View Toggle */}
           <div className="space-y-1">
-            <div className="font-mono text-[10.5px] text-slate-400">
+            <div className="font-mono text-[10.5px] text-[#526778]">
               COMPARISON VIEWPORT MODE
             </div>
-            <div className="flex items-center gap-1 bg-[#060911] p-0.5 border border-slate-800 font-mono text-xs">
+            <div className="flex items-center gap-1 bg-[#EDF3F7] p-0.5 border border-[#D4E0E8] font-mono text-xs">
               <button
                 type="button"
                 onClick={() => setViewMode('SPLIT')}
                 className={`px-2.5 py-1 whitespace-nowrap ${
                   viewMode === 'SPLIT'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-cyan-500/20 text-[#287FB5] border border-cyan-500/40 font-semibold'
+                    : 'text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 Split (Before | After)
@@ -747,8 +747,8 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                 onClick={() => setViewMode('BEFORE_ONLY')}
                 className={`px-2.5 py-1 whitespace-nowrap ${
                   viewMode === 'BEFORE_ONLY'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-cyan-500/20 text-[#287FB5] border border-cyan-500/40 font-semibold'
+                    : 'text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 Before
@@ -758,8 +758,8 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                 onClick={() => setViewMode('AFTER_ONLY')}
                 className={`px-2.5 py-1 whitespace-nowrap ${
                   viewMode === 'AFTER_ONLY'
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-cyan-500/20 text-[#287FB5] border border-cyan-500/40 font-semibold'
+                    : 'text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 After
@@ -769,9 +769,9 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
         </div>
 
         {/* Custom Rainfall & Blockage Sliders (Always interactive, automatically activates Custom preset if dragged) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-slate-800/80 font-mono text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-[#D4E0E8]/80 font-mono text-xs">
           <div className="flex items-center gap-3">
-            <label htmlFor="custom-scen-rain" className="text-slate-400 shrink-0">
+            <label htmlFor="custom-scen-rain" className="text-[#526778] shrink-0">
               Custom Scenario Rain:
             </label>
             <input
@@ -791,13 +791,13 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
               }}
               className="flex-1 accent-cyan-400 cursor-pointer"
             />
-            <span className="text-cyan-300 font-semibold tabular-nums w-20 text-right">
+            <span className="text-[#287FB5] font-semibold tabular-nums w-20 text-right">
               {activeScenario.scenarioRainfallMmHr} mm/h
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <label htmlFor="custom-scen-blockage" className="text-slate-400 shrink-0">
+            <label htmlFor="custom-scen-blockage" className="text-[#526778] shrink-0">
               Additional Culvert Stress:
             </label>
             <input
@@ -819,38 +819,38 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
 
       {/* 3. SCENARIO DELTA TELEMETRY STRIP (8 Required Readouts) */}
       <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 gap-2.5 font-mono">
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">CURRENT RAINFALL</div>
-          <div className="text-lg font-bold text-slate-200 tabular-nums mt-0.5">
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">CURRENT RAINFALL</div>
+          <div className="text-lg font-bold text-[#263746] tabular-nums mt-0.5">
             {currentSnapshot.baselineRainfallMmHr} <span className="text-xs font-normal">mm/h</span>
           </div>
-          <div className="text-[10px] text-slate-500">LIVE / Baseline</div>
+          <div className="text-[10px] text-[#526778]">LIVE / Baseline</div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-amber-500/40">
+        <div className="p-2.5 bg-[#FFFFFF] border border-amber-500/40">
           <div className="text-[10px] text-amber-300">SCENARIO RAINFALL</div>
           <div className="text-lg font-bold text-amber-300 tabular-nums mt-0.5">
             {activeScenario.scenarioRainfallMmHr} <span className="text-xs font-normal">mm/h</span>
           </div>
-          <div className="text-[10px] text-slate-400">Horizon: {durationMinutes} min</div>
+          <div className="text-[10px] text-[#526778]">Horizon: {durationMinutes} min</div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">DIFFERENCE</div>
-          <div className="text-lg font-bold text-cyan-300 tabular-nums mt-0.5">
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">DIFFERENCE</div>
+          <div className="text-lg font-bold text-[#287FB5] tabular-nums mt-0.5">
             {activeScenario.rainfallDeltaMmHr >= 0
               ? `+${activeScenario.rainfallDeltaMmHr}`
               : activeScenario.rainfallDeltaMmHr}{' '}
             <span className="text-xs font-normal">mm/h</span>
           </div>
-          <div className="text-[10px] text-cyan-400 tabular-nums">
+          <div className="text-[10px] text-[#287FB5] tabular-nums">
             ({activeScenario.rainfallDeltaPct >= 0 ? `+${activeScenario.rainfallDeltaPct}%` : `${activeScenario.rainfallDeltaPct}%`})
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">AFFECTED AREA</div>
-          <div className="text-lg font-bold text-white tabular-nums mt-0.5">
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">AFFECTED AREA</div>
+          <div className="text-lg font-bold text-[#263746] tabular-nums mt-0.5">
             {activeScenario.metrics.affectedAreaKm2} <span className="text-xs font-normal">km²</span>
           </div>
           <div className="text-[10px] text-rose-400 tabular-nums">
@@ -858,22 +858,22 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">RISK CHANGE (CELLS)</div>
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">RISK CHANGE (CELLS)</div>
           <div className="text-lg font-bold text-rose-400 tabular-nums mt-0.5">
             {activeScenario.metrics.highAndCriticalCellsCount}{' '}
-            <span className="text-xs font-normal text-slate-400">/ 64</span>
+            <span className="text-xs font-normal text-[#526778]">/ 64</span>
           </div>
           <div className="text-[10px] text-rose-300 tabular-nums">
             {deltaHighRiskCells >= 0 ? `+${deltaHighRiskCells}` : deltaHighRiskCells} High/Crit cells
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">ROADS AFFECTED</div>
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">ROADS AFFECTED</div>
           <div className="text-lg font-bold text-amber-400 tabular-nums mt-0.5">
             {activeScenario.metrics.atRiskRoadsCount}{' '}
-            <span className="text-xs font-normal text-slate-400">
+            <span className="text-xs font-normal text-[#526778]">
               ({activeScenario.metrics.closedRoadsCount} closed)
             </span>
           </div>
@@ -882,22 +882,22 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">ASSETS AFFECTED</div>
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">ASSETS AFFECTED</div>
           <div className="text-lg font-bold text-sky-300 tabular-nums mt-0.5">
             {activeScenario.metrics.exposedAssetsCount}{' '}
-            <span className="text-xs font-normal text-slate-400">/ {CRITICAL_ASSETS.length}</span>
+            <span className="text-xs font-normal text-[#526778]">/ {CRITICAL_ASSETS.length}</span>
           </div>
           <div className="text-[10px] text-sky-400 tabular-nums">
             {deltaExposedAssets >= 0 ? `+${deltaExposedAssets}` : deltaExposedAssets} exposed assets
           </div>
         </div>
 
-        <div className="p-2.5 bg-[#0B101B] border border-slate-800">
-          <div className="text-[10px] text-slate-400">SHELTERS AFFECTED</div>
+        <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8]">
+          <div className="text-[10px] text-[#526778]">SHELTERS AFFECTED</div>
           <div className="text-lg font-bold text-emerald-300 tabular-nums mt-0.5">
             {activeScenario.metrics.shelterDemandBerths}{' '}
-            <span className="text-xs font-normal text-slate-400">berths</span>
+            <span className="text-xs font-normal text-[#526778]">berths</span>
           </div>
           <div className="text-[10px] text-emerald-400 tabular-nums">
             {deltaShelterDemand >= 0 ? `+${deltaShelterDemand}` : deltaShelterDemand} demand delta
@@ -927,31 +927,31 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
       {/* 5. SCENARIO SUMMARY & MULTI-SCENARIO COMPARISON TABLE */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         {/* Left 5 Cols: Scenario Summary & Cell-Level Before/After Delta */}
-        <div className="xl:col-span-5 p-4 bg-[#0A0F1A] border border-slate-800 space-y-3">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+        <div className="xl:col-span-5 p-4 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
+          <div className="flex items-center justify-between border-b border-[#D4E0E8] pb-2">
             <div>
               <div className="font-mono text-[10.5px] text-amber-400">
                 SCENARIO PROJECTION SUMMARY
               </div>
-              <h3 className="text-sm font-semibold text-white">
+              <h3 className="text-sm font-semibold text-[#263746]">
                 Estimated Impact Under This Rainfall Assumption
               </h3>
             </div>
-            <span className="font-mono text-[11px] text-cyan-300">
+            <span className="font-mono text-[11px] text-[#287FB5]">
               {activeScenario.scenarioId}
             </span>
           </div>
 
-          <div className="p-3 bg-[#0D1320] border border-amber-500/40 space-y-1.5 text-xs">
+          <div className="p-3 bg-[#FFFFFF] border border-amber-500/40 space-y-1.5 text-xs">
             <div className="font-mono text-[11px] text-amber-300 font-semibold">
               RECOMMENDED PREPARATION
             </div>
             <p className="text-slate-100 leading-relaxed font-medium">
               {activeScenario.metrics.recommendedPreparedness}
             </p>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
+            <p className="text-[11px] text-[#526778] leading-relaxed">
               Under this rainfall assumption ({activeScenario.scenarioRainfallMmHr} mm/h over {durationMinutes} min), estimated affected population proxy increases by{' '}
-              <strong className="text-white">
+              <strong className="text-[#263746]">
                 {deltaPopProxy >= 0 ? `+${deltaPopProxy.toLocaleString()}` : deltaPopProxy.toLocaleString()}
               </strong>{' '}
               (total {activeScenario.metrics.estimatedAffectedPopProxy.toLocaleString()} citizens in high/critical zones).
@@ -959,15 +959,15 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
           </div>
 
           {/* Inspected Cell Before vs After Comparison */}
-          <div className="p-3 bg-[#0D1320] border border-slate-800 space-y-2 text-xs">
-            <div className="flex items-center justify-between font-mono text-[11px] text-slate-400">
+          <div className="p-3 bg-[#FFFFFF] border border-[#D4E0E8] space-y-2 text-xs">
+            <div className="flex items-center justify-between font-mono text-[11px] text-[#526778]">
               <span>SELECTED CELL BEFORE vs. AFTER: {baseInspectedCell.localityName}</span>
               <span>{baseInspectedCell.id}</span>
             </div>
             <div className="grid grid-cols-2 gap-3 pt-1 font-mono tabular-nums min-w-0">
-              <div className="p-2.5 bg-[#080C14] border border-slate-800 min-w-0 overflow-hidden">
-                <div className="text-[10px] font-sans font-medium text-slate-400 tracking-wider truncate">CURRENT SITUATION</div>
-                <div className="text-sm sm:text-base font-bold text-white mt-0.5 truncate">
+              <div className="p-2.5 bg-[#FFFFFF] border border-[#D4E0E8] min-w-0 overflow-hidden">
+                <div className="text-[10px] font-sans font-medium text-[#526778] tracking-wider truncate">CURRENT SITUATION</div>
+                <div className="text-sm sm:text-base font-bold text-[#263746] mt-0.5 truncate">
                   Prob: {Math.round(baseInspectedCell.floodProbability * 100)}% ·{' '}
                   {baseInspectedCell.predictedDepthCm}cm
                 </div>
@@ -975,7 +975,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   <SeverityIndicator severity={baseInspectedCell.severity} />
                 </div>
               </div>
-              <div className="p-2.5 bg-[#080C14] border border-amber-500/40 min-w-0 overflow-hidden">
+              <div className="p-2.5 bg-[#FFFFFF] border border-amber-500/40 min-w-0 overflow-hidden">
                 <div className="text-[10px] font-sans font-medium text-amber-300 tracking-wider truncate">SCENARIO PROJECTION</div>
                 <div className="text-sm sm:text-base font-bold text-amber-200 mt-0.5 truncate">
                   Prob: {Math.round(scenInspectedCell.floodProbability * 100)}% ·{' '}
@@ -992,24 +992,24 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
         </div>
 
         {/* Right 7 Cols: Scenario Comparison Table (Current vs Scenario A vs Scenario B) */}
-        <div className="xl:col-span-7 p-4 bg-[#0A0F1A] border border-slate-800 space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
+        <div className="xl:col-span-7 p-4 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#D4E0E8] pb-2">
             <div>
-              <div className="font-mono text-[10.5px] text-cyan-400">
+              <div className="font-mono text-[10.5px] text-[#287FB5]">
                 MULTI-SCENARIO COMPARISON MATRIX
               </div>
-              <h3 className="text-sm font-semibold text-white">
+              <h3 className="text-sm font-semibold text-[#263746]">
                 Compare Current State vs. Scenario A vs. Scenario B ({durationMinutes} min Horizon)
               </h3>
             </div>
 
             <div className="flex items-center gap-2 font-mono text-xs">
-              <span className="text-slate-400">Scenario B:</span>
+              <span className="text-[#526778]">Scenario B:</span>
               <select
                 aria-label="Select Comparison Scenario B"
                 value={comparePresetB}
                 onChange={(e) => setComparePresetB(e.target.value as TwinPresetId)}
-                className="bg-[#0D1320] border border-slate-700 text-slate-200 px-2 py-1 text-xs"
+                className="bg-[#FFFFFF] border border-[#D4E0E8] text-[#263746] px-2 py-1 text-xs"
               >
                 {TWIN_PRESET_OPTIONS.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -1020,15 +1020,15 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
             </div>
           </div>
 
-          <div className="overflow-x-auto border border-slate-800">
+          <div className="overflow-x-auto border border-[#D4E0E8]">
             <table className="w-full text-left border-collapse font-mono text-xs tabular-nums">
               <thead>
-                <tr className="bg-[#0D1320] text-slate-300 border-b border-slate-800">
+                <tr className="bg-[#FFFFFF] text-[#263746] border-b border-[#D4E0E8]">
                   <th className="py-2.5 px-3 font-sans font-semibold">Indicator / Metric</th>
                   <th className="py-2.5 px-3 text-right text-emerald-300">
                     Current ({currentSnapshot.baselineRainfallMmHr} mm/h)
                   </th>
-                  <th className="py-2.5 px-3 text-right text-cyan-300">
+                  <th className="py-2.5 px-3 text-right text-[#287FB5]">
                     Scenario A: {activeScenario.presetLabel} ({activeScenario.scenarioRainfallMmHr} mm/h)
                   </th>
                   <th className="py-2.5 px-3 text-right text-amber-300">
@@ -1037,14 +1037,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/80">
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     High-risk cells (High + Critical)
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.highAndCriticalCellsCount}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.highAndCriticalCellsCount}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1052,14 +1052,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Critical inundation cells (≥74% prob)
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.criticalCellsCount}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.criticalCellsCount}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-rose-400">
@@ -1067,14 +1067,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Estimated affected area (km²)
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.affectedAreaKm2} km²
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.affectedAreaKm2} km²
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1082,14 +1082,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     At-risk roads (Caution + Restricted + Closed)
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.atRiskRoadsCount}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.atRiskRoadsCount}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1097,14 +1097,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Closed / inundated bridges & underpasses
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.closedRoadsCount}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.closedRoadsCount}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-rose-400">
@@ -1112,14 +1112,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Critical assets exposed
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.exposedAssetsCount}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.exposedAssetsCount}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1127,14 +1127,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Estimated affected population proxy
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.estimatedAffectedPopProxy.toLocaleString()}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.estimatedAffectedPopProxy.toLocaleString()}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1142,14 +1142,14 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
                   </td>
                 </tr>
 
-                <tr className="hover:bg-slate-900/60">
-                  <td className="py-2 px-3 font-sans text-slate-200">
+                <tr className="hover:bg-[#EDF3F7]">
+                  <td className="py-2 px-3 font-sans text-[#263746]">
                     Projected shelter berth demand
                   </td>
-                  <td className="py-2 px-3 text-right text-slate-200">
+                  <td className="py-2 px-3 text-right text-[#263746]">
                     {currentSnapshot.metrics.shelterDemandBerths.toLocaleString()}
                   </td>
-                  <td className="py-2 px-3 text-right font-semibold text-cyan-300">
+                  <td className="py-2 px-3 text-right font-semibold text-[#287FB5]">
                     {activeScenario.metrics.shelterDemandBerths.toLocaleString()}
                   </td>
                   <td className="py-2 px-3 text-right font-semibold text-amber-300">
@@ -1160,7 +1160,7 @@ export const DisasterTwinWorkspace: React.FC<DisasterTwinWorkspaceProps> = ({
             </table>
           </div>
 
-          <div className="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-1">
+          <div className="text-[11px] font-mono text-[#526778] flex items-center justify-between pt-1">
             <span>
               Note: All values represent scenario projections under specified rainfall & blockage assumptions.
             </span>

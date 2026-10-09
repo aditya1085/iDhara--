@@ -188,22 +188,22 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         : 'STABLE';
 
     return (
-      <div className="bg-[#080C14] border-b border-slate-800/90 px-4 py-3 space-y-3">
+      <div className="bg-[#EDF3F7] border-b border-[#D4E0E8] px-4 py-3 space-y-3 text-[#263746]">
         {/* COMMAND CENTER: CURRENT SITUATION + CHRONOLOGICAL ACTIVITY FEED */}
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-3 min-w-0">
           {/* Left 7 Cols: CURRENT SITUATION */}
-          <div className="xl:col-span-7 p-3 bg-[#0C121E] border border-slate-800/90 space-y-2.5 min-w-0 overflow-hidden">
+          <div className="xl:col-span-7 p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-2.5 min-w-0 overflow-hidden rounded-xs shadow-xs">
             <div className="flex flex-wrap items-center justify-between gap-1.5 text-[11px] min-w-0">
               <div className="flex items-center gap-1.5 shrink-0">
-                <span className="w-1.5 h-3 bg-cyan-400 inline-block" />
-                <span className="text-cyan-300 font-bold font-mono tracking-wider">
+                <span className="w-1.5 h-3 bg-[#287FB5] inline-block rounded-xs" />
+                <span className="text-[#287FB5] font-bold font-mono tracking-wider">
                   CURRENT SITUATION
                 </span>
               </div>
               <button
                 type="button"
                 onClick={() => onNavigateTab('alerts')}
-                className="text-amber-300 hover:underline text-[10.5px] cursor-pointer truncate max-w-full font-mono"
+                className="text-amber-800 hover:underline text-[10.5px] cursor-pointer truncate max-w-full font-mono font-medium"
                 title="Review alerts pending human confirmation"
               >
                 {alerts.filter((a) => a.lifecycleState === 'PENDING REVIEW').length} Pending Human Review →
@@ -214,13 +214,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('risk-map')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-rose-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-rose-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="View overall pilot risk map"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   Risk Level
                 </div>
-                <div className="text-sm font-bold font-mono text-rose-400 mt-1">
+                <div className="text-sm font-bold font-mono text-rose-700 mt-1">
                   {overallRiskLabel}
                 </div>
               </button>
@@ -228,13 +228,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('disaster-twin')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-amber-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-amber-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Open Disaster Twin to simulate trend and forecast"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   Trend
                 </div>
-                <div className="text-sm font-bold font-mono text-amber-400 mt-1">
+                <div className="text-sm font-bold font-mono text-amber-700 mt-1">
                   {trendLabel}
                 </div>
               </button>
@@ -242,13 +242,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('risk-map')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-rose-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-rose-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Inspect High-risk zones on Risk Map"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   High-Risk Zones
                 </div>
-                <div className="text-sm font-bold font-mono text-white mt-1">
+                <div className="text-sm font-bold font-mono text-[#263746] mt-1">
                   {highRiskZonesCount}
                 </div>
               </button>
@@ -256,13 +256,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('roads-routing')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-amber-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-amber-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Inspect at-risk corridors in Roads & Routing"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   At-Risk Roads
                 </div>
-                <div className="text-sm font-bold font-mono text-amber-300 mt-1">
+                <div className="text-sm font-bold font-mono text-amber-700 mt-1">
                   {atRiskRoadsCount}
                 </div>
               </button>
@@ -270,13 +270,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('roads-routing')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-rose-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-rose-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Inspect closed bridges and barricaded roads"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   Closed Roads
                 </div>
-                <div className="text-sm font-bold font-mono text-rose-400 mt-1">
+                <div className="text-sm font-bold font-mono text-rose-700 mt-1">
                   {closedRoads.length}
                 </div>
               </button>
@@ -284,13 +284,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('evacuation')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-emerald-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-emerald-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Inspect reachable emergency shelters"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   Open Shelters
                 </div>
-                <div className="text-sm font-bold font-mono text-emerald-300 mt-1">
+                <div className="text-sm font-bold font-mono text-emerald-700 mt-1">
                   {availableSheltersCount}
                 </div>
               </button>
@@ -298,13 +298,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigateTab('data-health')}
-                className="p-2 bg-[#070B12] border border-slate-800 hover:border-cyan-500/60 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between"
+                className="p-2 bg-[#FFFFFF] border border-[#D4E0E8] hover:border-sky-400 cursor-pointer text-left transition-colors min-w-0 overflow-hidden flex flex-col justify-between rounded-xs shadow-xs"
                 title="Inspect data telemetry and model confidence"
               >
-                <div className="text-[10px] font-sans font-medium text-slate-400 uppercase tracking-wider">
+                <div className="text-[10px] font-sans font-medium text-[#526778] uppercase tracking-wider">
                   Confidence
                 </div>
-                <div className="text-sm font-bold font-mono text-cyan-300 mt-1">
+                <div className="text-sm font-bold font-mono text-[#287FB5] mt-1">
                   {Math.round(dataHealthReport.confidence * 100)}%
                 </div>
               </button>
@@ -312,12 +312,12 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
           </div>
 
           {/* Right 5 Cols: Chronological Operational Activity Feed */}
-          <div className="xl:col-span-5 p-3 bg-[#0C121E] border border-slate-800/90 space-y-2 min-w-0 overflow-hidden">
+          <div className="xl:col-span-5 p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-2 min-w-0 overflow-hidden rounded-xs shadow-xs">
             <div className="flex items-center justify-between text-[11px] min-w-0">
-              <span className="text-emerald-400 font-bold font-mono tracking-wider truncate">
+              <span className="text-[#258C91] font-bold font-mono tracking-wider truncate">
                 ● ACTIVITY FEED (CHRONOLOGICAL)
               </span>
-              <span className="text-slate-400 text-[10px] font-sans shrink-0 hidden sm:inline">
+              <span className="text-[#526778] text-[10px] font-sans shrink-0 hidden sm:inline">
                 Click entry to focus
               </span>
             </div>
@@ -337,16 +337,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                       onNavigateTab('roads-routing');
                     }
                   }}
-                  className="w-full text-left px-2 py-1.5 bg-[#070B12] border-l-2 border-cyan-400 flex items-center justify-between gap-2 cursor-pointer hover:bg-slate-900 transition-colors min-w-0 overflow-hidden"
+                  className="w-full text-left px-2 py-1.5 bg-[#FFFFFF] border-l-2 border-[#287FB5] border-y border-r border-[#D4E0E8] flex items-center justify-between gap-2 cursor-pointer hover:bg-[#EDF3F7] transition-colors min-w-0 overflow-hidden rounded-xs"
                 >
                   <div className="truncate min-w-0 flex-1">
-                    <span className="text-slate-400 mr-1.5 shrink-0">{entry.timestamp}</span>
+                    <span className="text-[#526778] mr-1.5 shrink-0">{entry.timestamp}</span>
                     {entry.eventTypeLabel && (
-                      <span className="text-cyan-300 font-bold mr-1.5 shrink-0">
+                      <span className="text-[#287FB5] font-bold mr-1.5 shrink-0">
                         [{entry.eventTypeLabel}]
                       </span>
                     )}
-                    <span className="text-slate-200">{entry.message}</span>
+                    <span className="text-[#263746]">{entry.message}</span>
                   </div>
                 </button>
               ))}
@@ -367,20 +367,20 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
     const activePolicy = TRAVEL_PROFILE_POLICIES[travelProfile];
 
     return (
-      <div className="flex-1 min-h-0 p-4 bg-[#080C14] space-y-4 overflow-y-auto">
+      <div className="flex-1 min-h-0 p-4 bg-[#EDF3F7] space-y-4 overflow-y-auto">
         {/* Top Header + "Demo incident" & "Test No Feasible Route" Buttons */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D4E0E8] pb-3">
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px]">
-              <span className="text-cyan-400 font-semibold">
+              <span className="text-[#287FB5] font-semibold">
                 ROUTE PLANNER
               </span>
-              <span className="text-slate-600">·</span>
+              <span className="text-[#526778]">·</span>
               <span className="text-emerald-400">
                 ● SUBSCRIPTION ACTIVE
               </span>
             </div>
-            <h2 className="text-base font-semibold text-white mt-0.5">
+            <h2 className="text-base font-semibold text-[#263746] mt-0.5">
               Roads & Routing
             </h2>
           </div>
@@ -390,14 +390,14 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             <button
               type="button"
               onClick={onTriggerDemoIncident}
-              className="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400 text-amber-200 font-bold whitespace-nowrap transition-colors shadow-sm"
+              className="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400 text-amber-800 font-bold whitespace-nowrap transition-colors shadow-sm"
             >
               ⚡ Demo incident (Close Road & Reroute)
             </button>
             <button
               type="button"
               onClick={onTriggerNoFeasibleRouteDemo}
-              className="px-2.5 py-1.5 bg-rose-950/60 hover:bg-rose-900/70 border border-rose-500/60 text-rose-200 whitespace-nowrap transition-colors"
+              className="px-2.5 py-1.5 bg-rose-100 hover:bg-rose-900/70 border border-rose-500/60 text-rose-800 whitespace-nowrap transition-colors"
               title="Simulate total corridor cut-off to verify NO FEASIBLE ROUTE behavior"
             >
               ✖ Test No Feasible Route
@@ -405,7 +405,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             <button
               type="button"
               onClick={onResetObservations}
-              className="px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap transition-colors"
+              className="px-2.5 py-1.5 bg-[#EDF3F7] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] whitespace-nowrap transition-colors"
             >
               ↺ Reset Roads
             </button>
@@ -413,11 +413,11 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         </div>
 
         {/* ROUTE PLANNER INPUTS: Origin | Destination | Travel Profile (Citizen, Pedestrian, Emergency responder, Ambulance) */}
-        <div className="p-3 bg-[#0C121E] border border-slate-800 space-y-3">
+        <div className="p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-3">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-end">
             {/* Origin */}
             <div className="lg:col-span-3 space-y-1 font-mono text-xs">
-              <label htmlFor="planner-origin" className="block text-[11px] text-slate-400">
+              <label htmlFor="planner-origin" className="block text-[11px] text-[#526778]">
                 ORIGIN
               </label>
               <select
@@ -425,7 +425,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 aria-label="Route Origin Node"
                 value={customOriginId}
                 onChange={(e) => onChangeCustomRoute(e.target.value, customDestId)}
-                className="w-full bg-[#070B12] border border-slate-700 text-slate-100 px-2.5 py-1.5 text-xs"
+                className="w-full bg-[#FFFFFF] border border-[#D4E0E8] text-[#263746] px-2.5 py-1.5 text-xs"
               >
                 {INTERSECTION_NODES.map((n) => (
                   <option key={n.id} value={n.id}>
@@ -437,7 +437,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
             {/* Destination */}
             <div className="lg:col-span-3 space-y-1 font-mono text-xs">
-              <label htmlFor="planner-dest" className="block text-[11px] text-slate-400">
+              <label htmlFor="planner-dest" className="block text-[11px] text-[#526778]">
                 DESTINATION
               </label>
               <select
@@ -445,7 +445,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 aria-label="Route Destination Node"
                 value={customDestId}
                 onChange={(e) => onChangeCustomRoute(customOriginId, e.target.value)}
-                className="w-full bg-[#070B12] border border-slate-700 text-slate-100 px-2.5 py-1.5 text-xs"
+                className="w-full bg-[#FFFFFF] border border-[#D4E0E8] text-[#263746] px-2.5 py-1.5 text-xs"
               >
                 {INTERSECTION_NODES.map((n) => (
                   <option key={n.id} value={n.id}>
@@ -457,7 +457,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
             {/* Travel Profile Selector */}
             <div className="lg:col-span-6 space-y-1 font-mono text-xs">
-              <span className="block text-[11px] text-slate-400">
+              <span className="block text-[11px] text-[#526778]">
                 TRAVEL PROFILE ({activePolicy.badge})
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
@@ -478,8 +478,8 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                       onClick={() => onChangeTravelProfile(prof)}
                       className={`px-2.5 py-1.5 text-xs border transition-colors whitespace-nowrap ${
                         isActive
-                          ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200 font-bold'
-                          : 'bg-[#070B12] border-slate-700 text-slate-400 hover:text-slate-200'
+                          ? 'bg-cyan-500/25 border-[#287FB5] text-[#287FB5] font-bold'
+                          : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                       }`}
                     >
                       {pMeta.label}
@@ -491,9 +491,9 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
           </div>
 
           {/* Profile Routing Policy Strip */}
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/80 font-mono text-[11px] text-slate-300">
+          <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#D4E0E8] font-mono text-[11px] text-[#263746]">
             <div>
-              <span className="text-cyan-400 font-semibold">Profile Policy: </span>
+              <span className="text-[#287FB5] font-semibold">Profile Policy: </span>
               <span>{activePolicy.policySummary}</span>
             </div>
             <div className="text-amber-300 font-semibold">
@@ -504,52 +504,52 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
         {/* LIVE REROUTING SUBSCRIPTION NOTIFICATION BANNER ("ROUTE UPDATED") */}
         {routeUpdateNotification && (
-          <div className="p-3.5 bg-amber-950/40 border-2 border-amber-400/80 space-y-2 font-mono text-xs">
+          <div className="p-3.5 bg-amber-100 border-2 border-amber-400/80 space-y-2 font-mono text-xs">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 bg-amber-400 text-slate-950 font-bold text-xs">
                   ROUTE UPDATED
                 </span>
-                <span className="text-amber-200 font-bold">
+                <span className="text-amber-800 font-bold">
                   {routeUpdateNotification.bannerTitle}
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-slate-300">{routeUpdateNotification.timestamp}</span>
+                <span className="text-[#263746]">{routeUpdateNotification.timestamp}</span>
                 <button
                   type="button"
                   onClick={onDismissRouteUpdate}
-                  className="text-slate-400 hover:text-white text-xs"
+                  className="text-[#526778] hover:text-[#263746] text-xs"
                 >
                   Dismiss ×
                 </button>
               </div>
             </div>
 
-            <div className="text-sm font-sans font-semibold text-white">
+            <div className="text-sm font-sans font-semibold text-[#263746]">
               Reason: “{routeUpdateNotification.reason}”
             </div>
 
             {/* 5-Step Demo Incident / Live Rerouting Breakdown */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1 text-[11px]">
-              <div className="p-2 bg-[#070A12] border border-rose-500/40">
+              <div className="p-2 bg-[#FFFFFF] border border-rose-500/40">
                 <div className="text-rose-400 font-semibold">
                   1–2. INVALIDATED ROUTE (ON MAP IN RED)
                 </div>
-                <div className="text-slate-200 mt-0.5">
+                <div className="text-[#263746] mt-0.5">
                   {routeUpdateNotification.previousRouteSummary}
                 </div>
-                <div className="text-slate-400 mt-0.5">
+                <div className="text-[#526778] mt-0.5">
                   Trigger: {routeUpdateNotification.affectedRoadId} ({routeUpdateNotification.affectedRoadName}) →{' '}
                   <strong className="text-rose-300">{routeUpdateNotification.newRoadState}</strong>
                 </div>
               </div>
 
-              <div className="p-2 bg-[#070A12] border border-cyan-500/40">
-                <div className="text-cyan-300 font-semibold">
+              <div className="p-2 bg-[#FFFFFF] border border-[#287FB5]">
+                <div className="text-[#287FB5] font-semibold">
                   3–4. RECALCULATED ALTERNATE ROUTE
                 </div>
-                <div className="text-white mt-0.5">
+                <div className="text-[#263746] mt-0.5">
                   {routeUpdateNotification.newRouteSummary}
                 </div>
                 <div className="text-emerald-300 mt-0.5">
@@ -559,11 +559,11 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 </div>
               </div>
 
-              <div className="p-2 bg-[#070A12] border border-amber-500/40">
+              <div className="p-2 bg-[#FFFFFF] border border-amber-500/40">
                 <div className="text-amber-300 font-semibold">
                   5. WHY THE ROUTE CHANGED
                 </div>
-                <div className="text-slate-200 mt-0.5 font-sans leading-relaxed">
+                <div className="text-[#263746] mt-0.5 font-sans leading-relaxed">
                   {routeUpdateNotification.explanation}
                 </div>
               </div>
@@ -573,39 +573,39 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
         {/* ROUTE RESULT: PRIMARY ROUTE + ALTERNATIVE ROUTE OR "NO FEASIBLE ROUTE" */}
         {!activeRouteObj ? (
-          <div className="p-6 bg-[#070A12] border border-slate-800 text-center text-slate-400 font-mono text-xs">
+          <div className="p-6 bg-[#FFFFFF] border border-[#D4E0E8] text-center text-[#526778] font-mono text-xs">
             No route currently selected. Choose an origin and destination node above to evaluate emergency corridors.
           </div>
         ) : activeRouteObj.feasible && activeRouteObj.primaryRoute ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* PRIMARY ROUTE CARD */}
-            <div className="p-3.5 bg-cyan-950/25 border border-cyan-400/70 space-y-2.5">
+            <div className="p-3.5 bg-cyan-950/25 border border-[#287FB5]/70 space-y-2.5">
               <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-                <span className="text-cyan-300 font-bold">
+                <span className="text-[#287FB5] font-bold">
                   ★ PRIMARY ROUTE — Recommended under current data
                 </span>
-                <span className="text-slate-300">
+                <span className="text-[#263746]">
                   Profile: {TRAVEL_PROFILE_POLICIES[activeRouteObj.travelProfile].label}
                 </span>
               </div>
 
-              <div className="text-base font-semibold text-white">
+              <div className="text-base font-semibold text-[#263746]">
                 {activeRouteObj.originName} → {activeRouteObj.destinationName}
               </div>
 
               {/* Key Route Metrics: Travel time, Risk score, Confidence, Generated time, Expiry */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 p-2 bg-[#070B12] border border-slate-800 font-mono text-xs tabular-nums">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 p-2 bg-[#FFFFFF] border border-[#D4E0E8] font-mono text-xs tabular-nums">
                 <div>
-                  <div className="text-[10px] text-slate-400">Travel time</div>
-                  <div className="text-sm font-bold text-white">
+                  <div className="text-[10px] text-[#526778]">Travel time</div>
+                  <div className="text-sm font-bold text-[#263746]">
                     {activeRouteObj.primaryRoute.travelTimeMin} min
                   </div>
-                  <div className="text-[10px] text-slate-500">
+                  <div className="text-[10px] text-[#526778]">
                     {activeRouteObj.primaryRoute.distanceKm} km
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-400">Risk score</div>
+                  <div className="text-[10px] text-[#526778]">Risk score</div>
                   <div
                     className={`text-sm font-bold ${
                       activeRouteObj.primaryRoute.riskScore >= 50
@@ -615,41 +615,41 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   >
                     {activeRouteObj.primaryRoute.riskScore}/100
                   </div>
-                  <div className="text-[10px] text-slate-500">
+                  <div className="text-[10px] text-[#526778]">
                     Max {Math.round(activeRouteObj.primaryRoute.maxFloodProbability * 100)}% prob
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-400">Confidence</div>
-                  <div className="text-sm font-bold text-cyan-300">
+                  <div className="text-[10px] text-[#526778]">Confidence</div>
+                  <div className="text-sm font-bold text-[#287FB5]">
                     {Math.round(activeRouteObj.primaryRoute.confidence * 100)}%
                   </div>
-                  <div className="text-[10px] text-slate-500">
+                  <div className="text-[10px] text-[#526778]">
                     +{activeRouteObj.primaryRoute.totalRiskPenaltyMin}m risk pen
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-400">Generated time</div>
-                  <div className="text-xs font-semibold text-slate-200 mt-0.5">
+                  <div className="text-[10px] text-[#526778]">Generated time</div>
+                  <div className="text-xs font-semibold text-[#263746] mt-0.5">
                     {activeRouteObj.primaryRoute.generated_at.slice(11, 19)}Z
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-400">Expiry</div>
+                  <div className="text-[10px] text-[#526778]">Expiry</div>
                   <div className="text-xs font-semibold text-amber-300 mt-0.5">
                     {activeRouteObj.primaryRoute.expiry.slice(11, 19)}Z
                   </div>
                 </div>
               </div>
 
-              <div className="font-mono text-[11px] text-slate-300">
-                <span className="text-slate-400">Corridor Sequence: </span>
+              <div className="font-mono text-[11px] text-[#263746]">
+                <span className="text-[#526778]">Corridor Sequence: </span>
                 {activeRouteObj.primaryRoute.roadIds
                   .map((rId, idx) => `${rId} (${activeRouteObj.primaryRoute?.roadNames[idx]})`)
                   .join(' → ')}
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[#263746] leading-relaxed">
                 {activeRouteObj.safetyAdvisory}
               </p>
 
@@ -662,30 +662,30 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
             {/* ALTERNATIVE ROUTE CARD */}
             {activeRouteObj.alternativeRoute ? (
-              <div className="p-3.5 bg-[#0C121E] border border-emerald-500/50 space-y-2.5">
+              <div className="p-3.5 bg-[#F7FAFC] border border-emerald-500/50 space-y-2.5">
                 <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
                   <span className="text-emerald-300 font-bold">
                     ◆ ALTERNATIVE ROUTE — Recommended under current data
                   </span>
-                  <span className="text-slate-400">Secondary Distinct Corridor</span>
+                  <span className="text-[#526778]">Secondary Distinct Corridor</span>
                 </div>
 
-                <div className="text-base font-semibold text-white">
+                <div className="text-base font-semibold text-[#263746]">
                   {activeRouteObj.originName} → {activeRouteObj.destinationName} (Alt Bypass)
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 p-2 bg-[#070B12] border border-slate-800 font-mono text-xs tabular-nums">
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 p-2 bg-[#FFFFFF] border border-[#D4E0E8] font-mono text-xs tabular-nums">
                   <div>
-                    <div className="text-[10px] text-slate-400">Travel time</div>
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-[10px] text-[#526778]">Travel time</div>
+                    <div className="text-sm font-bold text-[#263746]">
                       {activeRouteObj.alternativeRoute.travelTimeMin} min
                     </div>
-                    <div className="text-[10px] text-slate-500">
+                    <div className="text-[10px] text-[#526778]">
                       {activeRouteObj.alternativeRoute.distanceKm} km
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-400">Risk score</div>
+                    <div className="text-[10px] text-[#526778]">Risk score</div>
                     <div
                       className={`text-sm font-bold ${
                         activeRouteObj.alternativeRoute.riskScore >= 50
@@ -695,35 +695,35 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                     >
                       {activeRouteObj.alternativeRoute.riskScore}/100
                     </div>
-                    <div className="text-[10px] text-slate-500">
+                    <div className="text-[10px] text-[#526778]">
                       Max {Math.round(activeRouteObj.alternativeRoute.maxFloodProbability * 100)}% prob
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-400">Confidence</div>
-                    <div className="text-sm font-bold text-cyan-300">
+                    <div className="text-[10px] text-[#526778]">Confidence</div>
+                    <div className="text-sm font-bold text-[#287FB5]">
                       {Math.round(activeRouteObj.alternativeRoute.confidence * 100)}%
                     </div>
-                    <div className="text-[10px] text-slate-500">
+                    <div className="text-[10px] text-[#526778]">
                       +{activeRouteObj.alternativeRoute.totalRiskPenaltyMin}m risk pen
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-400">Generated time</div>
-                    <div className="text-xs font-semibold text-slate-200 mt-0.5">
+                    <div className="text-[10px] text-[#526778]">Generated time</div>
+                    <div className="text-xs font-semibold text-[#263746] mt-0.5">
                       {activeRouteObj.alternativeRoute.generated_at.slice(11, 19)}Z
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-slate-400">Expiry</div>
+                    <div className="text-[10px] text-[#526778]">Expiry</div>
                     <div className="text-xs font-semibold text-amber-300 mt-0.5">
                       {activeRouteObj.alternativeRoute.expiry.slice(11, 19)}Z
                     </div>
                   </div>
                 </div>
 
-                <div className="font-mono text-[11px] text-slate-300">
-                  <span className="text-slate-400">Corridor Sequence: </span>
+                <div className="font-mono text-[11px] text-[#263746]">
+                  <span className="text-[#526778]">Corridor Sequence: </span>
                   {activeRouteObj.alternativeRoute.roadIds
                     .map(
                       (rId, idx) =>
@@ -732,7 +732,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                     .join(' → ')}
                 </div>
 
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-[#526778] leading-relaxed">
                   Recommended under current data as secondary backup corridor (shown in dashed emerald on map). Never guaranteed safe.
                 </p>
 
@@ -743,15 +743,15 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 />
               </div>
             ) : (
-              <div className="p-3.5 bg-[#0C121E] border border-slate-800 flex flex-col justify-between">
+              <div className="p-3.5 bg-[#F7FAFC] border border-[#D4E0E8] flex flex-col justify-between">
                 <div className="space-y-1.5">
                   <div className="font-mono text-xs text-amber-300 font-semibold">
                     SINGLE FEASIBLE CORRIDOR REMAINING
                   </div>
-                  <div className="text-sm font-semibold text-white">
+                  <div className="text-sm font-semibold text-[#263746]">
                     No Secondary Distinct Alternative Route Available
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-[#526778] leading-relaxed">
                     Under {activePolicy.label} policy, all other parallel bridges/connectors between{' '}
                     {activeRouteObj.originName} and {activeRouteObj.destinationName} are currently{' '}
                     <span className="text-rose-400 font-mono">CLOSED</span> or{' '}
@@ -767,19 +767,19 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
           <div className="p-4 bg-rose-950/35 border-2 border-rose-500/80 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2 font-mono">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 bg-rose-500 text-white font-bold text-xs">
+                <span className="px-2.5 py-0.5 bg-rose-500 text-[#263746] font-bold text-xs">
                   NO FEASIBLE ROUTE
                 </span>
-                <span className="text-rose-200 text-xs font-semibold">
+                <span className="text-rose-800 text-xs font-semibold">
                   {activeRouteObj?.originName} → {activeRouteObj?.destinationName} (Profile: {activePolicy.label})
                 </span>
               </div>
-              <span className="text-xs text-slate-300">
+              <span className="text-xs text-[#263746]">
                 iDhara Safety Rule: Do not fabricate impassable routes
               </span>
             </div>
 
-            <div className="p-2.5 bg-[#070A12] border border-rose-500/40 text-xs text-slate-200">
+            <div className="p-2.5 bg-[#FFFFFF] border border-rose-500/40 text-xs text-[#263746]">
               <strong className="text-rose-300 font-mono">Reason: </strong>
               {activeRouteObj.noRouteInfo?.reason ??
                 'All currently available corridors are closed or above the configured safety threshold for this profile.'}
@@ -787,16 +787,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs">
               {/* Nearest Reachable Safe Point */}
-              <div className="p-3 bg-[#090E18] border border-emerald-500/50 space-y-1">
+              <div className="p-3 bg-[#FFFFFF] border border-emerald-500/50 space-y-1">
                 <div className="text-emerald-400 font-bold text-[11px]">
                   ● NEAREST REACHABLE SAFE POINT
                 </div>
                 {activeRouteObj?.noRouteInfo?.nearestReachableSafePoint ? (
                   <>
-                    <div className="text-sm font-sans font-semibold text-white">
+                    <div className="text-sm font-sans font-semibold text-[#263746]">
                       {activeRouteObj.noRouteInfo.nearestReachableSafePoint.nodeName}
                     </div>
-                    <div className="text-slate-300">
+                    <div className="text-[#263746]">
                       Elevation:{' '}
                       <strong className="text-emerald-300">
                         {activeRouteObj.noRouteInfo.nearestReachableSafePoint.elevationM}m MSL
@@ -804,36 +804,36 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                       · Distance: {activeRouteObj.noRouteInfo.nearestReachableSafePoint.distanceKm} km · Est.{' '}
                       {activeRouteObj.noRouteInfo.nearestReachableSafePoint.travelTimeMin} min
                     </div>
-                    <div className="text-[11px] text-slate-400">
+                    <div className="text-[11px] text-[#526778]">
                       Recommended under current data for immediate high-ground staging.
                     </div>
                   </>
                 ) : (
-                  <div className="text-slate-300">
+                  <div className="text-[#263746]">
                     Remain at local high-ground structure; await high-clearance SDRF boat/truck extraction.
                   </div>
                 )}
               </div>
 
               {/* Nearest Available Shelter */}
-              <div className="p-3 bg-[#090E18] border border-cyan-500/50 space-y-1">
-                <div className="text-cyan-400 font-bold text-[11px]">
+              <div className="p-3 bg-[#FFFFFF] border border-[#287FB5] space-y-1">
+                <div className="text-[#287FB5] font-bold text-[11px]">
                   ▲ NEAREST AVAILABLE SHELTER
                 </div>
                 {activeRouteObj?.noRouteInfo?.nearestAvailableShelter ? (
                   <>
-                    <div className="text-sm font-sans font-semibold text-white">
+                    <div className="text-sm font-sans font-semibold text-[#263746]">
                       {activeRouteObj.noRouteInfo.nearestAvailableShelter.shelterName} (
                       {activeRouteObj.noRouteInfo.nearestAvailableShelter.shelterId})
                     </div>
-                    <div className="text-slate-300">
+                    <div className="text-[#263746]">
                       Ward {activeRouteObj.noRouteInfo.nearestAvailableShelter.ward} · Elev{' '}
                       {activeRouteObj.noRouteInfo.nearestAvailableShelter.elevationM}m MSL ·{' '}
                       <strong className="text-emerald-300">
                         {activeRouteObj.noRouteInfo.nearestAvailableShelter.availableBerths} berths available
                       </strong>
                     </div>
-                    <div className="text-[11px] text-slate-400">
+                    <div className="text-[11px] text-[#526778]">
                       Distance: ~{activeRouteObj.noRouteInfo.nearestAvailableShelter.distanceKm} km ·{' '}
                       <button
                         type="button"
@@ -845,14 +845,14 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                                 ?.shelterId ?? 'SH-01',
                           })
                         }
-                        className="text-cyan-300 underline"
+                        className="text-[#287FB5] underline"
                       >
                         Inspect Shelter on Map →
                       </button>
                     </div>
                   </>
                 ) : (
-                  <div className="text-slate-300 text-xs font-sans">
+                  <div className="text-[#263746] text-xs font-sans">
                     No directly reachable shelter with open road access. Coordinate with Control Room for high-clearance SDRF staging.
                   </div>
                 )}
@@ -863,7 +863,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
         {/* Preset Corridor Quick Selector */}
         <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs">
-          <span className="text-slate-400 text-[11px] mr-1">PRESET CORRIDORS:</span>
+          <span className="text-[#526778] text-[11px] mr-1">PRESET CORRIDORS:</span>
           {routes.map((rt) => {
             const isSelected = rt.id === (activeRouteObj?.id ?? activeRouteId);
             return (
@@ -876,8 +876,8 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 }}
                 className={`px-2.5 py-1 border text-[11px] transition-colors whitespace-nowrap ${
                   isSelected
-                    ? 'bg-cyan-950/70 border-cyan-400 text-cyan-200 font-semibold'
-                    : 'bg-[#0C121E] border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-cyan-950/70 border-[#287FB5] text-[#287FB5] font-semibold'
+                    : 'bg-[#F7FAFC] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                 }`}
               >
                 {rt.originName} → {rt.destinationName}{' '}
@@ -900,10 +900,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         />
 
         {/* ROUTING GRAPH TABLE: base travel time, risk penalty, road state, confidence, expiry */}
-        <div className="overflow-x-auto border border-slate-800">
+        <div className="overflow-x-auto border border-[#D4E0E8]">
           <table className="w-full text-left border-collapse font-mono text-xs">
             <thead>
-              <tr className="bg-[#0C121E] text-slate-400 border-b border-slate-800">
+              <tr className="bg-[#F7FAFC] text-[#526778] border-b border-[#D4E0E8]">
                 <th className="py-2 px-3">Road Segment</th>
                 <th className="py-2 px-3">Road State</th>
                 <th className="py-2 px-3 text-right">Base Travel Time</th>
@@ -926,15 +926,15 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   <tr
                     key={r.id}
                     onClick={() => onSelectMapTarget({ type: 'ROAD', id: r.id })}
-                    className={`hover:bg-slate-900/80 cursor-pointer ${
+                    className={`hover:bg-[#EDF3F7] cursor-pointer ${
                       isOnPrimary ? 'bg-cyan-950/20' : ''
                     }`}
                   >
-                    <td className="py-2 px-3 text-slate-200 font-sans font-medium">
-                      <span className="font-mono text-cyan-400 mr-1.5">{r.id}</span>
+                    <td className="py-2 px-3 text-[#263746] font-sans font-medium">
+                      <span className="font-mono text-[#287FB5] mr-1.5">{r.id}</span>
                       {r.name}
                       {isOnPrimary && (
-                        <span className="ml-2 font-mono text-[10px] text-cyan-300">
+                        <span className="ml-2 font-mono text-[10px] text-[#287FB5]">
                           [ON PRIMARY ROUTE]
                         </span>
                       )}
@@ -945,7 +945,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         <span className="ml-1.5 text-[10px] text-amber-300">(Hold)</span>
                       )}
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-slate-300">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#263746]">
                       {r.baseTravelTimeMin} min
                     </td>
                     <td className="py-2 px-3 text-right tabular-nums">
@@ -959,13 +959,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         </span>
                       )}
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-slate-200">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#263746]">
                       {Math.round(r.floodProbability * 100)}%
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-cyan-300">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#287FB5]">
                       {Math.round(r.confidence * 100)}%
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-slate-400">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#526778]">
                       {r.expiry.slice(11, 19)}Z
                     </td>
                   </tr>
@@ -1021,16 +1021,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
     );
 
     return (
-      <div className="flex-1 min-h-0 p-4 bg-[#080C14] space-y-4 overflow-y-auto">
+      <div className="flex-1 min-h-0 p-4 bg-[#EDF3F7] space-y-4 overflow-y-auto">
         {/* Top Bar: Evacuation Mode Status + Trigger Controls + Recalculate Button */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D4E0E8] pb-3">
           <div>
             <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
               <span
                 className={`px-2 py-0.5 font-bold ${
                   evacuationModeActive
-                    ? 'bg-rose-500 text-white'
-                    : 'bg-slate-800 text-slate-300'
+                    ? 'bg-rose-500 text-[#263746]'
+                    : 'bg-[#EDF3F7] text-[#263746]'
                 }`}
               >
                 {evacuationModeActive
@@ -1041,7 +1041,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 {evacuationTriggerReason}
               </span>
             </div>
-            <h2 className="text-base font-semibold text-white mt-1">
+            <h2 className="text-base font-semibold text-[#263746] mt-1">
               Capacity-Aware Evacuation Planning
             </h2>
           </div>
@@ -1052,8 +1052,8 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               onClick={onToggleManualEvacuation}
               className={`px-3 py-1.5 border font-semibold whitespace-nowrap transition-colors ${
                 manualEvacuationActive
-                  ? 'bg-rose-950/80 border-rose-400 text-rose-200'
-                  : 'bg-[#0D1320] hover:bg-slate-800 border-slate-700 text-slate-200'
+                  ? 'bg-rose-950/80 border-rose-400 text-rose-800'
+                  : 'bg-[#FFFFFF] hover:bg-[#EDF3F7] border-[#D4E0E8] text-[#263746]'
               }`}
             >
               {manualEvacuationActive
@@ -1064,7 +1064,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             <button
               type="button"
               onClick={onRecalculateEvacuationPlan}
-              className="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400 text-cyan-200 font-bold whitespace-nowrap transition-colors"
+              className="px-3 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/30 border border-[#287FB5] text-[#287FB5] font-bold whitespace-nowrap transition-colors"
             >
               ↻ Recalculate evacuation plan
             </button>
@@ -1073,24 +1073,24 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
         {/* Auto-Refresh Notification when a Major Road Changes */}
         {lastEvacAutoRefreshNote && (
-          <div className="p-2.5 bg-cyan-950/40 border border-cyan-400/70 flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
+          <div className="p-2.5 bg-cyan-950/40 border border-[#287FB5]/70 flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 bg-cyan-400 text-slate-950 font-bold text-[11px]">
                 AUTO-REFRESHED
               </span>
               <span className="text-cyan-100">{lastEvacAutoRefreshNote}</span>
             </div>
-            <span className="text-slate-400 text-[11px]">
+            <span className="text-[#526778] text-[11px]">
               CLOSED roads removed · Uncertain/high-risk roads penalized
             </span>
           </div>
         )}
 
         {/* Controls Strip: Evacuation Threshold + Failure-State Stress Tests */}
-        <div className="p-3 bg-[#0C121E] border border-slate-800 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+        <div className="p-3 bg-[#F7FAFC] border border-[#D4E0E8] flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-slate-400 text-[11px]">
+              <span className="text-[#526778] text-[11px]">
                 EVACUATION THRESHOLD:
               </span>
               {[0.45, 0.50, 0.60, 0.70].map((th) => (
@@ -1100,8 +1100,8 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   onClick={() => onChangeEvacuationThreshold(th)}
                   className={`px-2 py-1 border text-[11px] ${
                     Math.abs(evacuationThreshold - th) < 0.01
-                      ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200 font-bold'
-                      : 'bg-[#070B12] border-slate-700 text-slate-400 hover:text-slate-200'
+                      ? 'bg-cyan-500/25 border-[#287FB5] text-[#287FB5] font-bold'
+                      : 'bg-[#FFFFFF] border-[#D4E0E8] text-[#526778] hover:text-[#263746]'
                   }`}
                 >
                   ≥ {Math.round(th * 100)}% Risk
@@ -1110,7 +1110,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             </div>
 
             <div className="flex items-center gap-2">
-              <label htmlFor="shelter-cap-scale" className="text-slate-400 text-[11px]">
+              <label htmlFor="shelter-cap-scale" className="text-[#526778] text-[11px]">
                 SHELTER CAPACITY CAP:
               </label>
               <input
@@ -1131,18 +1131,18 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
           {/* Interactive Failure-State Verification Buttons */}
           <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
-            <span className="text-slate-400 mr-1">VERIFY FAILURE STATES:</span>
+            <span className="text-[#526778] mr-1">VERIFY FAILURE STATES:</span>
             <button
               type="button"
               onClick={() => onSimulateEvacFailureState('CAPACITY_EXCEEDED')}
-              className="px-2 py-1 bg-amber-950/60 hover:bg-amber-900/70 border border-amber-500/60 text-amber-200 whitespace-nowrap"
+              className="px-2 py-1 bg-amber-100 hover:bg-amber-900/70 border border-amber-500/60 text-amber-800 whitespace-nowrap"
             >
               ⚡ Shelter capacity exceeded
             </button>
             <button
               type="button"
               onClick={() => onSimulateEvacFailureState('ROAD_DISCONNECTED')}
-              className="px-2 py-1 bg-rose-950/60 hover:bg-rose-900/70 border border-rose-500/60 text-rose-200 whitespace-nowrap"
+              className="px-2 py-1 bg-rose-100 hover:bg-rose-900/70 border border-rose-500/60 text-rose-800 whitespace-nowrap"
             >
               ⚡ Road network disconnected
             </button>
@@ -1156,7 +1156,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             <button
               type="button"
               onClick={() => onSimulateEvacFailureState('RESET')}
-              className="px-2 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap"
+              className="px-2 py-1 bg-[#EDF3F7] hover:bg-[#EDF3F7] border border-[#D4E0E8] text-[#263746] whitespace-nowrap"
             >
               ↺ Reset
             </button>
@@ -1165,56 +1165,56 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
         {/* EVACUATION DASHBOARD METRICS: Affected zones, People proxy, Shelter capacity, Shelter load, Routes, Unassigned zones, Critical facilities */}
         <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-7 gap-2.5 font-mono">
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">Affected zones</div>
-            <div className="text-xl font-bold text-white tabular-nums mt-0.5">
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">Affected zones</div>
+            <div className="text-xl font-bold text-[#263746] tabular-nums mt-0.5">
               {evacuationPlans.length}
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               Above ≥{Math.round(evacuationThreshold * 100)}% threshold
             </div>
           </div>
 
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">People proxy</div>
-            <div className="text-xl font-bold text-cyan-300 tabular-nums mt-0.5">
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">People proxy</div>
+            <div className="text-xl font-bold text-[#287FB5] tabular-nums mt-0.5">
               {totalPeopleProxy.toLocaleString()}
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               {assignedPeopleProxy.toLocaleString()} assigned
             </div>
           </div>
 
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">Shelter capacity</div>
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">Shelter capacity</div>
             <div className="text-xl font-bold text-emerald-300 tabular-nums mt-0.5">
               {totalShelterCapacity.toLocaleString()}
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               {totalRemainingCapacity.toLocaleString()} reachable berths left
             </div>
           </div>
 
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">Shelter load</div>
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">Shelter load</div>
             <div
               className={`text-xl font-bold tabular-nums mt-0.5 ${
-                shelterLoadPct >= 85 ? 'text-amber-300' : 'text-white'
+                shelterLoadPct >= 85 ? 'text-amber-300' : 'text-[#263746]'
               }`}
             >
               {shelterLoadPct}%
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               {totalShelterOccupancy.toLocaleString()} occupied
             </div>
           </div>
 
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">Routes</div>
-            <div className="text-xl font-bold text-cyan-300 tabular-nums mt-0.5">
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">Routes</div>
+            <div className="text-xl font-bold text-[#287FB5] tabular-nums mt-0.5">
               {assignedPlans.length}
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               {closedRoads.length} CLOSED roads removed
             </div>
           </div>
@@ -1223,10 +1223,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             className={`p-2.5 border ${
               unassignedPlans.length > 0
                 ? 'bg-rose-950/40 border-rose-500/80'
-                : 'bg-[#0C121E] border-slate-800'
+                : 'bg-[#F7FAFC] border-[#D4E0E8]'
             }`}
           >
-            <div className="text-[10.5px] text-slate-300">Unassigned zones</div>
+            <div className="text-[10.5px] text-[#263746]">Unassigned zones</div>
             <div
               className={`text-xl font-bold tabular-nums mt-0.5 ${
                 unassignedPlans.length > 0 ? 'text-rose-400' : 'text-emerald-400'
@@ -1234,17 +1234,17 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             >
               {unassignedPlans.length}
             </div>
-            <div className="text-[10px] text-slate-300 mt-0.5">
+            <div className="text-[10px] text-[#263746] mt-0.5">
               {unassignedPeopleProxy.toLocaleString()} people unallocated
             </div>
           </div>
 
-          <div className="p-2.5 bg-[#0C121E] border border-slate-800">
-            <div className="text-[10.5px] text-slate-400">Critical facilities</div>
+          <div className="p-2.5 bg-[#F7FAFC] border border-[#D4E0E8]">
+            <div className="text-[10.5px] text-[#526778]">Critical facilities</div>
             <div className="text-xl font-bold text-amber-300 tabular-nums mt-0.5">
               {allCriticalFacilities.length}
             </div>
-            <div className="text-[10px] text-slate-400 mt-0.5">
+            <div className="text-[10px] text-[#526778] mt-0.5">
               Hospitals · Schools · Care
             </div>
           </div>
@@ -1255,14 +1255,14 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
           <div className="p-3.5 bg-rose-950/45 border-2 border-rose-500/90 space-y-2.5">
             <div className="flex flex-wrap items-center justify-between gap-2 font-mono">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 bg-rose-500 text-white font-bold text-xs">
+                <span className="px-2.5 py-0.5 bg-rose-500 text-[#263746] font-bold text-xs">
                   NO FEASIBLE EVACUATION PLAN
                 </span>
-                <span className="text-rose-200 font-semibold text-xs">
+                <span className="text-rose-800 font-semibold text-xs">
                   {unassignedPlans.length} Affected Zone(s) Cannot Be Assigned ({unassignedPeopleProxy.toLocaleString()} exposed population proxy)
                 </span>
               </div>
-              <span className="text-xs text-slate-300">
+              <span className="text-xs text-[#263746]">
                 iDhara Rule: Do not invent a solution when capacity or reachability fails
               </span>
             </div>
@@ -1274,20 +1274,20 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   onClick={() =>
                     onSelectMapTarget({ type: 'CELL', id: uPlan.sourceCellId })
                   }
-                  className="p-2.5 bg-[#070A12] border border-rose-500/50 cursor-pointer hover:border-rose-400 space-y-1 font-mono text-xs"
+                  className="p-2.5 bg-[#FFFFFF] border border-rose-500/50 cursor-pointer hover:border-rose-400 space-y-1 font-mono text-xs"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-white font-bold">
+                    <span className="text-[#263746] font-bold">
                       {uPlan.assignmentSummary}
                     </span>
-                    <span className="px-1.5 py-0.5 bg-rose-900/80 text-rose-200 text-[10.5px]">
+                    <span className="px-1.5 py-0.5 bg-rose-900/80 text-rose-800 text-[10.5px]">
                       Reason: {uPlan.failureReason}
                     </span>
                   </div>
-                  <p className="text-[11px] font-sans text-slate-300 leading-relaxed">
+                  <p className="text-[11px] font-sans text-[#263746] leading-relaxed">
                     {uPlan.failureDetail}
                   </p>
-                  <div className="text-[10.5px] text-slate-400 flex items-center justify-between pt-1">
+                  <div className="text-[10.5px] text-[#526778] flex items-center justify-between pt-1">
                     <span>
                       People proxy: {uPlan.populationAtRisk} · Road: {uPlan.roadAccessibilityStatus}
                     </span>
@@ -1302,12 +1302,12 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         )}
 
         {/* CAPACITY-AWARE ASSIGNMENT STRIP (Zone A -> Shelter 1, Zone B -> Shelter 2, Zone C -> no feasible assignment) */}
-        <div className="p-3 bg-[#0C121E] border border-slate-800 space-y-2">
+        <div className="p-3 bg-[#F7FAFC] border border-[#D4E0E8] space-y-2">
           <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-            <span className="text-cyan-300 font-semibold">
+            <span className="text-[#287FB5] font-semibold">
               CAPACITY-AWARE ZONE → SHELTER ASSIGNMENT SUMMARY (PRIORITY ORDER)
             </span>
-            <span className="text-slate-400 text-[11px]">
+            <span className="text-[#526778] text-[11px]">
               Prioritizes: 1. Hospitals → 2. Schools & Care Facilities → 3. High-Risk Vulnerable Zones
             </span>
           </div>
@@ -1328,16 +1328,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 }}
                 className={`p-2 border cursor-pointer flex items-center justify-between gap-2 ${
                   plan.assigned
-                    ? 'bg-[#080C15] border-emerald-500/40 hover:border-emerald-400'
+                    ? 'bg-[#FFFFFF] border-emerald-500/40 hover:border-emerald-400'
                     : 'bg-rose-950/30 border-rose-500/70 hover:border-rose-400'
                 }`}
               >
                 <div className="truncate">
-                  <span className="text-slate-400 mr-1.5">#{idx + 1}</span>
+                  <span className="text-[#526778] mr-1.5">#{idx + 1}</span>
                   <span
                     className={
                       plan.assigned
-                        ? 'text-slate-100 font-semibold'
+                        ? 'text-[#263746] font-semibold'
                         : 'text-rose-300 font-bold'
                     }
                   >
@@ -1348,7 +1348,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   className={`shrink-0 text-[11px] px-1.5 py-0.5 ${
                     plan.assigned
                       ? 'bg-emerald-950/70 text-emerald-300'
-                      : 'bg-rose-900/80 text-rose-200 font-semibold'
+                      : 'bg-rose-900/80 text-rose-800 font-semibold'
                   }`}
                 >
                   {plan.assigned
@@ -1366,7 +1366,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
             <span className="text-emerald-400 font-semibold">
               MUNICIPAL SHELTERS (ONLY REACHABLE SHELTERS CONSIDERED FOR ASSIGNMENT)
             </span>
-            <span className="text-slate-400 text-[11px]">
+            <span className="text-[#526778] text-[11px]">
               Click any shelter to inspect on map
             </span>
           </div>
@@ -1384,7 +1384,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                       ? 'bg-rose-950/20 border-rose-500/60'
                       : sh.remainingCapacity === 0
                       ? 'bg-amber-950/20 border-amber-500/60'
-                      : 'bg-[#0C121E] border-slate-800 hover:border-emerald-500/50'
+                      : 'bg-[#F7FAFC] border-[#D4E0E8] hover:border-emerald-500/50'
                   }`}
                 >
                   <div className="flex items-center justify-between font-mono text-xs">
@@ -1403,27 +1403,27 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-white truncate">
+                    <div className="text-sm font-semibold text-[#263746] truncate">
                       {sh.name}
                     </div>
-                    <div className="font-mono text-[10.5px] text-slate-400 truncate mt-0.5">
+                    <div className="font-mono text-[10.5px] text-[#526778] truncate mt-0.5">
                       Location: {sh.locationLabel}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-1.5 p-2 bg-[#070B12] border border-slate-800/90 font-mono text-[11px] tabular-nums">
+                  <div className="grid grid-cols-3 gap-1.5 p-2 bg-[#FFFFFF] border border-[#D4E0E8] font-mono text-[11px] tabular-nums">
                     <div>
-                      <div className="text-[9.5px] text-slate-400">Capacity</div>
-                      <div className="font-bold text-white">{sh.totalCapacity}</div>
+                      <div className="text-[9.5px] text-[#526778]">Capacity</div>
+                      <div className="font-bold text-[#263746]">{sh.totalCapacity}</div>
                     </div>
                     <div>
-                      <div className="text-[9.5px] text-slate-400">Est. Occ</div>
+                      <div className="text-[9.5px] text-[#526778]">Est. Occ</div>
                       <div className="font-bold text-amber-300">
                         {sh.currentOccupancy}
                       </div>
                     </div>
                     <div>
-                      <div className="text-[9.5px] text-slate-400">Remaining</div>
+                      <div className="text-[9.5px] text-[#526778]">Remaining</div>
                       <div
                         className={`font-bold ${
                           sh.remainingCapacity > 0
@@ -1438,13 +1438,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
                   <div className="space-y-1 font-mono text-[10.5px]">
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Flood risk:</span>
-                      <span className="text-slate-200">
+                      <span className="text-[#526778]">Flood risk:</span>
+                      <span className="text-[#263746]">
                         {Math.round(sh.floodRiskProbability * 100)}% ({sh.floodRiskSeverity})
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Accessibility:</span>
+                      <span className="text-[#526778]">Accessibility:</span>
                       <span
                         className={
                           sh.reachable ? 'text-emerald-300' : 'text-rose-300'
@@ -1455,7 +1455,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                     </div>
                   </div>
 
-                  <div className="w-full h-1.5 bg-slate-900 overflow-hidden">
+                  <div className="w-full h-1.5 bg-[#EDF3F7] overflow-hidden">
                     <div
                       className={`h-full ${
                         !sh.reachable
@@ -1475,10 +1475,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         </div>
 
         {/* AFFECTED ZONES, CRITICAL FACILITIES, SHELTER ASSIGNMENTS & EVACUATION ROUTES TABLE */}
-        <div className="overflow-x-auto border border-slate-800">
+        <div className="overflow-x-auto border border-[#D4E0E8]">
           <table className="w-full text-left border-collapse font-mono text-xs">
             <thead>
-              <tr className="bg-[#0C121E] text-slate-400 border-b border-slate-800">
+              <tr className="bg-[#F7FAFC] text-[#526778] border-b border-[#D4E0E8]">
                 <th className="py-2 px-3">Affected Zone & Priority</th>
                 <th className="py-2 px-3">Flood Risk</th>
                 <th className="py-2 px-3 text-right">Exposed Pop. Proxy</th>
@@ -1505,15 +1505,15 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         );
                       }
                     }}
-                    className={`hover:bg-slate-900/80 cursor-pointer ${
+                    className={`hover:bg-[#EDF3F7] cursor-pointer ${
                       !plan.assigned ? 'bg-rose-950/20' : ''
                     }`}
                   >
                     {/* Zone & Priority */}
                     <td className="py-2.5 px-3 align-top">
-                      <div className="text-slate-100 font-sans font-semibold">
+                      <div className="text-[#263746] font-sans font-semibold">
                         {plan.sourceLocality}{' '}
-                        <span className="font-mono text-xs text-cyan-400">
+                        <span className="font-mono text-xs text-[#287FB5]">
                           ({plan.sourceCellId})
                         </span>
                       </div>
@@ -1521,16 +1521,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         <span
                           className={`px-1.5 py-0.5 text-[10px] font-bold ${
                             plan.priorityTier === 'PRIORITY_1_HOSPITAL'
-                              ? 'bg-rose-500/25 border border-rose-400 text-rose-200'
+                              ? 'bg-rose-500/25 border border-rose-400 text-rose-800'
                               : plan.priorityTier === 'PRIORITY_2_SCHOOL_CARE'
-                              ? 'bg-amber-500/25 border border-amber-400 text-amber-200'
-                              : 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-200'
+                              ? 'bg-amber-500/25 border border-amber-400 text-amber-800'
+                              : 'bg-cyan-500/20 border border-[#287FB5] text-[#287FB5]'
                           }`}
                         >
                           {plan.priorityTier.replace(/_/g, ' ')} (Score {plan.priorityScore})
                         </span>
                       </div>
-                      <div className="text-[10.5px] text-slate-400 mt-1 max-w-xs">
+                      <div className="text-[10.5px] text-[#526778] mt-1 max-w-xs">
                         {plan.priorityReason}
                       </div>
                     </td>
@@ -1538,7 +1538,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                     {/* Risk */}
                     <td className="py-2.5 px-3 align-top">
                       <SeverityIndicator severity={plan.severity} />
-                      <div className="text-[11px] text-slate-200 mt-1 tabular-nums">
+                      <div className="text-[11px] text-[#263746] mt-1 tabular-nums">
                         Prob: <strong>{Math.round(plan.floodProbability * 100)}%</strong> · Depth: ~
                         {plan.predictedDepthCm}cm
                       </div>
@@ -1546,10 +1546,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
                     {/* Exposed Population Proxy */}
                     <td className="py-2.5 px-3 text-right align-top tabular-nums">
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-sm font-bold text-[#263746]">
                         {plan.populationAtRisk.toLocaleString()}
                       </div>
-                      <div className="text-[10.5px] text-slate-400">
+                      <div className="text-[10.5px] text-[#526778]">
                         {plan.assigned ? `${plan.busesAssigned} buses` : 'Unallocated'}
                       </div>
                     </td>
@@ -1561,18 +1561,18 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                           {plan.criticalFacilities.map((fac) => (
                             <div
                               key={fac.id}
-                              className="text-[11px] text-amber-200 font-medium"
+                              className="text-[11px] text-amber-800 font-medium"
                             >
                               ✚ {fac.name} ({fac.priorityLabel})
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <div className="text-[11px] text-slate-400">
+                        <div className="text-[11px] text-[#526778]">
                           Dense Residential / Bazaar Pocket
                         </div>
                       )}
-                      <div className="text-[10.5px] text-slate-400 pt-1 border-t border-slate-800/70">
+                      <div className="text-[10.5px] text-[#526778] pt-1 border-t border-[#D4E0E8]/70">
                         Nearest Shelters:{' '}
                         {plan.nearestShelters
                           .slice(0, 2)
@@ -1599,7 +1599,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                       >
                         {plan.roadAccessibilityStatus}
                       </span>
-                      <div className="text-[10.5px] text-slate-400 mt-1 max-w-[180px]">
+                      <div className="text-[10.5px] text-[#526778] mt-1 max-w-[180px]">
                         {plan.roadAccessibilityLabel}
                       </div>
                     </td>
@@ -1611,7 +1611,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                           <div className="text-emerald-300 font-bold">
                             ✓ {plan.assignmentSummary}
                           </div>
-                          <div className="text-[11px] text-cyan-200">
+                          <div className="text-[11px] text-[#287FB5]">
                             Route: {plan.routeRoadIds.join(' → ')} ({plan.distanceKm} km · ~
                             {plan.estimatedClearanceMin} min)
                           </div>
@@ -1621,13 +1621,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         </div>
                       ) : (
                         <div className="space-y-1">
-                          <div className="px-2 py-0.5 bg-rose-500 text-white font-bold text-[11px] inline-block">
+                          <div className="px-2 py-0.5 bg-rose-500 text-[#263746] font-bold text-[11px] inline-block">
                             {plan.failureBanner}
                           </div>
                           <div className="text-rose-300 font-bold text-xs">
                             {plan.assignmentSummary}
                           </div>
-                          <div className="text-[11px] text-rose-200">
+                          <div className="text-[11px] text-rose-800">
                             Reason: <strong>{plan.failureReason}</strong>
                           </div>
                         </div>
@@ -1636,10 +1636,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
 
                     {/* Confidence, Generated Time, Expiry */}
                     <td className="py-2.5 px-3 text-right align-top tabular-nums text-[11px]">
-                      <div className="text-cyan-300 font-bold">
+                      <div className="text-[#287FB5] font-bold">
                         Conf: {Math.round(plan.confidence * 100)}%
                       </div>
-                      <div className="text-slate-300 mt-0.5">
+                      <div className="text-[#263746] mt-0.5">
                         Gen: {plan.generated_at.slice(11, 19)}Z
                       </div>
                       <div className="text-amber-300 mt-0.5">
@@ -1705,13 +1705,13 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
     const waterSensorC = sensors.find((s) => s.id === 'SEN-WL-04') ?? sensors[3];
 
     return (
-      <div className="flex-1 min-h-0 p-4 bg-[#080C14] space-y-4 overflow-y-auto">
-        <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0C1220] p-3 border border-slate-800 rounded">
+      <div className="flex-1 min-h-0 p-4 bg-[#EDF3F7] space-y-4 overflow-y-auto">
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-[#F7FAFC] p-3 border border-[#D4E0E8] rounded">
           <div>
-            <div className="font-mono text-[11px] text-cyan-400">
+            <div className="font-mono text-[11px] text-[#287FB5]">
               DATA QUALITY & SENSOR FRESHNESS
             </div>
-            <h2 className="text-base font-semibold text-white">
+            <h2 className="text-base font-semibold text-[#263746]">
               Data Health & Telemetry ({dataHealthReport.overallHealthPct}%)
             </h2>
           </div>
@@ -1744,22 +1744,22 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                 className={`p-3 border ${fMeta.borderColor} ${fMeta.bgTint} cursor-pointer space-y-1`}
               >
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-sans font-semibold text-white">{item.label}</span>
+                  <span className="font-sans font-semibold text-[#263746]">{item.label}</span>
                   <span className={`font-bold ${fMeta.textColor}`}>
                     {fMeta.glyph} {item.sensor.freshnessState}
                   </span>
                 </div>
-                <div className="text-xs text-slate-200">
+                <div className="text-xs text-[#263746]">
                   Last seen: <strong>{item.sensor.lastSeenLabel}</strong>
                 </div>
-                <div className="text-[11px] text-slate-300">
-                  Note: <span className="text-amber-200">{item.sensor.diagnosticNote}</span>
+                <div className="text-[11px] text-[#263746]">
+                  Note: <span className="text-amber-800">{item.sensor.diagnosticNote}</span>
                 </div>
-                <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-800/80 tabular-nums">
+                <div className="flex items-center justify-between text-[11px] text-[#526778] pt-1 border-t border-[#D4E0E8] tabular-nums">
                   <span>
                     Reading: {item.sensor.currentValue} {item.sensor.unit}
                   </span>
-                  <span className="text-cyan-300">
+                  <span className="text-[#287FB5]">
                     Conf: {Math.round(item.sensor.confidence * 100)}%
                   </span>
                 </div>
@@ -1781,10 +1781,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
         />
 
         {/* 10 Sensors Full Telemetry Quality Table */}
-        <div className="overflow-x-auto border border-slate-800">
+        <div className="overflow-x-auto border border-[#D4E0E8]">
           <table className="w-full text-left border-collapse font-mono text-xs">
             <thead>
-              <tr className="bg-[#0C121E] text-slate-400 border-b border-slate-800">
+              <tr className="bg-[#F7FAFC] text-[#526778] border-b border-[#D4E0E8]">
                 <th className="py-2 px-3">Sensor ID & Name</th>
                 <th className="py-2 px-3">Freshness State</th>
                 <th className="py-2 px-3">Last Seen</th>
@@ -1800,10 +1800,10 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                   <tr
                     key={s.id}
                     onClick={() => onSelectMapTarget({ type: 'SENSOR', id: s.id })}
-                    className="hover:bg-slate-900/80 cursor-pointer"
+                    className="hover:bg-[#EDF3F7] cursor-pointer"
                   >
-                    <td className="py-2 px-3 text-slate-200 font-sans font-medium">
-                      <span className="font-mono text-cyan-300 mr-1.5">{s.id}</span>
+                    <td className="py-2 px-3 text-[#263746] font-sans font-medium">
+                      <span className="font-mono text-[#287FB5] mr-1.5">{s.id}</span>
                       {s.name}
                     </td>
                     <td className="py-2 px-3">
@@ -1811,16 +1811,16 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
                         {fMeta.glyph} {s.freshnessState}
                       </span>
                     </td>
-                    <td className="py-2 px-3 text-slate-300 tabular-nums">
+                    <td className="py-2 px-3 text-[#263746] tabular-nums">
                       {s.lastSeenLabel}
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-white">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#263746]">
                       {s.currentValue} {s.unit}
                     </td>
-                    <td className="py-2 px-3 text-slate-400">
+                    <td className="py-2 px-3 text-[#526778]">
                       {s.diagnosticNote}
                     </td>
-                    <td className="py-2 px-3 text-right tabular-nums text-cyan-300">
+                    <td className="py-2 px-3 text-right tabular-nums text-[#287FB5]">
                       {Math.round(s.confidence * 100)}%
                     </td>
                   </tr>
